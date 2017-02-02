@@ -1,0 +1,40 @@
+package model;
+
+import java.io.Serializable;
+import java.lang.Integer;
+import java.lang.String;
+import javax.persistence.*;
+
+/**
+ * Entity implementation class for Entity: teste
+ *
+ */
+@Entity
+
+public class teste implements Serializable {
+
+	
+	private String nome;   
+	@Id
+	private Integer id;
+	private static final long serialVersionUID = 1L;
+
+	public teste() {
+		super();
+	}   
+	public String getNome() {
+		return this.nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}   
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+   
+}

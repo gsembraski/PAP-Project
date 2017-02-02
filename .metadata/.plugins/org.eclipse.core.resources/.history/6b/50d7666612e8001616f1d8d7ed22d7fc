@@ -1,0 +1,31 @@
+package dao;
+
+import java.util.Date;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+import model.Usuario;
+
+public class EntityManager {
+	
+	@PersistenceContext
+	private EntityManager em;
+	
+	public static void main(String[] args) {
+			
+		Usuario user = new Usuario();
+		
+		Date data = new Date();
+		data.setDate(31);
+		
+		user.setNome("gabriel");
+		user.setEmail("email@aaa.com");
+		user.setSenha("passw");
+		user.setSobrenome("noga");
+		user.setUltimoAcesso(data);
+		
+		em.persist(user);
+	}
+}

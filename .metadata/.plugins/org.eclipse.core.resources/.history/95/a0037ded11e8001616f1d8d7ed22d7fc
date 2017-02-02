@@ -1,0 +1,15 @@
+package dao;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+public class EntityManager {
+	@PersistenceContext
+	private EntityManager em;
+	
+	public static void main(String[] args) {
+		
+		
+	}
+}

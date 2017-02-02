@@ -1,0 +1,409 @@
+!SESSION 2017-01-28 10:55:30.664 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-01-28 10:55:57.757
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Gabriel'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2017-01-28 10:56:36.132
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.ui 2 2 2017-01-28 10:56:45.954
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.common.jdt.debug.ui, page: org.jboss.tools.common.jdt.debug.ui.preferences.RemoteDebugPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2017-01-28 10:56:45.966
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.foundation.ui, page: org.jboss.tools.foundation.ui.internal.credentials.CredentialPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2017-01-28 10:56:45.977
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.runtime.ui, page: org.jboss.tools.runtime.preferences.RuntimePreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2017-01-28 10:56:45.993
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.usage, page: org.jboss.tools.usage.analytics.preferences.UsageAnalyticsPreferencePage)
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2017-01-28 11:06:40.726
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.jface.text 2 0 2017-01-28 11:14:38.031
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-01-28 11:14:38.038
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2017-01-28 11:22:09.581
+!MESSAGE Failed while installing Dynamic Web Module 3.1.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jst.jee.model.internal.WebAnnotationReader.analyzeCompilationUnit(WebAnnotationReader.java:144)
+	at org.eclipse.jst.jee.model.internal.WebAnnotationReader.loadModel(WebAnnotationReader.java:99)
+	at org.eclipse.jst.jee.model.internal.common.AbstractAnnotationModelProvider.getConcreteModel(AbstractAnnotationModelProvider.java:111)
+	at org.eclipse.jst.jee.model.internal.common.AbstractAnnotationModelProvider.getModelObject(AbstractAnnotationModelProvider.java:127)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider.loadProviders(AbstractMergedModelProvider.java:265)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider.access$2(AbstractMergedModelProvider.java:255)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider$LoadModelsWorkspaceRunnable.run(AbstractMergedModelProvider.java:278)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider.loadModel(AbstractMergedModelProvider.java:249)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider.getMergedModel(AbstractMergedModelProvider.java:219)
+	at org.eclipse.jst.jee.model.internal.Web25MergedModelProvider.modify(Web25MergedModelProvider.java:80)
+	at org.eclipse.jst.j2ee.web.project.facet.WebFacetInstallDelegate.populateDefaultContent(WebFacetInstallDelegate.java:311)
+	at org.eclipse.jst.j2ee.web.project.facet.WebFacetInstallDelegate.createWeb31DeploymentDescriptor(WebFacetInstallDelegate.java:240)
+	at org.eclipse.jst.j2ee.web.project.facet.WebFacetInstallDelegate.execute(WebFacetInstallDelegate.java:116)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.callDelegate(FacetedProject.java:1477)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modifyInternal(FacetedProject.java:441)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChangesInternal(FacetedProject.java:1181)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.access$2(FacetedProject.java:1117)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject$5.run(FacetedProject.java:1099)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChanges(FacetedProject.java:1109)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProjectWorkingCopy.commitChanges(FacetedProjectWorkingCopy.java:2020)
+	at org.eclipse.wst.common.project.facet.ui.internal.FacetsPropertyPage$4.run(FacetsPropertyPage.java:232)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.wst.common.project.facet.ui.internal.FacetsPropertyPage$5.run(FacetsPropertyPage.java:246)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2017-01-28 11:40:58.610
+!MESSAGE Could not load document: C:\Projeto\wildfly-10.1.0.Final\standalone\configuration\standalone.xml
+!STACK 0
+org.dom4j.DocumentException: C:\Projeto\wildfly-10.1.0.Final\standalone\configuration\standalone.xml (The system cannot find the file specified) Nested exception: C:\Projeto\wildfly-10.1.0.Final\standalone\configuration\standalone.xml (The system cannot find the file specified)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:484)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at org.jboss.ide.eclipse.as.core.extensions.descriptors.XMLDocumentRepository.loadDocument(XMLDocumentRepository.java:166)
+	at org.jboss.ide.eclipse.as.core.extensions.descriptors.XMLDocumentRepository.refresh(XMLDocumentRepository.java:132)
+	at org.jboss.ide.eclipse.as.core.extensions.descriptors.XPathQuery.refresh(XPathQuery.java:146)
+	at org.jboss.tools.as.core.server.controllable.subsystems.internal.XPathsPortsController.findPort(XPathsPortsController.java:84)
+	at org.jboss.tools.as.core.server.controllable.subsystems.internal.XPathsPortsController.getPortOffset(XPathsPortsController.java:132)
+	at org.jboss.tools.as.core.server.controllable.subsystems.internal.XPathsPortsController.getManagementPort(XPathsPortsController.java:119)
+	at org.jboss.tools.as.core.server.controllable.subsystems.internal.XPathsPortsController.findPort(XPathsPortsController.java:60)
+	at org.jboss.ide.eclipse.as.core.server.internal.JBossServer.findPort(JBossServer.java:209)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.Wildfly8Server.getManagementPort(Wildfly8Server.java:26)
+	at org.jboss.ide.eclipse.as.core.server.v7.management.AS7ManagementDetails.getUnderlyingPort(AS7ManagementDetails.java:57)
+	at org.jboss.ide.eclipse.as.core.server.v7.management.AS7ManagementDetails.getHost(AS7ManagementDetails.java:43)
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.<init>(Wildfly9Manager.java:75)
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9ManagerService.execute(Wildfly9ManagerService.java:169)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerServiceProxy.execute(JBoss7ManagerServiceProxy.java:87)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:294)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:1)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerUtil.executeWithService(JBoss7ManagerUtil.java:136)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.executeWithResult(AS7DeploymentScannerUtility.java:292)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScanners(AS7DeploymentScannerUtility.java:163)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScanners(AS7DeploymentScannerUtility.java:144)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDefaultDeploymentScanner(AS7DeploymentScannerUtility.java:270)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.LocalJBoss7DeploymentScannerAdditions.loadDefaultScannerFromServer(LocalJBoss7DeploymentScannerAdditions.java:177)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.LocalJBoss7DeploymentScannerAdditions.ensureScannersAdded(LocalJBoss7DeploymentScannerAdditions.java:70)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions.updateDeploymentScanners(AbstractDeploymentScannerAdditions.java:60)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions$1.run(AbstractDeploymentScannerAdditions.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Nested exception: 
+java.io.FileNotFoundException: C:\Projeto\wildfly-10.1.0.Final\standalone\configuration\standalone.xml (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(Unknown Source)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at sun.net.www.protocol.file.FileURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(Unknown Source)
+	at org.apache.xerces.impl.XMLEntityManager.setupCurrentEntity(Unknown Source)
+	at org.apache.xerces.impl.XMLVersionDetector.determineDocVersion(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+	at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at org.jboss.ide.eclipse.as.core.extensions.descriptors.XMLDocumentRepository.loadDocument(XMLDocumentRepository.java:166)
+	at org.jboss.ide.eclipse.as.core.extensions.descriptors.XMLDocumentRepository.refresh(XMLDocumentRepository.java:132)
+	at org.jboss.ide.eclipse.as.core.extensions.descriptors.XPathQuery.refresh(XPathQuery.java:146)
+	at org.jboss.tools.as.core.server.controllable.subsystems.internal.XPathsPortsController.findPort(XPathsPortsController.java:84)
+	at org.jboss.tools.as.core.server.controllable.subsystems.internal.XPathsPortsController.getPortOffset(XPathsPortsController.java:132)
+	at org.jboss.tools.as.core.server.controllable.subsystems.internal.XPathsPortsController.getManagementPort(XPathsPortsController.java:119)
+	at org.jboss.tools.as.core.server.controllable.subsystems.internal.XPathsPortsController.findPort(XPathsPortsController.java:60)
+	at org.jboss.ide.eclipse.as.core.server.internal.JBossServer.findPort(JBossServer.java:209)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.Wildfly8Server.getManagementPort(Wildfly8Server.java:26)
+	at org.jboss.ide.eclipse.as.core.server.v7.management.AS7ManagementDetails.getUnderlyingPort(AS7ManagementDetails.java:57)
+	at org.jboss.ide.eclipse.as.core.server.v7.management.AS7ManagementDetails.getHost(AS7ManagementDetails.java:43)
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9Manager.<init>(Wildfly9Manager.java:75)
+	at org.jboss.ide.eclipse.as.internal.management.wildfly9.Wildfly9ManagerService.execute(Wildfly9ManagerService.java:169)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerServiceProxy.execute(JBoss7ManagerServiceProxy.java:87)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:294)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility$1.execute(AS7DeploymentScannerUtility.java:1)
+	at org.jboss.ide.eclipse.as.management.core.JBoss7ManagerUtil.executeWithService(JBoss7ManagerUtil.java:136)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.executeWithResult(AS7DeploymentScannerUtility.java:292)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScanners(AS7DeploymentScannerUtility.java:163)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDeploymentScanners(AS7DeploymentScannerUtility.java:144)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.AS7DeploymentScannerUtility.getDefaultDeploymentScanner(AS7DeploymentScannerUtility.java:270)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.LocalJBoss7DeploymentScannerAdditions.loadDefaultScannerFromServer(LocalJBoss7DeploymentScannerAdditions.java:177)
+	at org.jboss.ide.eclipse.as.core.server.internal.v7.LocalJBoss7DeploymentScannerAdditions.ensureScannersAdded(LocalJBoss7DeploymentScannerAdditions.java:70)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions.updateDeploymentScanners(AbstractDeploymentScannerAdditions.java:60)
+	at org.jboss.ide.eclipse.as.core.server.internal.AbstractDeploymentScannerAdditions$1.run(AbstractDeploymentScannerAdditions.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2017-01-29 18:39:39.103 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 4 567 2017-01-29 18:43:12.860
+!MESSAGE Workspace restored, but some problems occurred.
+!SUBENTRY 1 org.eclipse.core.resources 4 567 2017-01-29 18:43:12.860
+!MESSAGE Could not read metadata for 'BoasPraticas'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: The project description file (.project) for 'BoasPraticas' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:907)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:904)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:884)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:735)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1587)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2399)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2156)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:464)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:774)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:767)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:724)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:932)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:309)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:581)
+	at org.eclipse.osgi.container.Module.start(Module.java:449)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:470)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:529)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:325)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:36)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:419)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:372)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:364)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:161)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2017-01-29 18:43:12.863
+!MESSAGE The project description file (.project) for 'BoasPraticas' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-01-29 18:43:31.801
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Gabriel'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2017-01-29 19:50:05.754
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+!SESSION 2017-01-29 20:04:23.441 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-01-29 20:04:55.585
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Gabriel'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jst.jee 4 0 2017-01-29 20:41:18.363
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jst.jee.model.internal.WebAnnotationReader.analyzeCompilationUnit(WebAnnotationReader.java:144)
+	at org.eclipse.jst.jee.model.internal.WebAnnotationReader.loadModel(WebAnnotationReader.java:99)
+	at org.eclipse.jst.jee.model.internal.common.AbstractAnnotationModelProvider.getConcreteModel(AbstractAnnotationModelProvider.java:111)
+	at org.eclipse.jst.jee.model.internal.common.AbstractAnnotationModelProvider.getModelObject(AbstractAnnotationModelProvider.java:127)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider.loadProviders(AbstractMergedModelProvider.java:265)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider.access$2(AbstractMergedModelProvider.java:255)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider$LoadModelsWorkspaceRunnable.run(AbstractMergedModelProvider.java:278)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider.loadModel(AbstractMergedModelProvider.java:249)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider.getMergedModel(AbstractMergedModelProvider.java:219)
+	at org.eclipse.jst.jee.model.internal.common.AbstractMergedModelProvider.getModelObject(AbstractMergedModelProvider.java:139)
+	at org.eclipse.jst.j2ee.web.project.facet.WebFacetInstallDelegate$1.run(WebFacetInstallDelegate.java:288)
+	at org.eclipse.jst.jee.model.internal.JEE5ModelProvider.modify(JEE5ModelProvider.java:271)
+	at org.eclipse.jst.jee.model.internal.Web25MergedModelProvider.modify(Web25MergedModelProvider.java:92)
+	at org.eclipse.jst.j2ee.web.project.facet.WebFacetInstallDelegate.populateDefaultContent(WebFacetInstallDelegate.java:311)
+	at org.eclipse.jst.j2ee.web.project.facet.WebFacetInstallDelegate.createWeb31DeploymentDescriptor(WebFacetInstallDelegate.java:240)
+	at org.eclipse.jst.j2ee.web.project.facet.WebFacetInstallDelegate.execute(WebFacetInstallDelegate.java:116)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.callDelegate(FacetedProject.java:1477)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.modifyInternal(FacetedProject.java:441)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChangesInternal(FacetedProject.java:1181)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.access$2(FacetedProject.java:1117)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject$5.run(FacetedProject.java:1099)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProject.mergeChanges(FacetedProject.java:1109)
+	at org.eclipse.wst.common.project.facet.core.internal.FacetedProjectWorkingCopy.commitChanges(FacetedProjectWorkingCopy.java:2020)
+	at org.eclipse.wst.common.project.facet.ui.internal.FacetsPropertyPage$4.run(FacetsPropertyPage.java:232)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.wst.common.project.facet.ui.internal.FacetsPropertyPage$5.run(FacetsPropertyPage.java:246)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+
+!ENTRY org.eclipse.core.resources 4 380 2017-01-29 20:45:24.101
+!MESSAGE The resource tree is locked for modifications.
+
+!ENTRY org.eclipse.core.resources 4 380 2017-01-29 20:46:22.581
+!MESSAGE The resource tree is locked for modifications.
+
+!ENTRY org.eclipse.core.resources 4 380 2017-01-29 20:48:34.542
+!MESSAGE The resource tree is locked for modifications.
+
+!ENTRY org.eclipse.core.resources 4 380 2017-01-29 20:49:24.986
+!MESSAGE The resource tree is locked for modifications.
+
+!ENTRY org.eclipse.jface.text 2 0 2017-01-29 20:54:47.266
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-01-29 20:54:47.273
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+!SESSION 2017-01-31 18:54:09.903 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-01-31 18:55:58.549
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Gabriel'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2017-01-31 21:24:00.375 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-01-31 21:24:16.532
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Gabriel'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface.text 2 0 2017-01-31 21:45:40.437
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-01-31 21:45:40.449
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-01-31 21:45:40.573
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-01-31 21:45:40.596
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jdt.core 4 4 2017-01-31 22:08:27.209
+!MESSAGE File not found: '/BoasPraticas/src/dao/EntityManager.java'
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/BoasPraticas/src/dao/EntityManager.java' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:335)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:209)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:275)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsCharArray(Util.java:1190)
+	at org.eclipse.jdt.internal.core.CompilationUnit.getContents(CompilationUnit.java:652)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1125)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:812)
+	at org.eclipse.jpt.common.core.internal.utility.jdt.ASTTools.buildASTRoot(ASTTools.java:57)
+	at org.eclipse.jpt.common.core.internal.resource.java.source.SourceCompilationUnit.buildASTRoot(SourceCompilationUnit.java:135)
+	at org.eclipse.jpt.common.core.internal.resource.java.source.SourceCompilationUnit.synchronizeWithJavaSource(SourceCompilationUnit.java:153)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.processJavaCompilationUnitDelta(AbstractJpaProject.java:1394)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.processJavaDelta(AbstractJpaProject.java:1227)
+	at org.eclipse.jpt.jpa.core.internal.AbstractJpaProject.javaElementChanged(AbstractJpaProject.java:1200)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager.javaElementChanged_(InternalJpaProjectManager.java:897)
+	at org.eclipse.jpt.jpa.core.internal.InternalJpaProjectManager$JavaChangeEventHandlerCommand.execute(InternalJpaProjectManager.java:880)
+	at org.eclipse.jpt.common.core.internal.utility.command.JobCommandJob.run(JobCommandJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-01-31 22:08:27.211
+!MESSAGE Resource '/BoasPraticas/src/dao/EntityManager.java' does not exist.
+!SESSION 2017-02-02 19:28:57.662 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-02-02 19:29:32.497
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Gabriel'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 1644298244 2017-02-02 19:37:33.480
+!MESSAGE Incremental publish failed for module BoasPraticas
+!SUBENTRY 1 org.jboss.ide.eclipse.as.wtp.core 4 1644298251 2017-02-02 19:37:33.480
+!MESSAGE Could not delete C:\Projeto\wildfly-10.1.0.Final\standalone\deployments\BoasPraticas-0.0.1-SNAPSHOT.war\WEB-INF\classes\dao\conexao.class. May be locked by another process.
+!STACK 0
+java.lang.Exception: Could not delete C:\Projeto\wildfly-10.1.0.Final\standalone\deployments\BoasPraticas-0.0.1-SNAPSHOT.war\WEB-INF\classes\dao\conexao.class. May be locked by another process.
+	at org.jboss.ide.eclipse.as.wtp.core.server.behavior.LocalFilesystemController.deleteResource(LocalFilesystemController.java:259)
+	at org.jboss.ide.eclipse.as.wtp.core.server.publish.PublishModuleIncrementalRunner.publishDelta(PublishModuleIncrementalRunner.java:151)
+	at org.jboss.ide.eclipse.as.wtp.core.server.publish.PublishModuleIncrementalRunner.publishDelta(PublishModuleIncrementalRunner.java:187)
+	at org.jboss.ide.eclipse.as.wtp.core.server.publish.PublishModuleIncrementalRunner.publishDelta(PublishModuleIncrementalRunner.java:187)
+	at org.jboss.ide.eclipse.as.wtp.core.server.publish.PublishModuleIncrementalRunner.publishDelta(PublishModuleIncrementalRunner.java:187)
+	at org.jboss.ide.eclipse.as.wtp.core.server.publish.PublishModuleIncrementalRunner.publish(PublishModuleIncrementalRunner.java:118)
+	at org.jboss.tools.as.core.server.controllable.subsystems.internal.StandardFileSystemPublishController.publishModule(StandardFileSystemPublishController.java:387)
+	at org.jboss.ide.eclipse.as.wtp.core.server.behavior.ControllableServerBehavior.publishModule(ControllableServerBehavior.java:143)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModule(ServerBehaviourDelegate.java:1091)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModules(ServerBehaviourDelegate.java:1183)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:987)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:774)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3172)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:345)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.jboss.ide.eclipse.as.wtp.core 4 1644298251 2017-02-02 19:37:33.480
+!MESSAGE Could not delete C:\Projeto\wildfly-10.1.0.Final\standalone\deployments\BoasPraticas-0.0.1-SNAPSHOT.war\WEB-INF\classes\model\Usuario.class. May be locked by another process.
+!STACK 0
+java.lang.Exception: Could not delete C:\Projeto\wildfly-10.1.0.Final\standalone\deployments\BoasPraticas-0.0.1-SNAPSHOT.war\WEB-INF\classes\model\Usuario.class. May be locked by another process.
+	at org.jboss.ide.eclipse.as.wtp.core.server.behavior.LocalFilesystemController.deleteResource(LocalFilesystemController.java:259)
+	at org.jboss.ide.eclipse.as.wtp.core.server.publish.PublishModuleIncrementalRunner.publishDelta(PublishModuleIncrementalRunner.java:151)
+	at org.jboss.ide.eclipse.as.wtp.core.server.publish.PublishModuleIncrementalRunner.publishDelta(PublishModuleIncrementalRunner.java:187)
+	at org.jboss.ide.eclipse.as.wtp.core.server.publish.PublishModuleIncrementalRunner.publishDelta(PublishModuleIncrementalRunner.java:187)
+	at org.jboss.ide.eclipse.as.wtp.core.server.publish.PublishModuleIncrementalRunner.publishDelta(PublishModuleIncrementalRunner.java:187)
+	at org.jboss.ide.eclipse.as.wtp.core.server.publish.PublishModuleIncrementalRunner.publish(PublishModuleIncrementalRunner.java:118)
+	at org.jboss.tools.as.core.server.controllable.subsystems.internal.StandardFileSystemPublishController.publishModule(StandardFileSystemPublishController.java:387)
+	at org.jboss.ide.eclipse.as.wtp.core.server.behavior.ControllableServerBehavior.publishModule(ControllableServerBehavior.java:143)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModule(ServerBehaviourDelegate.java:1091)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publishModules(ServerBehaviourDelegate.java:1183)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:987)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:774)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3172)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:345)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2017-02-02 19:38:16.092
+!MESSAGE Unable to retrieve a list of remote deployment scanners for server WildFly 10.x
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 0 2017-02-02 19:38:16.160
+!MESSAGE Unable to retrieve a list of remote deployment scanners for server WildFly 10.x
