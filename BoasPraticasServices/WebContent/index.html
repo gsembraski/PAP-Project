@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		
+    	<meta charset="utf-8">
+		
+   		<script rel="stylesheet" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+		<!-- Bootstrap -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bootstrap/css/css-custom.css" rel="stylesheet">
+	
+		<!-- Font Awesome -->
+		<link href="icon/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"/>
+			
+		<title>Guia de Boas Práticas no Serviço de Alimentação</title>
+	</head>
+	<body>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group text-align:center">
+					<center>
+						<img src="img/logo.PNG" class="img-responsive"
+							alt="Boas Práticas no Serviço de Alimentação">
+					</center>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div ng-include="'app/home/template/menu-template.html'"></div>
+			
+			<!-- Angular -->
+		<script src="node_modules/angular/angular.js" type="text/javascript"></script>
+		<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
+		<script src="node_modules/angular-i18n/angular-locale_pt-br.js" type="text/javascript"></script>
+		<script src="node_modules/angular-messages/angular-messages.js" type="text/javascript"></script>
+		<script src="node_modules/angular-animate/angular-animate.js" type="text/javascript"></script>
+		<script src="node_modules/angular-touch/angular-touch.js" type="text/javascript"></script>
+		<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js" type="text/javascript"></script>
+			
+		<!-- JS Projeto -->
+		<!-- Module -->
+		<script src="app.js" type="text/javascript"></script>
+		<script src="app/core/core.module.js" type="text/javascript"></script>
+		<script src="app/manual/manual.module.js" type="text/javascript"></script>
+		<script src="app/pop/pop.module.js" type="text/javascript"></script>
+		
+		<!-- Route -->
+		<script src="app/home/home.config.js" type="text/javascript"></script>
+		
+		<!-- Controller -->
+		<script src="app/home/home.controller.js" type="text/javascript"></script>
+		<script src="app/home/modal/modal-usuario-cadastrar.controller.js" type="text/javascript"></script>
+		<script src="app/home/modal/modal-usuario-login.controller.js" type="text/javascript"></script>
+		<script src="app/manual/manual-listar.controller.js" type="text/javascript"></script>
+		<script src="app/manual/manual-inserir.controller.js" type="text/javascript"></script>
+		<script src="app/manual/manual-editar.controller.js" type="text/javascript"></script>
+		<script src="app/pop/pop-listar.controller.js" type="text/javascript"></script>
+		<script src="app/pop/pop-inserir.controller.js" type="text/javascript"></script>
+		<script src="app/pop/pop-editar.controller.js" type="text/javascript"></script>
+		
+		<!-- Service -->
+		<script src="app/home/home.services.js" type="text/javascript"></script>
+		<script src="app/manual/manual.services.js" type="text/javascript"></script>
+		<script src="app/pop/pop.services.js" type="text/javascript"></script>
+		
+			
+			<ui-view></ui-view>
+		</div>
+	</body>
+</html>

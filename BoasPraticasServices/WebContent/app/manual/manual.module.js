@@ -1,0 +1,1 @@
+var appManual = angular.module('app.manual', ['app.core']);
