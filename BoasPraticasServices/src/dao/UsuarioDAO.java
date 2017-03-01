@@ -1,12 +1,16 @@
 package dao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
 import domain.Usuario;
-import model.UsuarioModel.UsuarioAtualizarViewModel;
-import model.UsuarioModel.UsuarioCadastrarViewModel;
-import model.UsuarioModel.UsuarioLogarViewModel;
 
-public class UsuarioDAO implements UsuarioDAOInterface {
-
+public class UsuarioDAO {
+	
+	@PersistenceContext
+	public EntityManager session;
+	
 	public static Usuario getUsuario() {
 		// TODO Auto-generated method stub
 		return null;
@@ -16,8 +20,7 @@ public class UsuarioDAO implements UsuarioDAOInterface {
 	/* (non-Javadoc)
 	 * @see dao.UsuarioDAOInterface#Logar(model.UsuarioModel.UsuarioLogarViewModel)
 	 */
-	@Override
-	public Usuario Logar(UsuarioLogarViewModel usuarioLogar) {
+	public Usuario Logar(Usuario usuarioLogar) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -26,18 +29,17 @@ public class UsuarioDAO implements UsuarioDAOInterface {
 	/* (non-Javadoc)
 	 * @see dao.UsuarioDAOInterface#Cadastrar(model.UsuarioModel.UsuarioCadastrarViewModel)
 	 */
-	@Override
-	public void Cadastrar(UsuarioCadastrarViewModel usuarioCadastrar) {
-		// TODO Auto-generated method stub
+	@Transactional
+	public void Cadastrar(Usuario usuarioCadastrar) {
 		
+		session.persist(usuarioCadastrar);
 	}
 
 
 	/* (non-Javadoc)
 	 * @see dao.UsuarioDAOInterface#Atualizar(model.UsuarioModel.UsuarioAtualizarViewModel)
 	 */
-	@Override
-	public void Atualizar(UsuarioAtualizarViewModel usuarioAtualizar) {
+	public void Atualizar(Usuario usuarioAtualizar) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -46,7 +48,6 @@ public class UsuarioDAO implements UsuarioDAOInterface {
 	/* (non-Javadoc)
 	 * @see dao.UsuarioDAOInterface#Excluir(int)
 	 */
-	@Override
 	public void Excluir(int id) {
 		// TODO Auto-generated method stub
 		

@@ -1,6 +1,5 @@
 package controller;
 
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
@@ -10,42 +9,39 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import dao.UsuarioDAO;
 import domain.Usuario;
-import model.UsuarioModel.UsuarioAtualizarViewModel;
-import model.UsuarioModel.UsuarioCadastrarViewModel;
-import model.UsuarioModel.UsuarioLogarViewModel;
-import services.UsuarioInterface;
 
-@Path("usuario/")
+@Path("api/usuario/")
 @Produces({MediaType.APPLICATION_JSON,
 		  MediaType.APPLICATION_XML})
 @Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 public class UsuarioController {
 	
-	@Inject
-	private UsuarioInterface UsuarioInterface;
+	private UsuarioDAO UsuarioInterface;
 	
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("logar/")
-	public Usuario Logar(UsuarioLogarViewModel usuarioLogar){		
-		return UsuarioInterface.BuscarUsuario(usuarioLogar);
+	public Usuario Logar(Usuario usuarioLogar){		
+		return UsuarioInterface.Logar(usuarioLogar);
 	}
 	
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
-	public void Salvar(UsuarioCadastrarViewModel usuarioCadastrar){
-		UsuarioInterface.Salvar(usuarioCadastrar);
+	@Path("")
+	public void Salvar(Usuario usuarioCadastrar){
+		UsuarioInterface.Cadastrar(usuarioCadastrar);
 	}
 	
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("{id}")
-	public void Atualizar(@PathParam("id") int id, UsuarioAtualizarViewModel usuarioAtualizar){
+	public void Atualizar(@PathParam("id") int id, Usuario usuarioAtualizar){
 		UsuarioInterface.Atualizar(usuarioAtualizar);
 	}
 	
@@ -54,6 +50,6 @@ public class UsuarioController {
 		   MediaType.TEXT_PLAIN})
 	@Path("{id}")
 	public void Excluir(@PathParam("id") int id) {
-		UsuarioInterface.Delete(id);
+		UsuarioInterface.Excluir(id);
 	}
 }

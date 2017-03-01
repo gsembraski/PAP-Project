@@ -283,3 +283,8 @@
 2017-02-02 19:33:50,228 [Worker-14] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /BoasPraticas/src/test/java because it overlaps with /BoasPraticas/src
 2017-02-02 19:33:51,294 [Worker-14] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for BoasPraticas
 2017-02-02 19:33:51,531 [Worker-14] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 4 sec
+2017-02-22 21:56:17,665 [Worker-6] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: BoasPraticas:BoasPraticas:0.0.1-SNAPSHOT @ C:\Projeto\PAP-Project\BoasPraticas\pom.xml.
+2017-02-22 21:56:22,795 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-02-22 21:56:22,811 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-02-22 21:56:22,829 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-02-22 21:56:22,835 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projeto\PAP-Project\BoasPraticas\src\test\resources

@@ -5,13 +5,18 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Date;
 
+import javax.persistence.*;
+
 /**
  * Entity implementation class for Entity: Usuario
  *
  */
 
+@Entity
 public class Usuario implements Serializable {
 
+	@Id
+	@GeneratedValue
 	private Integer Id;
 	private String Nome;
 	private String sobrenome;
