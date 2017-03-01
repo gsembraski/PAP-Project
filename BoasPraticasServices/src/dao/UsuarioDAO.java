@@ -1,22 +1,18 @@
 package dao;
 
 import javax.annotation.Resource;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
-import javax.servlet.ServletException;
 import javax.transaction.Transactional;
 import javax.transaction.UserTransaction;
 import javax.ws.rs.WebApplicationException;
 
 import domain.Usuario;
-import proj.Produto;
 
+@Stateless
 public class UsuarioDAO {
-
-	@Resource
-	private UserTransaction ut;
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -35,18 +31,10 @@ public class UsuarioDAO {
 		return null;
 	}
 
-
-	/* (non-Javadoc)
-	 * @see dao.UsuarioDAOInterface#Cadastrar(model.UsuarioModel.UsuarioCadastrarViewModel)
-	 */
-	@Transactional
 	public void Cadastrar(Usuario usuarioCadastrar) {
 		
 		try {
-			em = Persistence.createEntityManagerFactory("BoasPraticasServices").createEntityManager();			
-			ut.begin();
 			em.persist(usuarioCadastrar);
-			ut.commit();
 		} catch (Exception e) {
 			throw new WebApplicationException(e);
 		}

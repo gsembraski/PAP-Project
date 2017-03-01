@@ -1,13 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
-<fullyQualifiedTypeName name="javax.persistence.Persistence"/>
-<fullyQualifiedTypeName name="javax.persistence.PersistenceContext"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="org.hibernate.validator.constraints.Email"/>
-<fullyQualifiedTypeName name="dao.EntityManager"/>
-<fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
-<fullyQualifiedTypeName name="model.Usuario"/>
-<fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>

@@ -1,5 +1,6 @@
 package controller;
 
+import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
@@ -19,6 +20,7 @@ import domain.Usuario;
 		   MediaType.TEXT_PLAIN})
 public class UsuarioController {
 	
+	@EJB
 	private UsuarioDAO usuarioDAO;
 	
 	@PUT
