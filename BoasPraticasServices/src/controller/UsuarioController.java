@@ -19,14 +19,14 @@ import domain.Usuario;
 		   MediaType.TEXT_PLAIN})
 public class UsuarioController {
 	
-	private UsuarioDAO UsuarioInterface;
+	private UsuarioDAO usuarioDAO;
 	
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("logar/")
 	public Usuario Logar(Usuario usuarioLogar){		
-		return UsuarioInterface.Logar(usuarioLogar);
+		return usuarioDAO.Logar(usuarioLogar);
 	}
 	
 	@POST
@@ -34,7 +34,7 @@ public class UsuarioController {
 		   MediaType.TEXT_PLAIN})
 	@Path("")
 	public void Salvar(Usuario usuarioCadastrar){
-		UsuarioInterface.Cadastrar(usuarioCadastrar);
+		usuarioDAO.Cadastrar(usuarioCadastrar);
 	}
 	
 	@PUT
@@ -42,7 +42,7 @@ public class UsuarioController {
 		   MediaType.TEXT_PLAIN})
 	@Path("{id}")
 	public void Atualizar(@PathParam("id") int id, Usuario usuarioAtualizar){
-		UsuarioInterface.Atualizar(usuarioAtualizar);
+		usuarioDAO.Atualizar(usuarioAtualizar);
 	}
 	
 	@DELETE
@@ -50,6 +50,6 @@ public class UsuarioController {
 		   MediaType.TEXT_PLAIN})
 	@Path("{id}")
 	public void Excluir(@PathParam("id") int id) {
-		UsuarioInterface.Excluir(id);
+		usuarioDAO.Excluir(id);
 	}
 }

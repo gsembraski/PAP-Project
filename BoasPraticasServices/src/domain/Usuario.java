@@ -15,6 +15,9 @@ import javax.persistence.*;
 @Entity
 public class Usuario implements Serializable {
 
+	public Usuario() {
+	}
+
 	@Id
 	@GeneratedValue
 	private Integer Id;
@@ -24,6 +27,7 @@ public class Usuario implements Serializable {
 	private String Senha;
 	private Date UltimoAcesso;
 	private static final long serialVersionUID = 1L;
+	
 
 	public Integer getId() {
 		return Id;

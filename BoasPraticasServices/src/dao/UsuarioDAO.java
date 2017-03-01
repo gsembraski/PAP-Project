@@ -1,15 +1,25 @@
 package dao;
 
+import javax.annotation.Resource;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import javax.servlet.ServletException;
 import javax.transaction.Transactional;
+import javax.transaction.UserTransaction;
+import javax.ws.rs.WebApplicationException;
 
 import domain.Usuario;
+import proj.Produto;
 
 public class UsuarioDAO {
+
+	@Resource
+	private UserTransaction ut;
 	
 	@PersistenceContext
-	public EntityManager session;
+	private EntityManager em;
 	
 	public static Usuario getUsuario() {
 		// TODO Auto-generated method stub
@@ -32,7 +42,14 @@ public class UsuarioDAO {
 	@Transactional
 	public void Cadastrar(Usuario usuarioCadastrar) {
 		
-		session.persist(usuarioCadastrar);
+		try {
+			em = Persistence.createEntityManagerFactory("BoasPraticasServices").createEntityManager();			
+			ut.begin();
+			em.persist(usuarioCadastrar);
+			ut.commit();
+		} catch (Exception e) {
+			throw new WebApplicationException(e);
+		}
 	}
 
 
