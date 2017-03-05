@@ -20,7 +20,7 @@
 		function logar(item){
 			var url = api + 'logar/';
 			
-			item.id = 0;
+			item.id = null;
 			
 
             var deferred = $q.defer();
@@ -41,7 +41,7 @@
             var deferred = $q.defer();
             
             item.id = null;
-            item.ultimoAcesso = new Date();
+            item.ultimoAcesso = null;
 
             $http.post(url, angular.toJson(item)).success(function (data, status, headers, config) {
                 deferred.resolve(data);
