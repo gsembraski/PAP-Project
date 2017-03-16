@@ -1,5 +1,6 @@
 var appHome = angular.module('app.home', ['app.core', 
-                                          'app.manual']);
+                                          'app.manual',
+                                          'app.storage']);
 
 appHome.config(function($stateProvider, $locationProvider) {
 	 $locationProvider.html5Mode(false).hashPrefix('!');

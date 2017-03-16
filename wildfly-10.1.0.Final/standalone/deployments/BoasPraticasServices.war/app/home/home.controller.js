@@ -22,7 +22,7 @@ appHome.controller('HomeController', HomeController);
 		}
 		
 		function abrirModalLogin(operacao){
-			$uibModal.open({
+			var modalInstance = $uibModal.open({
 			      templateUrl: 'app/home/modal/modal-usuario-login.html',
 			      size: 'smx',
 			      controller: 'UsuarioLoginController',

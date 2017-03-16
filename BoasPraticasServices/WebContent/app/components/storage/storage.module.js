@@ -1,0 +1,1 @@
+﻿var appStorage = angular.module('app.storage', ['ngStorage']);

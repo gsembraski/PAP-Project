@@ -9,9 +9,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import dao.UsuarioDAO;
 import domain.Usuario;
+import model.UsuarioViewModel;
 
 @Path("api/usuario/")
 @Produces({MediaType.APPLICATION_JSON,
@@ -27,8 +29,13 @@ public class UsuarioController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("logar/")
-	public Usuario Logar(Usuario usuarioLogar){		
-		return usuarioDAO.Logar(usuarioLogar);
+	public Response Logar(Usuario usuarioLogar){		
+		UsuarioViewModel usuario = usuarioDAO.Logar(usuarioLogar);
+		
+		if(usuario != null)
+			return Response.ok(usuario).build();
+		
+		return Response.serverError().build();
 	}
 	
 	@POST

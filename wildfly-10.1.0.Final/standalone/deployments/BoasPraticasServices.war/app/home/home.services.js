@@ -25,10 +25,7 @@
 
             var deferred = $q.defer();
 
-            $http.put(url, angular.toJson(item)).success(function (data, status, headers, config) {
-                deferred.resolve(data);
-            });
-            return deferred.promise;
+            return $http.put(url, angular.toJson(item));
 		}
 		
 		function verificarEmail(){
@@ -43,10 +40,7 @@
             item.id = null;
             item.ultimoAcesso = null;
 
-            $http.post(url, angular.toJson(item)).success(function (data, status, headers, config) {
-                deferred.resolve(data);
-            });
-            return deferred.promise;
+            return $http.post(url, angular.toJson(item));
 		}
 		
 		function atualizar(){

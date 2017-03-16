@@ -7,6 +7,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import model.UsuarioViewModel;
+
 /**
  * Entity implementation class for Entity: Usuario
  *
@@ -72,5 +74,4 @@ public class Usuario implements Serializable {
 	public void setUltimoAcesso(Date ultimoAcesso) {
 		UltimoAcesso = ultimoAcesso;
 	}
-   
 }
