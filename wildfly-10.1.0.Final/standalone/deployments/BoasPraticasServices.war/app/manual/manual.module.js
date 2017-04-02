@@ -1,1 +1,5 @@
-var appManual = angular.module('app.manual', ['app.core']);
+(function () {
+    'use strict';
+
+    angular.module('app.manual', []);
+})();

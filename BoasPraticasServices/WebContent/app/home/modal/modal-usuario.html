@@ -17,10 +17,15 @@
 			<div class="col-xs-12">
 				<div class="form-group" ng-class="{ 'has-error': form.$submitted && form.inputNome.$invalid}">
 					<label for="inputNome" class="control-label">Nome</label>
-					<input type="text" id="inputNome" name="inputNome"
-						class="form-control" maxlength="200" ng-model="vm.item.nome"
-						ng-required="true" 
-						focus/>
+					<input type="text" 
+						   id="inputNome" 
+						   name="inputNome"
+						   class="form-control" 
+						   maxlength="200" 
+						   ng-model="vm.item.nome"
+						   ng-required="true" 
+						   ng-focus="true"
+						   style="text-transform: capitalize"/>
 					<p ng-show="form.$submitted && form.inputNome.$invalid" class="help-block">Campo obrigatório</p>
 				</div>
 			</div>
@@ -28,7 +33,7 @@
 	
 		<div class="row">
 			<div class="col-xs-12">
-				<div class="form-group" ng-class="{ 'has-error': form.$submitted && form.inputNome.$invalid}">
+				<div class="form-group" ng-class="{ 'has-error': form.$submitted && form.inputSobrenome.$invalid}">
 					<label for="inputSobrenome" class="control-label">Sobrenome</label>
 					<input type="text" 
 						   id="inputSobrenome" 
@@ -36,7 +41,8 @@
 						   class="form-control" 
 						   maxlength="200" 
 						   ng-model="vm.item.sobrenome" 
-						   ng-required="true" />
+						   ng-required="true"
+						   style="text-transform: capitalize"/>
 					<p ng-show="form.$submitted && form.inputSobrenome.$invalid" class="help-block">Campo obrigatório</p>
 				</div>
 			</div>
@@ -44,72 +50,72 @@
 	
 		<div class="row">
 			<div class="col-xs-12">
-				<div class="form-group" ng-class="{ 'has-error': form.$submitted && form.inputNome.$invalid}">
+				<div class="form-group" ng-class="vm.setNgClassEmail(form)">
 					<label for="inputEmail" class="control-label">E-mail</label>
-					<div class="input-group"> 
-						<input type="text" 
+					<div class="input-group" ng-class="{'has-feedback': !vm.temEmailCadastrado && vm.item.email}"> 
+						<span class="input-group-addon" id="basic-addon1"><i class="fa fa-at" aria-hidden="true"></i></span>
+						<input type="email" 
 							   id="inputEmail" 
 							   name="inputEmail" 
 							   class="form-control"
 							   maxlength="100" 
-							   ng-model="vm.item.email" 
-							   ng-required="true" />
-						<span class="input-group-addon" id="basic-addon1"><i class="fa fa-at" aria-hidden="true"></i></span>
+							   ng-model="vm.item.email"
+							   ng-change="vm.validarEmail(form)"
+							   style="text-transform: lowercase"/>
 					</div>
-					<p ng-show="form.$submitted && form.inputEmail.$invalid" class="help-block">Campo obrigatório</p>
+  					<span class="glyphicon glyphicon-ok form-control-feedback text-success" ng-if="!vm.temEmailCadastrado && vm.item.email" aria-hidden="true"></span>
+  										
+					<span ng-if="vm.temEmailCadastrado && vm.item.email" class="help-block">E-mail já cadastrado</span>
+					<span ng-if="form.$submitted && form.inputEmail.$invalid" class="help-block">E-mail inválido</span>
+					<span ng-if="form.$submitted && !form.inputEmail.$invalid && !vm.item.email" class="help-block">Campo obrigatório</span>
 				</div>
 			</div>
 		</div>
 	
 		<div class="row">
 			<div class="col-xs-12">
-				<div class="form-group" ng-class="{ 'has-error': form.$submitted && (form.inputConfirmaSenha.$invalid || (!vm.verificaSenha() && vm.temSenha()))}">
+				<div class="form-group" ng-class="{ 'has-error': form.$submitted && (form.inputConfirmaSenha.$invalid || vm.minSenha() || (!vm.verificaSenha() && vm.temSenha() && !vm.minConfirmaSenha()))}">
 					<label for="inputSenha" class="control-label">Senha</label>
 					<div class="input-group"> 
+						<span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
 						<input type="password" 
 							   id="inputSenha" 
 							   name="inputSenha" 
 							   class="form-control"
-							   minlength="8"
 							   maxlength="20" 
 							   ng-model="vm.item.senha" 
 							   ng-required="true" />
-						<span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
 					</div>
-						<p ng-show="form.$submitted && form.inputConfirmaSenha.$invalid" class="help-block">Senha inválida</p>
+						<p ng-show="form.$submitted && form.inputSenha.$invalid" class="help-block">Campo obrigatório</p>
+						<p ng-show="form.$submitted && vm.minSenha()" class="help-block">Senha muito curta</p>
 				</div>
 			</div>
 		</div>
 	
 		<div class="row">
 			<div class="col-xs-12">
-				<div class="form-group" ng-class="{ 'has-error': form.$submitted && (form.inputConfirmaSenha.$invalid || (!vm.verificaSenha() && vm.temSenha()))}">
+				<div class="form-group" ng-class="{ 'has-error': form.$submitted && (form.inputConfirmaSenha.$invalid || vm.minConfirmaSenha() || (!vm.verificaSenha() && vm.temSenha() && !vm.minSenha()))}">
 					<label for="inputConfirmaSenha" class="control-label">Confirmação de senha</label>
 						<input type="password" 
 							   id="inputConfirmaSenha" 
 							   name="inputConfirmaSenha" 
 							   class="form-control"
-							   minlength="8"
 							   maxlength="20"
 							   ng-model="vm.confirmacaoSenha" 
 							   ng-required="true" />
-						<p ng-show="form.$submitted && form.inputConfirmaSenha.$invalid" class="help-block">Confirmação de senha inválida</p>
-						<p ng-show="form.$submitted && !vm.verificaSenha() && vm.temSenha()" class="help-block">Senhas não correspondem</p>
+						<p ng-show="form.$submitted && form.inputConfirmaSenha.$invalid" class="help-block">Campo obrigatório</p>
+						<p ng-show="form.$submitted && !vm.verificaSenha() && vm.temSenha() && !vm.minConfirmaSenha() && !vm.minSenha()" class="help-block">Senhas não correspondem</p>
+						<p ng-show="form.$submitted && vm.minConfirmaSenha()" class="help-block">Senha muito curta</p>
 				</div>
 			</div>
 		</div>
-		<div ng-show="vm.hasError">
-			<alert type="alert-error"  close="closeAlert($index)">{{vm.mensagem}}</alert>
-		</div>
-		<div ng-show="vm.success">
-			<alert type="success"  close="closeAlert($index)">{{vm.mensagem}}</alert>
-		</div>
+
 	</div>
 	<div class="modal-footer">
 	
 		<button type="submit"
 				class="btn btn-success"
-				ng-disabled="form.$submitted && (form.$invalid || !vm.verificaSenha())"> 
+				ng-disabled="form.$submitted && (form.$invalid || !vm.diretivasInformadas())"> 
 				Salvar <i class="fa fa-check" aria-hidden="true"></i>
 		</button>
 		

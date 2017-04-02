@@ -1,6 +1,9 @@
-(function(){
+(function () {
+    'use strict';
 
-appHome.controller('HomeController', HomeController);
+    angular
+        .module('app.home')
+        .controller('HomeController', HomeController);
 
 	function HomeController ($uibModal){
 		var vm = this;

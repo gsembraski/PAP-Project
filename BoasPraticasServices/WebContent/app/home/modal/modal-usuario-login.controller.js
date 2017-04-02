@@ -1,4 +1,14 @@
-appHome.controller('UsuarioLoginController', function ($window, $uibModalInstance, homeServices){
+(function () {
+    'use strict';
+
+    angular
+        .module('app.home')
+        .controller('UsuarioLoginController', UsuarioLoginController);
+
+    UsuarioLoginController.$inject = ['$window', '$uibModalInstance', 'homeServices'];
+    /* @ngInject */
+    function UsuarioLoginController($window, $uibModalInstance, homeServices) {
+        		
 	var vm = this;
 		
 	vm.item = {};
@@ -33,4 +43,5 @@ appHome.controller('UsuarioLoginController', function ($window, $uibModalInstanc
 		vm.storage.setItem('security', angular.toJson(item));
         vm.local = vm.storage.getItem('security');
 	}
-});
+        }
+})();

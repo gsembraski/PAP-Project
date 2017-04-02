@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -65,6 +67,24 @@ public class UsuarioDAO {
 	public void Atualizar(Usuario usuarioAtualizar) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public boolean ExisteEmail(String email){
+		try {
+			@SuppressWarnings("unchecked")
+			List<Usuario> usuarios = (List<Usuario>) em.createQuery("from Usuario where Email = :email")
+					 .setParameter("email", email)
+					 .getResultList();
+			if(usuarios.size() > 0){
+				return true;
+			}
+			else{
+				return false;
+			}
+			
+		} catch (Exception e) {
+			throw new WebApplicationException(e);
+		}
 	}
 
 

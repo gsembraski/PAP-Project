@@ -1,6 +1,11 @@
-(function (){
-	appManual.controller('ManualCadastrarController', ManualCadastrarController);
+(function () {
+    'use strict';
+
+    angular
+        .module('app.manual')
+        .controller('ManualCadastrarController', ManualCadastrarController);
 	
+    ManualCadastrarController.$inject = ['$state', 'manualServices'];
 	function ManualCadastrarController($state, manualServices){
 		var vm = this;
 		
