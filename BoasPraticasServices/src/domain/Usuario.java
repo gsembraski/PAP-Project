@@ -1,13 +1,12 @@
 package domain;
 
 import java.io.Serializable;
-import java.lang.Integer;
-import java.lang.String;
 import java.util.Date;
 
-import javax.persistence.*;
-
-import model.UsuarioViewModel;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Entity implementation class for Entity: Usuario
