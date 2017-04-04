@@ -1,1 +1,5 @@
-﻿var appStorage = angular.module('app.storage', ['ngStorage']);
+﻿(function () {
+    'use strict';
+
+    angular.module('blocks.storage', []);
+})();

@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
+encoding//WebContent/app/home/home.html=UTF-8
 encoding//WebContent/app/home/modal/modal-usuario-login.html=UTF-8
+encoding//WebContent/app/home/modal/modal-usuario.html=UTF-8
 encoding//WebContent/app/home/template/menu-template.html=UTF-8
+encoding//WebContent/app/layout/menu.html=UTF-8
+encoding//WebContent/app/layout/pagina-inicial.html=UTF-8
 encoding/<project>=UTF-8

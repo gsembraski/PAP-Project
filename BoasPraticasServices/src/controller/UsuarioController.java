@@ -1,8 +1,16 @@
 package controller;
 
+import java.security.Key;
+import java.time.LocalDateTime;
+import java.util.Date;
+
+import javax.crypto.KeyGenerator;
 import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -24,6 +32,16 @@ public class UsuarioController {
 	
 	@EJB
 	private UsuarioDAO usuarioDAO;
+
+	
+	@GET
+	@Consumes({MediaType.APPLICATION_JSON,
+		   MediaType.TEXT_PLAIN})
+	@Path("{email}")
+	public Response TemEmail(@PathParam("email") String email){
+		boolean existe = usuarioDAO.ExisteEmail(email);
+		return Response.ok(existe).build();
+	}
 	
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON,

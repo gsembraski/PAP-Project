@@ -1,8 +1,9 @@
-(function() {
+(function () {
+    'use strict';
 
-	'use strict';
-	
-	appManual.factory('manualServices', manualServices)
+    angular
+        .module('app.manual')
+        .factory('manualServices', manualServices)
 	function manualServices($http, $q) {
 	
 		var api = 'http://localhost:8080/BoasPraticas/rest/manual/';

@@ -1,8 +1,9 @@
-(function() {
+(function () {
+    'use strict';
 
-	'use strict';
-	
-	appHome.factory('homeServices', homeServices)
+    angular
+        .module('app.manual')
+        .factory('homeServices', homeServices)
 	function homeServices($http, $q) {
 	
 		var api = 'http://localhost:8080/BoasPraticasServices/rs/api/usuario/';
@@ -13,7 +14,8 @@
 				cadastrar: cadastrar,
 				atualizar: atualizar,
 				deletar: deletar,
-				buscar: buscar
+				buscar: buscar,
+				existeEmail: existeEmail
 		};
 		return service;
 		
@@ -23,10 +25,18 @@
 			item.id = null;
 			
 
-            var deferred = $q.defer();
 
             return $http.put(url, angular.toJson(item));
-		}
+		}        
+		
+		function existeEmail(email) {
+            var req = {
+                method: 'GET',
+                url: api + email
+            };
+            
+            return $http(req);;
+        }
 		
 		function verificarEmail(){
 			
@@ -34,8 +44,6 @@
 		
 		function cadastrar(item){
 			var url = api;
-
-            var deferred = $q.defer();
             
             item.id = null;
             item.ultimoAcesso = null;

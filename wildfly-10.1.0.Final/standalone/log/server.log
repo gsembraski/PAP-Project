@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2017-03-15 20:05:23,927 INFO  [org.jboss.as.server] (management-handler-thread - 6) WFLYSRV0236: Suspending server with no timeout.
 2017-03-15 20:05:24,206 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
 2017-03-15 20:05:24,728 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 69) WFLYUT0022: Unregistered web context: /BoasPraticasServices
@@ -407,3 +408,6 @@
 2017-03-22 21:24:32,920 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
 2017-03-22 21:24:32,920 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
 2017-03-22 21:24:32,920 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) started in 43834ms - Started 482 of 718 services (405 services are lazy, passive or on-demand)
+=======
+2017-04-02 01:30:06,669 ERROR [stderr] (default task-27) Sun Apr 02 01:30:06 BRT 2017 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+>>>>>>> f5fb657360ae9785dcbf62acf89eb4736a36dfc8

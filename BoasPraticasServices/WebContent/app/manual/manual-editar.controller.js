@@ -1,5 +1,9 @@
-(function(){
-	appManual.controller('ManualEditarController', ManualEditarController);
+(function () {
+    'use strict';
+
+    angular
+        .module('app.manual')
+        .controller('ManualEditarController', ManualEditarController);
 	
 	function ManualEditarController($state){
 		var vm = this;
