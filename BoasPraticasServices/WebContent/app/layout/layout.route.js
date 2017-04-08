@@ -28,7 +28,7 @@
                     abstract: true,
                     template: '<ui-view/>',
                     data: {
-                        requireAuthorization: true
+                        requireAuthorization: false
                     }
                 }
             },

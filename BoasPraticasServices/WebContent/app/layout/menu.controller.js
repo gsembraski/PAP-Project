@@ -15,13 +15,10 @@
 	        },
            {
                text: 'POPs', 'class': "['fa fa-fw fa-cubes']", itens: [
-                   { text: 'Turnos', state: 'app.turno.listar', 'class': "['fa fa-fw fa-clock-o']" },
-                   { text: 'Faixas Etárias', state: 'app.faixaEtaria.listar', 'class': "['fa fa-fw fa-child']" },
-                   { text: 'Motivos', state: 'app.tipoMotivoAgendamento.listar', 'class': "['fa fa-fw']" }
                ]
            },
            {
-	            text: 'EMPRESA', 'class': "['fa fa-fw fa-users']"//, state: 'app.agendamento.selecionar'
+	            text: 'EMPRESA', 'class': "['fa fa-fw fa-users']", state: 'app.empresa.listar'
 	        }
 
         ];

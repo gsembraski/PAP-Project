@@ -2,4 +2,5 @@ var app = angular.module('app', ['app.components',
 								 'app.home',
                                  'app.manual',
                                  'app.pop',
-                                 'app.layout']);
+                                 'app.layout',
+                                 'app.empresa']);

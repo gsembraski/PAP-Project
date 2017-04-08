@@ -27,6 +27,7 @@
 			homeServices.logar(vm.item).then(function(response){
 				if(response.data && response.data.id){   
 					upStorage(response.data);
+					toastr.success('Login realizado com sucesso!');
 					$uibModalInstance.close();
 				}
 			}, function(response){
@@ -37,9 +38,10 @@
 	
 	function upStorage(usuario){
 		var item = {};
-		item.usuario = usuario.email;
+		item.login = usuario.email;
 		item.guid = usuario.senha;
 		item.data = usuario.ultimoAcesso;
+		item.id = usuario.id;
 		vm.storage.setItem('security', angular.toJson(item));
         vm.local = vm.storage.getItem('security');
 	}

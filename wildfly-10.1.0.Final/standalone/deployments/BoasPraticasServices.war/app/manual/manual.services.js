@@ -3,7 +3,9 @@
 
     angular
         .module('app.manual')
-        .factory('manualServices', manualServices)
+        .factory('manualServices', manualServices);
+
+    manualServices.$inject = ['$http', '$q'];
 	function manualServices($http, $q) {
 	
 		var api = 'http://localhost:8080/BoasPraticas/rest/manual/';

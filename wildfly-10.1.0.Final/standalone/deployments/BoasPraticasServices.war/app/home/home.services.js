@@ -10,7 +10,6 @@
 		
 		var service = {
 				logar: logar,
-				verificarEmail: verificarEmail,
 				cadastrar: cadastrar,
 				atualizar: atualizar,
 				deletar: deletar,
@@ -35,12 +34,8 @@
                 url: api + email
             };
             
-            return $http(req);;
+            return $http(req);
         }
-		
-		function verificarEmail(){
-			
-		}
 		
 		function cadastrar(item){
 			var url = api;
