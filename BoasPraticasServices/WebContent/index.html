@@ -24,16 +24,23 @@
 		<script src="node_modules/angular-touch/angular-touch.js" type="text/javascript"></script>
 		<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js" type="text/javascript"></script>
 		<script src="node_modules/toastr/toastr.js" type="text/javascript"></script>
+		<script src="angular-ui-bootstrap/dist/ui-bootstrap-tpls.js" type="text/javascript"></script>
+		<link rel='stylesheet' href='node_modules/textangular/dist/textAngular.css'>
+		<script src='node_modules/textangular/dist/textAngular-rangy.min.js'></script>
+		<script src='node_modules/textangular/dist/textAngular-sanitize.min.js'></script>
+		<script src='node_modules/textangular/dist/textAngular.min.js'></script>
+
 				
 		<div ng-include="'app/layout/master-page.html'"></div>
 		
 		<!-- JS Projeto -->
 		<!-- Module -->
-		<script src="app.js" type="text/javascript"></script>
+		<script src="app.module.js" type="text/javascript"></script>
 		<script src="app/components/components.module.js" type="text/javascript"></script>
 		<script src="app/components/router/router.module.js" type="text/javascript"></script>
 		<script src="app/components/storage/storage.module.js" type="text/javascript"></script>
 		<script src="app/components/logger/logger.module.js" type="text/javascript"></script>
+		<script src="app/components/toast-interceptor/toast-interceptor.module.js" type="text/javascript"></script>		
 		<script src="app/components/seguranca/seguranca.module.js" type="text/javascript"></script>
 		<script src="app/layout/layout.module.js" type="text/javascript"></script>
 		<script src="app/home/home.module.js" type="text/javascript"></script>
@@ -44,7 +51,6 @@
 		
 		<!-- Route -->
 		<script src="app/components/router/router-helper.provider.js" type="text/javascript"></script>
-		<script src="app/components/seguranca/seguranca.config.js" type="text/javascript"></script>
 		<script src="app/layout/layout.route.js" type="text/javascript"></script>
 		<script src="app/manual/manual.route.js" type="text/javascript"></script>
 		<script src="app/empresa/empresa.route.js" type="text/javascript"></script>
@@ -74,11 +80,19 @@
 		<script src="app/components/seguranca/seguranca.service.js" type="text/javascript"></script>
 		<script src="app/components/seguranca/seguranca-http-interceptor.service.js" type="text/javascript"></script>
 		<script src="app/components/seguranca/seguranca-auth.service.js" type="text/javascript"></script>
-		<script src="app/components/seguranca/seguranca-auth-events-listener.service.js" type="text/javascript"></script>		
+		<script src="app/components/seguranca/seguranca-auth-events-listener.service.js" type="text/javascript"></script>
+		<script src="app/components/toast-interceptor/toast-auth-events-interceptor.service.js" type="text/javascript"></script>			
 		
 		<!-- Oders -->
+		<script src="app/components/seguranca/seguranca.config.js" type="text/javascript"></script>
+		<script src="app/components/toast-interceptor/toastinterceptor.config.js" type="text/javascript"></script>	
 		<script src="app/components/seguranca/seguranca.constants.js" type="text/javascript"></script>
 		<script src="app/components/storage/storage.js" type="text/javascript"></script>
 		<script src="app/components/logger/logger.js" type="text/javascript"></script>
+		
+		<!-- Diretivas -->
+		<script src="app/empresa/components/selecao/empresa.selecao.controller.js" type="text/javascript"></script>
+		<script src="app/empresa/components/selecao/empresa.selecao.directive.js" type="text/javascript"></script>
+		
 	</body>
 </html>

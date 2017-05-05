@@ -13,8 +13,8 @@ import javax.transaction.Transactional;
 import javax.transaction.UserTransaction;
 import javax.ws.rs.WebApplicationException;
 
-import domain.Usuario;
-import model.UsuarioViewModel;;
+import entity.Usuario;
+import viewModel.usuarioViewModel.UsuarioViewModel;;
 
 @Stateless
 public class UsuarioDAO {
@@ -22,33 +22,28 @@ public class UsuarioDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public static Usuario getUsuario() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
 	/* (non-Javadoc)
 	 * @see dao.UsuarioDAOInterface#Logar(model.UsuarioModel.UsuarioLogarViewModel)
 	 */
+	@SuppressWarnings("unchecked")
 	public UsuarioViewModel Logar(Usuario usuarioLogar) {
-		UsuarioViewModel model = new UsuarioViewModel();
+		UsuarioViewModel model = null;
 		try{
-		Usuario usuario = (Usuario) em.createQuery("from Usuario where Email = :email")
-			 .setParameter("email", usuarioLogar.getEmail())
-			 .getSingleResult();
-		
-		if(usuario.getSenha().equalsIgnoreCase(usuarioLogar.getSenha())){
-			model = toViewModel(usuario);
-			model.setMensagem("Usuario conectado com sucesso!");
+			List<Usuario> usuarios = em.createQuery("from Usuario where Email = :email")
+				 .setParameter("email", usuarioLogar.getEmail())
+				 .getResultList();
+			
+			if(usuarios.size() > 0){
+				Usuario usuario = usuarios.get(0);
+				
+				if(usuario.getSenha().equalsIgnoreCase(usuarioLogar.getSenha())){
+					model = toViewModel(usuario);
+					model.setMensagem("Usuario conectado com sucesso!");
+				}
+			}
 			return model;
-		}
-		else{
-			model.setMensagem("Senha inválida.");
-			return model;
-		}
 		}catch (Exception e) {
-			return null;
+			throw new WebApplicationException(e);
 		}
 	}
 

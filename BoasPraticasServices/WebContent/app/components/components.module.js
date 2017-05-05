@@ -5,5 +5,6 @@
         'app.seguranca',
         'blocks.router',
         'blocks.storage',
-        'blocks.logger']);
+        'blocks.logger',
+        'blocks.toastInterceptor']);
 })();

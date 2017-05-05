@@ -1,0 +1,68 @@
+<form name="form" ng-submit="vm.salvar(form)" novalidate>
+    <!--Bot�es de salvar e cancelar-->
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+            
+                <button type="submit"
+                        class="btn btn-success"
+                        ng-disabled="form.$submitted && (form.$invalid || !vm.diretivasInformadas())">
+                    <i class="fa fa-check"></i>
+                    Salvar
+                </button>
+                
+                <button type="button" class="btn btn-default" ng-click="vm.cancelar()"><i class="fa fa-reply"></i> Cancelar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!--Raz�o Social-->
+    <div class="row">
+    
+    	<div class="col-xs-12">
+    		<div class="form-group">
+    			<label for="inputNomeFantasia" class="control-label">Nome Fantasia</label>
+    			<input id="inputNomeFantasia"
+    				   name="inputNomeFantasia"
+    				   type="text"
+    				   class="form-control"
+    				   ng-model="vm.item.nomeFantasia"    				   
+                       maxlength="100"
+                       required/>
+    		</div>
+    	</div>
+    </div>
+    
+    <!-- Raz�o Social e CNPJ -->
+    <div class="row">
+    
+    	<div class="col-xs-8">
+    		<div class="form-group">
+    			<label for="inputRazaoSocial" class="control-label">Razão Social</label>
+    			<input id="inputRazaoSocial"
+    				   name="inputRazaoSocial"
+    				   type="text"
+    				   class="form-control"
+    				   ng-model="vm.item.razaoSocial"    				   
+                       maxlength="100"
+                       required/>
+    		</div>
+    	</div>
+    	
+    	<div class="col-xs-4">
+    		<div class="form-group">
+    			<label for="inputCNPJ" class="control-label">CNPJ</label>
+    			<input id="inputCNPJ"
+    				   name="inputCNPJ"
+    				   type="text"
+    				   class="form-control"
+    				   ng-model="vm.item.cnpj"    				   
+                       maxlength="20"
+                       required
+					   mask="99.999.999/9999-99"/>
+    		</div>
+    	</div>
+    </div>
+
+</form>

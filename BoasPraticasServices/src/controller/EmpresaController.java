@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -14,8 +15,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import dao.EmpresaDAO;
-import domain.Empresa;
-import model.EmpresaCadastrarViewModel;
+import viewModel.empresaViewModel.EmpresaCadastrarViewModel;
+import viewModel.empresaViewModel.EmpresaEditarViewModel;
+import viewModel.empresaViewModel.EmpresaViewModel;
 
 @Path("api/empresa/")
 @Produces({MediaType.APPLICATION_JSON,
@@ -31,8 +33,8 @@ public class EmpresaController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("{usuarioID}")
-	public Response Buscar(@PathParam("usuarioID") int usuarioID){
-		List<Empresa> models = empresaDAO.Buscar(usuarioID);
+	public Response Buscar(@PathParam("usuarioID") int usuarioID) throws Exception{
+		List<EmpresaViewModel> models = empresaDAO.Buscar(usuarioID);
 		return Response.ok(models).build();
 	}	
 	
@@ -40,8 +42,8 @@ public class EmpresaController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("buscarItem/{id}")
-	public Response TemEmail(@PathParam("id") int id){
-		Empresa model = empresaDAO.BuscarItem(id);
+	public Response TemEmail(@PathParam("id") int id) throws Exception{
+		EmpresaViewModel model = empresaDAO.BuscarItem(id);
 		return Response.ok(model).build();
 	}
 	
@@ -49,7 +51,7 @@ public class EmpresaController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("")
-	public void Salvar(EmpresaCadastrarViewModel empresa){
+	public void Salvar(EmpresaCadastrarViewModel empresa) throws Exception{
 		empresaDAO.Cadastrar(empresa);
 	}
 	
@@ -57,7 +59,7 @@ public class EmpresaController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("{id}")
-	public void Atualizar(@PathParam("id") int id, Empresa empresa){
+	public void Atualizar(@PathParam("id") int id, EmpresaEditarViewModel empresa) throws Exception{
 		empresaDAO.Atualizar(empresa);
 	}
 	
@@ -65,7 +67,7 @@ public class EmpresaController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("{id}")
-	public void Excluir(@PathParam("id") int id) {
+	public void Excluir(@PathParam("id") int id) throws Exception{
 		empresaDAO.Excluir(id);
 	}
 }

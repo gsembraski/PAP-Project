@@ -20,8 +20,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import dao.UsuarioDAO;
-import domain.Usuario;
-import model.UsuarioViewModel;
+import entity.Usuario;
+import viewModel.usuarioViewModel.UsuarioViewModel;
 
 @Path("api/usuario/")
 @Produces({MediaType.APPLICATION_JSON,

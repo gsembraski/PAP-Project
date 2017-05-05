@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -8,17 +9,19 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.ws.rs.WebApplicationException;
 
-import domain.Empresa;
-import domain.Usuario;
-import model.EmpresaCadastrarViewModel;
+import entity.Empresa;
+import entity.Usuario;
+import viewModel.empresaViewModel.EmpresaCadastrarViewModel;
+import viewModel.empresaViewModel.EmpresaEditarViewModel;
+import viewModel.empresaViewModel.EmpresaViewModel;
 
 @Stateless
 public class EmpresaDAO {
-
-	@PersistenceContext
+		
+	@PersistenceContext(unitName = "BoasPraticasServices")
 	private EntityManager em;
 	
-	public void Cadastrar(EmpresaCadastrarViewModel item) {
+	public void Cadastrar(EmpresaCadastrarViewModel item) throws Exception {
 		try {
 
 			Usuario usuario = em.find(Usuario.class, item.UsuarioID);
@@ -30,49 +33,78 @@ public class EmpresaDAO {
 			
 			em.persist(empresa);
 		} catch (Exception e) {
-			throw new WebApplicationException(e);
+			throw new Exception(e);
 		}
 	}
 	
-	public void Atualizar(Empresa item) {
+	public void Atualizar(EmpresaEditarViewModel item) throws Exception {
 		try{
 			
-			Empresa empresa = em.find(Empresa.class, item.getID());
-			empresa = item;
+			Empresa empresa = em.find(Empresa.class, item.getID());		
+
+			empresa.setCNPJ(item.getCNPJ());
+			empresa.setNomeFantasia(item.getNomeFantasia());
+			empresa.setRazaoSocial(item.getRazaoSocial());
 			em.merge(empresa);
 			
 		} catch (Exception e) {
-			throw new WebApplicationException(e);
+			throw new Exception(e);
 		}
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Empresa> Buscar(int usuarioID) {
+	public List<EmpresaViewModel> Buscar(int usuarioID) throws Exception {
 		try {
 			Query query = em.createQuery("from Empresa where usuario_id = :usuario_id");
 			query.setParameter("usuario_id", usuarioID);
 			
-			List<Empresa> models = (List<Empresa>) query.getResultList();
+			List<Empresa> itens = (List<Empresa>) query.getResultList();
+			List<EmpresaViewModel> models = ToListViewModel(itens);
+			
 			return models;
 			
 		} catch (Exception e) {
-			throw new WebApplicationException(e);
+			throw new Exception(e);
 		}
 	}
 	
-	public Empresa BuscarItem(int id) {
+	public EmpresaViewModel BuscarItem(int id) throws Exception {
 		try {
-			Empresa model = em.find(Empresa.class, id);
+			Empresa item = em.find(Empresa.class, id);
 			
+			EmpresaViewModel model = ToViewModel(item);
 			return model;
 			
 		} catch (Exception e) {
-			throw new WebApplicationException(e);
+			throw new Exception(e);
 		}
 	}
 	
 	public void Excluir(int id) {
 	    Empresa item = em.find(Empresa.class, id);
 		em.remove(item);
+	}
+	
+	public static EmpresaViewModel ToViewModel(Empresa item){
+		EmpresaViewModel model = new EmpresaViewModel();
+		model.setID(item.getID());
+		model.setCNPJ(item.getCNPJ());
+		model.setNomeFantasia(item.getNomeFantasia());
+		model.setRazaoSocial(item.getRazaoSocial());
+		return model;
+	}
+	
+	public static List<EmpresaViewModel> ToListViewModel(List<Empresa> itens){
+		List<EmpresaViewModel> models = new ArrayList<EmpresaViewModel>();
+		for (Empresa item : itens) {
+			EmpresaViewModel model = new EmpresaViewModel();
+
+			model.setID(item.getID());
+			model.setCNPJ(item.getCNPJ());
+			model.setNomeFantasia(item.getNomeFantasia());
+			model.setRazaoSocial(item.getRazaoSocial());
+			models.add(model);
+		}
+		return models;
 	}
 }

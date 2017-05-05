@@ -21,18 +21,21 @@
 			<div class="col-xs-12">
 				<div class="form-group" ng-class="{ 'has-error': form.$submitted && form.inputUsuario.$invalid}">
 					
-					<label for="inputUsuario" class="control-label">Usuário</label>
-					<input type="email" 
-						   id="inputUsuario" 
-						   name="inputUsuario"
-						   class="form-control" 
-						   maxlength="200" 
-						   ng-model="vm.item.email"
-						   ng-required="true" 
-						   focus/>
-					
-					<p ng-show="form.$submitted && form.inputUsuario.$invalid" class="help-block">Campo obrigatório</p>
-				</div>
+					<label for="inputUsuario" class="control-label">Usuário</label>					
+					<div class="input-group"> 
+						<span class="input-group-addon" id="basic-addon1"><i class="fa fa-at" aria-hidden="true"></i></span>
+						<input type="email" 
+							   id="inputUsuario" 
+							   name="inputUsuario"
+							   class="form-control" 
+							   maxlength="200" 
+							   ng-model="vm.item.email"
+							   ng-required="true" 
+							   focus
+							   style="text-transform: lowercase"/>						
+						<p ng-show="form.$submitted && form.inputUsuario.$invalid" class="help-block">Campo obrigatório</p>
+					</div>
+				</div>	
 			</div>
 		</div>
 
@@ -41,6 +44,7 @@
 				<div class="form-group" ng-class="{ 'has-error': form.$submitted && (form.inputSenha.$invalid || !vm.item.senha)}">
 					<label for="inputSenha" class="control-label">Senha</label>
 					<div class="input-group"> 
+						<span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
 						<input type="password" 
 							   id="inputSenha" 
 							   name="inputSenha" 
@@ -49,7 +53,6 @@
 							   maxlength="20" 
 							   ng-model="vm.item.senha" 
 							   ng-required="true" />
-						<span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
 					</div>
 						<p ng-show="form.$submitted && form.inputSenha.$invalid" class="help-block">Senha inválida, verifique o número de caracteres</p>
 				</div>

@@ -8,27 +8,21 @@
     manualServices.$inject = ['$http', '$q'];
 	function manualServices($http, $q) {
 	
-		var api = 'http://localhost:8080/BoasPraticas/rest/manual/';
+		var api = 'http://localhost:8080/BoasPraticasServices/rs/api/manual/';
 		
 		var service = {
 				cadastrar: cadastrar,
 				atualizar: atualizar,
 				deletar: deletar,
-				buscar: buscar
+				buscar: buscar,
+				buscarItem: buscarItem
 		};
 		return service;
 		
 		function cadastrar(item){
-			var url = api + 'teste@teste';
+			var url = api;
 
-            var deferred = $q.defer();
-
-            $http.post(url, angular.toJson(item)).success(function (data, status, headers, config) {
-            	   deferred.resolve(true);
-            }).error(function(){
-            	deferred.resolve(false);
-            });
-            return deferred.promise;
+            return $http.post(url, angular.toJson(item));
 		}
 		
 		function atualizar(item){
@@ -36,23 +30,13 @@
 
             var deferred = $q.defer();
 
-            $http.put(url, angular.toJson(item)).success(function (data, status, headers, config) {
-                deferred.resolve(true);
-            }).error(function(){
-            	deferred.resolve(false);
-            });
-            return deferred.promise;
-		}
+            return $http.put(url, angular.toJson(item));
+        }
 		
 		function deletar(id){
 			var url = api + id;
 
-            var deferred = $q.defer();
-
-            $http.delete(url).success(function (data, status, headers, config) {
-                deferred.resolve(data);
-            });
-            return deferred.promise;
+            return $http.delete(url);
 		}
 		
 		function buscar(email){
@@ -60,12 +44,17 @@
                     method: 'GET',
                     url: api + email
                 };
-                var deferred = $q.defer();
 
-                $http(req).success(function (data, status, headers, config) {
-                    deferred.resolve(angular.fromJson(data));
-                });
-                return deferred.promise;
+            return $http(req);
+		}
+		
+		function buscarItem(id){
+            var req = {
+                    method: 'GET',
+                    url: api + 'buscarItem/' +id
+                };
+                
+                return $http(req);
 		}
 	}
 })();

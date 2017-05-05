@@ -105,3 +105,30 @@
           color: #51A34D;
     }
 }
+
+input[type='file'] {
+  display: none
+}
+
+.arquivo {
+  display: none
+}
+
+.file {
+  line-height: 30px;
+  height: 30px;
+  border: 1px solid #A7A7A7;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 15px;
+  vertical-align: middle;
+  width: 300px;
+}
+
+.margin-left{
+	 margin-left:15px;
+}
+
+.text-transform{
+	text-transform: capitalize;
+}
