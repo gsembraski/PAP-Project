@@ -1,0 +1,97 @@
+<html ng-app="app">
+	<head>
+		
+    	<meta charset="utf-8">
+		
+   		<script rel="stylesheet" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+		<!-- Bootstrap -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bootstrap/css/css-custom.css" rel="stylesheet">
+		<link href="node_modules/toastr/build/toastr.css" rel="stylesheet"/>
+	
+		<!-- Font Awesome -->
+		<link href="icon/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"/>
+			
+		<!-- Angular -->
+		<script src="node_modules/angular/angular.js" type="text/javascript"></script>
+		<script src="node_modules/angular-route/angular-route.min.js" type="text/javascript"></script>
+		<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
+		<script src="node_modules/angular-i18n/angular-locale_pt-br.js" type="text/javascript"></script>
+		<script src="node_modules/angular-messages/angular-messages.js" type="text/javascript"></script>
+		<script src="node_modules/angular-animate/angular-animate.js" type="text/javascript"></script>
+		<script src="node_modules/angular-touch/angular-touch.js" type="text/javascript"></script>
+		<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js" type="text/javascript"></script>
+		<script src="node_modules/toastr/toastr.js" type="text/javascript"></script>
+		<script src="angular-ui-bootstrap/dist/ui-bootstrap-tpls.js" type="text/javascript"></script>
+		<link rel='stylesheet' href='node_modules/textangular/dist/textAngular.css'>
+		<script src='node_modules/textangular/dist/textAngular-rangy.min.js'></script>
+		<script src='node_modules/textangular/dist/textAngular-sanitize.min.js'></script>
+		<script src='node_modules/textangular/dist/textAngular.min.js'></script>
+
+				
+		<div ng-include="'app/layout/master-page.html'"></div>
+		
+		<!-- JS Projeto -->
+		<!-- Module -->
+		<script src="app.module.js" type="text/javascript"></script>
+		<script src="app/components/components.module.js" type="text/javascript"></script>
+		<script src="app/components/router/router.module.js" type="text/javascript"></script>
+		<script src="app/components/storage/storage.module.js" type="text/javascript"></script>
+		<script src="app/components/logger/logger.module.js" type="text/javascript"></script>
+		<script src="app/components/toast-interceptor/toast-interceptor.module.js" type="text/javascript"></script>		
+		<script src="app/components/seguranca/seguranca.module.js" type="text/javascript"></script>
+		<script src="app/layout/layout.module.js" type="text/javascript"></script>
+		<script src="app/home/home.module.js" type="text/javascript"></script>
+		<script src="app/core/core.module.js" type="text/javascript"></script>
+		<script src="app/manual/manual.module.js" type="text/javascript"></script>
+		<script src="app/pop/pop.module.js" type="text/javascript"></script>
+		<script src="app/empresa/empresa.module.js" type="text/javascript"></script>
+		
+		<!-- Route -->
+		<script src="app/components/router/router-helper.provider.js" type="text/javascript"></script>
+		<script src="app/layout/layout.route.js" type="text/javascript"></script>
+		<script src="app/manual/manual.route.js" type="text/javascript"></script>
+		<script src="app/empresa/empresa.route.js" type="text/javascript"></script>
+		
+		<!-- Controller -->
+		<script src="app/layout/master-page.controller.js" type="text/javascript"></script>
+		<script src="app/layout/menu.controller.js" type="text/javascript"></script>
+		<script src="app/layout/pagina-inicial.controller.js" type="text/javascript"></script>		
+		<script src="app/home/home.controller.js" type="text/javascript"></script>
+		<script src="app/home/modal/modal-usuario-cadastrar.controller.js" type="text/javascript"></script>
+		<script src="app/home/modal/modal-usuario-login.controller.js" type="text/javascript"></script>
+		<script src="app/manual/manual-listar.controller.js" type="text/javascript"></script>
+		<script src="app/manual/manual-inserir.controller.js" type="text/javascript"></script>
+		<script src="app/manual/manual-editar.controller.js" type="text/javascript"></script>
+		<script src="app/pop/pop-listar.controller.js" type="text/javascript"></script>
+		<script src="app/pop/pop-inserir.controller.js" type="text/javascript"></script>
+		<script src="app/pop/pop-editar.controller.js" type="text/javascript"></script>
+		<script src="app/empresa/empresa-listar.controller.js" type="text/javascript"></script>
+		<script src="app/empresa/empresa-cadastrar.controller.js" type="text/javascript"></script>
+		<script src="app/empresa/empresa-editar.controller.js" type="text/javascript"></script>
+		
+		<!-- Service -->
+		<script src="app/home/home.services.js" type="text/javascript"></script>
+		<script src="app/manual/manual.services.js" type="text/javascript"></script>
+		<script src="app/pop/pop.services.js" type="text/javascript"></script>
+		<script src="app/empresa/empresa.services.js" type="text/javascript"></script>
+		<script src="app/components/seguranca/seguranca.service.js" type="text/javascript"></script>
+		<script src="app/components/seguranca/seguranca-http-interceptor.service.js" type="text/javascript"></script>
+		<script src="app/components/seguranca/seguranca-auth.service.js" type="text/javascript"></script>
+		<script src="app/components/seguranca/seguranca-auth-events-listener.service.js" type="text/javascript"></script>
+		<script src="app/components/toast-interceptor/toast-auth-events-interceptor.service.js" type="text/javascript"></script>			
+		
+		<!-- Oders -->
+		<script src="app/components/seguranca/seguranca.config.js" type="text/javascript"></script>
+		<script src="app/components/toast-interceptor/toastinterceptor.config.js" type="text/javascript"></script>	
+		<script src="app/components/seguranca/seguranca.constants.js" type="text/javascript"></script>
+		<script src="app/components/storage/storage.js" type="text/javascript"></script>
+		<script src="app/components/logger/logger.js" type="text/javascript"></script>
+		
+		<!-- Diretivas -->
+		<script src="app/empresa/components/selecao/empresa.selecao.controller.js" type="text/javascript"></script>
+		<script src="app/empresa/components/selecao/empresa.selecao.directive.js" type="text/javascript"></script>
+		
+	</body>
+</html>

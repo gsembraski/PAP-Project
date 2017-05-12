@@ -1,0 +1,70 @@
+<form name="form" ng-submit="vm.salvar(form)" novalidate>
+    <!--Bot�es de salvar e cancelar-->
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+            
+                <button type="submit"
+                        class="btn btn-success"
+                        ng-disabled="form.$submitted && (form.$invalid || !vm.diretivasInformadas())">
+                    <i class="fa fa-check"></i>
+                    Salvar
+                </button>
+                
+                <button type="button" class="btn btn-default" ng-click="vm.cancelar()"><i class="fa fa-reply"></i> Cancelar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!--Nome Fantasia-->
+    <div class="row">
+    
+    	<div class="col-xs-12">
+    		<div class="form-group" ng-class="{'has-error': form.inputNomeFantasia.$invalid && form.$submitted}">
+    			<label for="inputNomeFantasia" class="control-label">Nome Fantasia</label>
+    			<input id="inputNomeFantasia"
+    				   name="inputNomeFantasia"
+    				   type="text"
+    				   class="form-control text-transform"
+    				   ng-model="vm.item.nomeFantasia"    				   
+                       maxlength="100"
+                       required/>
+					<p ng-show="form.$submitted && form.inputNomeFantasia.$invalid" class="help-block">Campo obrigatório</p>
+    		</div>
+    	</div>
+    </div>
+    
+    <!-- Raz�o Social e CNPJ -->
+    <div class="row">
+    
+    	<div class="col-xs-8">
+    		<div class="form-group" ng-class="{'has-error': form.inputRazaoSocial.$invalid && form.$submitted}">
+    			<label for="inputRazaoSocial" class="control-label">Razão Social</label>
+    			<input id="inputRazaoSocial"
+    				   name="inputRazaoSocial"
+    				   type="text"
+    				   class="form-control text-transform"
+    				   ng-model="vm.item.razaoSocial"    				   
+                       maxlength="100"
+                       required/>
+					<p ng-show="form.$submitted && form.inputRazaoSocial.$invalid" class="help-block">Campo obrigatório</p>
+    		</div>
+    	</div>
+    	
+    	<div class="col-xs-4">
+    		<div class="form-group" ng-class="{'has-error': form.inputCNPJ.$invalid && form.$submitted}">
+    			<label for="inputCNPJ" class="control-label">CNPJ</label>
+    			<input id="inputCNPJ"
+    				   name="inputCNPJ"
+    				   type="text"
+    				   class="form-control"
+    				   ng-model="vm.item.cnpj"
+					   mask="99.999.999/9999-99"
+					   required/>
+					<p ng-show="form.$submitted && form.inputCNPJ.$invalid" class="help-block">Campo obrigatório</p>
+    		</div>
+    	</div>
+    </div>
+
+</form>
