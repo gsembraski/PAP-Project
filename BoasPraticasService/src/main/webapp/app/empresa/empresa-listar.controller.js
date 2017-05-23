@@ -23,7 +23,7 @@
     	vm.visualizar = visualizar;
     	
     	function buscar(){
-    		empresaService.buscar(vm.usuario.id).then(function(response){
+    		empresaService.buscar(vm.usuario.login).then(function(response){
     			vm.listaEmpresas = response.data;
     		});
     	}
@@ -57,8 +57,6 @@
 		
 		function visualizar(item){
 			vm.item = item;
-			if(item.cnpj)
-				vm.item.cnpj = parseInt(item.cnpj);
 		}
 		
 		activate();

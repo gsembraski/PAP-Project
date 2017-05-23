@@ -11,7 +11,7 @@
 	  			<h4 class="h1-custumer">Lista de Manuais Cadastrados</h4>
   				
   			</div>
-				<div class="panel-body">		
+				<div class="panel-body scrollable">		
 					<div class="form-group">
 						
 						<div class="alert alert-warning" role="alert" ng-if="!vm.temManual()">Nenhum manual cadastrado</div>
@@ -29,7 +29,7 @@
 									<td><input type="radio" name="blankRadio" id="blankRadio1" ng-click="vm.SetManualVisualizar(item)" uib-tooltip="Selecione para vizualizar" tooltip-append-to-body="true" ></td>
 									<td>{{item.respostaList[4].texto}}</td>
 									<td class="text-nowrap min-width text-right">
-										<i class="fa fa-lg fa-download" uib-tooltip="Download" tooltip-append-to-body="true" role="button"></i>
+										<i class="fa fa-lg fa-download" uib-tooltip="Download" tooltip-append-to-body="true" role="button" ng-click="vm.download(item.id)"></i>
 										<i class="fa fa-lg fa-pencil-square-o" uib-tooltip="Editar" tooltip-append-to-body="true" role="button" ng-click="vm.editar(item.id)"></i>
 										<i class="fa fa-lg fa-trash-o" uib-tooltip="Excluir" tooltip-append-to-body="true" role="button" ng-click="vm.excluir(item.id)"></i>
 									</td>
@@ -42,7 +42,7 @@
 
 	    <button type="button"
 				class="btn btn-default btn-lg btn-block"
-				ng-click="vm.cadastrar()">Adicionar Manual <i class="fa fa-lg fa-plus"></i>
+				ng-click="vm.cadastrar()">Adicionar Novo <i class="fa fa-lg fa-plus"></i>
 		</button>	
 	</div>
 	

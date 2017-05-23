@@ -1,0 +1,452 @@
+<!-- collapsed 1 -->	
+<div class="row">
+	<div class="col-xs-12">
+		<fieldset>
+			<legend> 
+					<i ng-class="vm.isCollapsed1 ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" 
+					   uib-tooltip="{{vm.setTooltip(vm.isCollapsed1)}}" 
+					   tooltip-append-to-body="true" 
+					   tooltip-placement="auto" 
+					   role="button" 
+					   ng-click="vm.isCollapsed1 = !vm.isCollapsed1" 
+					   aria-hidden="true"></i>
+					1. Objetivo
+			</legend>			
+		</fieldset>
+	</div>
+</div>
+		
+<div class="well" uib-collapse="vm.isCollapsed1">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="form-group">
+				<label for="inputPergunta1" class="control-label">
+					Qual o objetivo de se elaborar este Procedimento Operacional Padronizado (POP) referente à Higiene e à Saúde dos Manipuladores?
+				</label>
+				<input id="inputPergunta1"
+					   name="inputPergunta1"
+					   type="text"
+					   class="form-control"
+					   ng-model="vm.item.respostaList[0].texto"/>
+			</div>
+		</div>
+	</div>
+</div>
+		
+<!-- collapsed 2 -->	
+<div class="row">
+	<div class="col-xs-12">
+		<fieldset>
+			<legend> 
+					<i ng-class="vm.isCollapsed2 ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" 
+					   uib-tooltip="{{vm.setTooltip(vm.isCollapsed2)}}" 
+					   tooltip-append-to-body="true" 
+					   tooltip-placement="auto" 
+					   role="button" 
+					   ng-click="vm.isCollapsed2 = !vm.isCollapsed2" 
+					   aria-hidden="true"></i>
+					2. Descrição dos Procedimentos
+			</legend>			
+		</fieldset>
+	</div>
+</div>
+
+<div uib-collapse="vm.isCollapsed2" class="margin-left">
+	<!-- collapsed 4.7.2 -->
+	<div class="row">
+		<div class="col-xs-12">
+			<fieldset>
+				<legend>
+					<i ng-class="vm.isCollapsed21 ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" 
+					   uib-tooltip="{{vm.setTooltip(vm.isCollapsed21)}}" 
+					   tooltip-append-to-body="true" 
+					   tooltip-placement="auto" 
+					   role="button" 
+					   ng-click="vm.isCollapsed21 = !vm.isCollapsed21" 
+					   aria-hidden="true"></i> 2.1 Higienização das mãos
+				</legend>
+			</fieldset>
+		</div>
+	</div>
+		
+	<div class="well" uib-collapse="vm.isCollapsed21">
+		<div class="row">
+			<div class="col-xs-12">
+				<i class="fa fa-lg fa-info-circle pull-right" 
+					aria-hidden="true"
+					uib-tooltip="Ver RDC" 
+					tooltip-append-to-body="true" 
+					tooltip-placement="auto"
+					role="button"
+					ng-click="mostraRDC21 = !mostraRDC21"></i>
+			</div>
+		</div>
+	
+		<div class="alert alert-info" role="alert" ng-show="mostraRDC21">
+			Requisitos da RDC nº 216/2004:
+			<br/>O POP relacionado à higiene e saúde dos manipuladores devem contemplar as etapas, a frequência e os princípios ativos usados na lavagem e antissepsia das mãos dos manipuladores (referente ao item 4.11.8).
+			<br/>Os manipuladores devem lavar cuidadosamente as mãos ao chegarem ao trabalho, antes e após manipular alimentos, após qualquer interrupção do serviço, após tocar materiais contaminados, após usar os sanitários e sempre que se fizer necessário. Devem ser afixados cartazes de orientação aos manipuladores sobre a correta lavagem e antissepsia das mãos em locais de fácil visualização, inclusive nas instalações sanitárias e lavatórios (referente ao item 4.6.4).
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<label for="inputPergunta2" class="control-label">
+						Como e quando os manipuladores higienizam as mãos?
+					</label>
+					<input id="inputPergunta2"
+						   name="inputPergunta2"
+						   type="text"
+						   class="form-control"
+						   ng-model="vm.item.respostaList[1].texto"/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<label for="inputPergunta3" class="control-label">
+						Como os colaboradores são orientados sobre o procedimento de higienização das mãos?
+					</label>
+					<label for="inputPergunta3" class="control-label"></label>
+					<input id="inputPergunta3"
+						   name="inputPergunta3"
+						   type="text"
+						   class="form-control"
+						   ng-model="vm.item.respostaList[2].texto"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- collapsed 2.2 -->
+	<div class="row">
+		<div class="col-xs-12">
+			<fieldset>
+				<legend>
+					<i ng-class="vm.isCollapsed22 ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" 
+					   uib-tooltip="{{vm.setTooltip(vm.isCollapsed22)}}" 
+					   tooltip-append-to-body="true" 
+					   tooltip-placement="auto" 
+					   role="button" 
+					   ng-click="vm.isCollapsed22 = !vm.isCollapsed22" 
+					   aria-hidden="true"></i> 2.2. Saúde dos manipuladores
+				</legend>
+			</fieldset>
+		</div>
+	</div>
+	
+	<div class="well" uib-collapse="vm.isCollapsed22">
+		<div class="row">
+			<div class="col-xs-12">
+				<i class="fa fa-lg fa-info-circle pull-right" 
+					aria-hidden="true"
+					uib-tooltip="Ver RDC" 
+					tooltip-append-to-body="true" 
+					tooltip-placement="auto"
+					role="button"
+					ng-click="mostraRDC22 = !mostraRDC22"></i>
+			</div>
+		</div>
+		<div class="alert alert-info" role="alert" ng-show="mostraRDC22">
+			Requisitos da RDC nº 216/2004:
+			<br/>O POP relacionado à higiene e saúde dos manipuladores devem contemplar as medidas adotadas nos casos em que os manipuladores apresentem lesão nas mãos, sintomas de enfermidade ou suspeita de problema de saúde que possa comprometer a qualidade higiênico-sanitária dos alimentos (referente ao item 4.11.8).
+			<br/>Os manipuladores que apresentarem lesões e/ou sintomas de enfermidades que possam comprometer a qualidade higiênico-sanitária dos alimentos devem ser afastados da atividade de preparação de alimentos enquanto persistirem essas condições de saúde (referente ao item 4.6.2).
+			<br/>Devem-se especificar os exames aos quais os manipuladores de alimentos são submetidos, bem como a periodicidade de sua execução (referente ao item 4.11.8).
+			O controle da saúde dos manipuladores deve ser registrado e realizado de acordo com a legislação específica (referente ao item 4.6.1).
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<label for="inputPergunta4" class="control-label">
+						Quais medidas são adotadas no caso de o manipulador apresentar problemas de saúde?
+					</label>
+					<label for="inputPergunta4" class="control-label"></label>
+					<input id="inputPergunta4"
+						   name="inputPergunta4"
+						   type="text"
+						   class="form-control"
+						   ng-model="vm.item.respostaList[3].texto"/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<label for="inputPergunta5" class="control-label">
+						Como é realizado o controle de saúde dos manipuladores?
+					</label>
+					<label for="inputPergunta5" class="control-label"></label>
+					<input id="inputPergunta5"
+						   name="inputPergunta5"
+						   type="text"
+						   class="form-control"
+						   ng-model="vm.item.respostaList[4].texto"/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<label for="inputPergunta6" class="control-label">
+						Como é comprovada a realização do controle de saúde dos manipuladores?
+					</label>
+					<label for="inputPergunta6" class="control-label"></label>
+					<input id="inputPergunta6"
+						   name="inputPergunta6"
+						   type="text"
+						   class="form-control"
+						   ng-model="vm.item.respostaList[5].texto"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- collapsed 2.3 -->
+	<div class="row">
+		<div class="col-xs-12">
+			<fieldset>
+				<legend>
+					<i ng-class="vm.isCollapsed23 ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" 
+					   uib-tooltip="{{vm.setTooltip(vm.isCollapsed23)}}" 
+					   tooltip-append-to-body="true" 
+					   tooltip-placement="auto" 
+					   role="button" 
+					   ng-click="vm.isCollapsed23 = !vm.isCollapsed23" 
+					   aria-hidden="true"></i> 2.3. Saúde dos manipuladores
+				</legend>
+			</fieldset>
+		</div>
+	</div>
+	
+	<div class="well" uib-collapse="vm.isCollapsed23">
+		<div class="row">
+			<div class="col-xs-12">
+				<i class="fa fa-lg fa-info-circle pull-right" 
+					aria-hidden="true"
+					uib-tooltip="Ver RDC" 
+					tooltip-append-to-body="true" 
+					tooltip-placement="auto"
+					role="button"
+					ng-click="mostraRDC23 = !mostraRDC23"></i>
+			</div>
+		</div>
+	
+		<div class="alert alert-info" role="alert" ng-show="mostraRDC23">
+			Requisitos da RDC nº 216/2004:
+			<br/>Os manipuladores de alimentos devem ser capacitados periodicamente em higiene pessoal, em manipulação higiênica dos alimentos e em doenças transmitidas por alimentos. A capacitação deve ser comprovada mediante documentação (referente ao item 4.6.7).
+			<br/>O programa de capacitação dos manipuladores em higiene deve ser descrito, sendo determinados a carga horária, o conteúdo programático e a frequência de sua realização, mantendo-se em arquivo os registros da participação nominal dos funcionários (referente ao item 4.11.8).
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<label for="inputPergunta7" class="control-label">
+						Como os manipuladores são capacitados?
+					</label>
+					<label for="inputPergunta7" class="control-label"></label>
+					<input id="inputPergunta7"
+						   name="inputPergunta7"
+						   type="text"
+						   class="form-control"
+						   ng-model="vm.item.respostaList[6].texto"/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<label for="inputPergunta8" class="control-label">
+						Como são comprovadas as capacitações?
+					</label>
+					<label for="inputPergunta8" class="control-label"></label>
+					<input id="inputPergunta8"
+						   name="inputPergunta8"
+						   type="text"
+						   class="form-control"
+						   ng-model="vm.item.respostaList[7].texto"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- collapsed 3 -->	
+<div class="row">
+	<div class="col-xs-12">
+		<fieldset>
+			<legend> 
+					<i ng-class="vm.isCollapsed3 ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" 
+					   uib-tooltip="{{vm.setTooltip(vm.isCollapsed3)}}" 
+					   tooltip-append-to-body="true" 
+					   tooltip-placement="auto" 
+					   role="button" 
+					   ng-click="vm.isCollapsed3 = !vm.isCollapsed3" 
+					   aria-hidden="true"></i>
+					3. Monitoramento
+			</legend>			
+		</fieldset>
+	</div>
+</div>
+		
+<div class="well" uib-collapse="vm.isCollapsed3">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="form-group">
+				<label for="inputPergunta9" class="control-label">
+					Como é realizado o monitoramento dos requisitos descritos no POP?
+				</label>
+				<input id="inputPergunta9"
+					   name="inputPergunta9"
+					   type="text"
+					   class="form-control"
+					   ng-model="vm.item.respostaList[8].texto"/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- collapsed 4 -->	
+<div class="row">
+	<div class="col-xs-12">
+		<fieldset>
+			<legend> 
+					<i ng-class="vm.isCollapsed4 ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" 
+					   uib-tooltip="{{vm.setTooltip(vm.isCollapsed4)}}" 
+					   tooltip-append-to-body="true" 
+					   tooltip-placement="auto" 
+					   role="button" 
+					   ng-click="vm.isCollapsed4 = !vm.isCollapsed4" 
+					   aria-hidden="true"></i>
+					4. Ação Corretiva
+			</legend>			
+		</fieldset>
+	</div>
+</div>
+		
+<div class="well" uib-collapse="vm.isCollapsed4">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="form-group">
+				<label for="inputPergunta10" class="control-label">
+					Quais ações corretivas são adotadas caso ocorra uma não conformidade?
+				</label>
+				<input id="inputPergunta10"
+					   name="inputPergunta10"
+					   type="text"
+					   class="form-control"
+					   ng-model="vm.item.respostaList[9].texto"/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- collapsed 5 -->	
+<div class="row">
+	<div class="col-xs-12">
+		<fieldset>
+			<legend> 
+					<i ng-class="vm.isCollapsed5 ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" 
+					   uib-tooltip="{{vm.setTooltip(vm.isCollapsed5)}}" 
+					   tooltip-append-to-body="true" 
+					   tooltip-placement="auto" 
+					   role="button" 
+					   ng-click="vm.isCollapsed5 = !vm.isCollapsed5" 
+					   aria-hidden="true"></i>
+					5. Verificação
+			</legend>			
+		</fieldset>
+	</div>
+</div>
+		
+<div class="well" uib-collapse="vm.isCollapsed5">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="form-group">
+				<label for="inputPergunta11" class="control-label">
+					Como são implementados os procedimentos de verificação?
+				</label>
+				<input id="inputPergunta11"
+					   name="inputPergunta11"
+					   type="text"
+					   class="form-control"
+					   ng-model="vm.item.respostaList[10].texto"/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- collapsed 6 -->	
+<div class="row">
+	<div class="col-xs-12">
+		<fieldset>
+			<legend> 
+					<i ng-class="vm.isCollapsed6 ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" 
+					   uib-tooltip="{{vm.setTooltip(vm.isCollapsed6)}}" 
+					   tooltip-append-to-body="true" 
+					   tooltip-placement="auto" 
+					   role="button" 
+					   ng-click="vm.isCollapsed6 = !vm.isCollapsed6" 
+					   aria-hidden="true"></i>
+					6. Registros
+			</legend>			
+		</fieldset>
+	</div>
+</div>
+		
+<div class="well" uib-collapse="vm.isCollapsed6">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="form-group">
+				<label for="inputPergunta13" class="control-label">
+					Como são armazenados os documentos descritos neste POP?
+				</label>
+				<input id="inputPergunta13"
+					   name="inputPergunta13"
+					   type="text"
+					   class="form-control"
+					   ng-model="vm.item.respostaList[11].texto"/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- collapsed 7 -->	
+<div class="row">
+	<div class="col-xs-12">
+		<fieldset>
+			<legend> 
+					<i ng-class="vm.isCollapsed7 ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" 
+					   uib-tooltip="{{vm.setTooltip(vm.isCollapsed7)}}" 
+					   tooltip-append-to-body="true" 
+					   tooltip-placement="auto" 
+					   role="button" 
+					   ng-click="vm.isCollapsed7 = !vm.isCollapsed7" 
+					   aria-hidden="true"></i>
+					7. Anexos
+			</legend>			
+		</fieldset>
+	</div>
+</div>
+		
+<div class="well" uib-collapse="vm.isCollapsed7">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="form-group">
+				<label for="inputPergunta14" class="control-label">
+					Quais são os documentos que se encontram em anexo neste POP?
+				</label>
+				<input id="inputPergunta14"
+					   name="inputPergunta14"
+					   type="text"
+					   class="form-control"
+					   ng-model="vm.item.respostaList[12].texto"/>
+			</div>
+		</div>
+	</div>
+</div>

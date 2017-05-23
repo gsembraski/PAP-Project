@@ -19,6 +19,7 @@
 		vm.SetManualVisualizar = SetManualVisualizar;
 		vm.temManual = temManual;
 		vm.temManualSelecionado = temManualSelecionado;
+		vm.download = download;
 		
 		function buscar(){
 			vm.usuario = angular.fromJson(vm.storage.getItem('security'));
@@ -34,6 +35,10 @@
     	
     	function editar(id){
 			$state.go('^.editar', { id: id });
+    	}
+    	
+    	function download(id){
+    		manualServices.download(id);
     	}
     	
     	function excluir(id){

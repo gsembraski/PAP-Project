@@ -6,8 +6,8 @@
    		<script rel="stylesheet" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     
 		<!-- Bootstrap -->
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="bootstrap/css/css-custom.css" rel="stylesheet">
+		<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="node_modules/bootstrap/dist/css/css-custom.css" rel="stylesheet">
 		<link href="node_modules/toastr/build/toastr.css" rel="stylesheet"/>
 	
 		<!-- Font Awesome -->
@@ -28,6 +28,8 @@
 		<script src='node_modules/textangular/dist/textAngular-rangy.min.js'></script>
 		<script src='node_modules/textangular/dist/textAngular-sanitize.min.js'></script>
 		<script src='node_modules/textangular/dist/textAngular.min.js'></script>
+		<script src='node_modules/angular-ui-mask/dist/mask.js'></script>
+		<script src="node_modules/file-saver/FileSaver.min.js" type="text/javascript"></script>
 
 				
 		<div ng-include="'app/layout/master-page.html'"></div>
@@ -52,6 +54,7 @@
 		<script src="app/components/router/router-helper.provider.js" type="text/javascript"></script>
 		<script src="app/layout/layout.route.js" type="text/javascript"></script>
 		<script src="app/manual/manual.route.js" type="text/javascript"></script>
+		<script src="app/pop/pop.route.js" type="text/javascript"></script>
 		<script src="app/empresa/empresa.route.js" type="text/javascript"></script>
 		
 		<!-- Controller -->
@@ -64,6 +67,7 @@
 		<script src="app/manual/manual-listar.controller.js" type="text/javascript"></script>
 		<script src="app/manual/manual-inserir.controller.js" type="text/javascript"></script>
 		<script src="app/manual/manual-editar.controller.js" type="text/javascript"></script>
+		<script src="app/pop/pop-listar-tipo.controller.js" type="text/javascript"></script>
 		<script src="app/pop/pop-listar.controller.js" type="text/javascript"></script>
 		<script src="app/pop/pop-inserir.controller.js" type="text/javascript"></script>
 		<script src="app/pop/pop-editar.controller.js" type="text/javascript"></script>

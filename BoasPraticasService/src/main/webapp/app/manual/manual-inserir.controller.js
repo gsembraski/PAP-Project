@@ -56,25 +56,22 @@
 		vm.isCollapsed417 = true;
 		vm.isCollapsed418 = true;
 		
+		vm.inicieManual = inicieManual;
 		vm.salvar = salvar;
 		vm.cancelar = cancelar;
 		vm.podeVisualizar = podeVisualizar;
-		vm.setEmpresa = setEmpresa;
 		vm.setTooltip = setTooltip;
-		
-		activate();
-		
-		function activate(){
-			inicieManual();
-		}
-		
-		function inicieManual(){				
+				
+		function inicieManual(){			
 			for(var i = 0; i <= 88; i++){
 				var resposta = {};
 				resposta.texto = '';
 				resposta.numeroResposta = i + 1;
 				vm.item.respostaList.push(resposta);
 			}
+			vm.item.revisao = 1;
+			vm.item.empresaID = vm.empresa.id;	
+			setEmpresa();
 		}
 		
 		function podeVisualizar(){
@@ -91,8 +88,6 @@
 		
 		function setEmpresa(){
 			if(vm.empresa){
-				vm.item.revisao = 1;
-				vm.item.empresaID = vm.empresa.id;
 				vm.item.respostaList[4].texto = vm.empresa.razaoSocial;
 				vm.item.respostaList[5].texto = vm.empresa.nomeFantasia;
 				vm.item.respostaList[8].texto = vm.empresa.cnpj;

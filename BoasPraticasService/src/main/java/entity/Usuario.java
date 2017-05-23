@@ -16,9 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table (name="usuario")
 public class Usuario implements Serializable {
-
-	public Usuario() {
-	}
+	public Usuario(){};
 
 	@Id
 	@GeneratedValue
@@ -29,8 +27,17 @@ public class Usuario implements Serializable {
 	private String Senha;
 	private Date UltimoAcesso;
 	private static final long serialVersionUID = 1L;
-	
 
+	public Usuario(String nome,
+				   String sobrenome,
+				   String email,
+				   String senha) {
+		Nome = nome;
+		Sobrenome = sobrenome;
+		Email = email;
+		Senha = senha;
+	}
+	
 	public Integer getId() {
 		return ID;
 	}

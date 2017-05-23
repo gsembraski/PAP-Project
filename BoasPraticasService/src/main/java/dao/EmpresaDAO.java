@@ -8,11 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import entity.Empresa;
-import entity.Usuario;
-import viewModel.empresaViewModel.EmpresaCadastrarViewModel;
-import viewModel.empresaViewModel.EmpresaEditarViewModel;
-import viewModel.empresaViewModel.EmpresaViewModel;
+import entity.*;
+import viewModel.*;
 
 @Stateless
 public class EmpresaDAO {
@@ -23,11 +20,12 @@ public class EmpresaDAO {
 	public void Cadastrar(EmpresaCadastrarViewModel item) throws Exception {
 		try {
 
-			Usuario usuario = em.find(Usuario.class, item.UsuarioID);
+			Usuario usuario = (Usuario) em.createQuery("from Usuario where Email = :email")
+					 .setParameter("email", item.getUsuarioEmail()).getSingleResult();
 			Empresa empresa = new Empresa();
-			empresa.setCNPJ(item.CNPJ);
-			empresa.setRazaoSocial(item.RazaoSocial);
-			empresa.setNomeFantasia(item.NomeFantasia);
+			empresa.setCNPJ(item.getCNPJ());
+			empresa.setRazaoSocial(item.getRazaoSocial());
+			empresa.setNomeFantasia(item.getNomeFantasia());
 			empresa.setUsuario(usuario);
 			
 			em.persist(empresa);
@@ -52,10 +50,12 @@ public class EmpresaDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<EmpresaViewModel> Buscar(int usuarioID) throws Exception {
+	public List<EmpresaViewModel> Buscar(String usuarioEmail) throws Exception {
 		try {
+			Usuario usuario = (Usuario) em.createQuery("from Usuario where Email = :email")
+					 .setParameter("email", usuarioEmail).getSingleResult();
 			Query query = em.createQuery("from Empresa where usuario_id = :usuario_id");
-			query.setParameter("usuario_id", usuarioID);
+			query.setParameter("usuario_id", usuario.getId());
 			
 			List<Empresa> itens = (List<Empresa>) query.getResultList();
 			List<EmpresaViewModel> models = ToListViewModel(itens);

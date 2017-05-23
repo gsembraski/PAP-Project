@@ -5,17 +5,18 @@
         .module('app.manual')
         .factory('manualServices', manualServices);
 
-    manualServices.$inject = ['$http', '$q'];
-	function manualServices($http, $q) {
+    manualServices.$inject = ['$http', '$q', '$filter'];
+	function manualServices($http, $q, $filter) {
 	
-		var api = 'http://localhost:8080/BoasPraticasService/rs/api/manual/';
+		var api = 'rs/authenticad/api/manual/';
 		
 		var service = {
 				cadastrar: cadastrar,
 				atualizar: atualizar,
 				deletar: deletar,
 				buscar: buscar,
-				buscarItem: buscarItem
+				buscarItem: buscarItem,
+				download: download
 		};
 		return service;
 		
@@ -55,6 +56,21 @@
                 };
                 
                 return $http(req);
+		}
+		
+		function download(id){
+            var req = {
+                    method: 'GET',
+                    url: api + 'gerarManual/' +id,
+                    responseType: 'blob'
+                };
+                
+                return $http(req).then(function (response) {
+                	var data = new $filter('date')(new Date(),'dd-MM-yyyy');
+
+                	var blob = new Blob([response.data], {type: "application/octet-stream"});
+                	saveAs(blob, "mbp-"+ data +".docx");
+                });
 		}
 	}
 })();

@@ -12,6 +12,7 @@
 		vm.id = $state.params.id;
 		vm.item = {};
         vm.storage = $window.localStorage;
+		vm.operacao = 'Cadastrar';
 		
 		vm.cancelar = cancelar;
 		vm.diretivasInformadas = diretivasInformadas;
@@ -30,8 +31,8 @@
     	}
 		
 		function salvar(form){
-			if(form.$valid && diretivasInformadas()){
-				vm.item.usuarioID = vm.usuario.id;
+			if(form.$valid && vm.usuario){
+				vm.item.usuarioEmail = vm.usuario.login;
 				empresaService.cadastrar(vm.item).then(function(response){
 					$state.go('^.listar');
 					toastr.success('Empresa cadastrada com sucesso!');

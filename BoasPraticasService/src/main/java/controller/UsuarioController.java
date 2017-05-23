@@ -1,5 +1,7 @@
 package controller;
 
+import java.security.Key;
+
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -12,9 +14,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import dao.UsuarioDAO;
-import entity.Usuario;
-import viewModel.usuarioViewModel.UsuarioViewModel;
+import dao.*;
+import entity.*;
+import viewModel.*;
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.impl.crypto.MacProvider;
 
 @Path("api/usuario/")
 @Produces({MediaType.APPLICATION_JSON,
@@ -25,9 +31,8 @@ public class UsuarioController {
 	
 	@EJB
 	private UsuarioDAO usuarioDAO;
-
 	
-	@GET
+	@GET 
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("{email}")
@@ -40,12 +45,17 @@ public class UsuarioController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("logar/")
-	public Response Logar(Usuario usuarioLogar){		
+	public Response Logar(UsuarioLogarViewModel usuarioLogar) throws Exception{		
 		UsuarioViewModel usuario = usuarioDAO.Logar(usuarioLogar);
 		
-		if(usuario != null)
+		if(usuario != null){
+			String compactJws = Jwts.builder()
+					.setSubject(usuario.getEmail())
+					.signWith(SignatureAlgorithm.HS512, "manual")
+					.compact();
+			System.out.println(compactJws);
 			return Response.ok(usuario).build();
-		
+		}
 		return Response.serverError().build();
 	}
 	
@@ -53,7 +63,7 @@ public class UsuarioController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("")
-	public void Salvar(Usuario usuarioCadastrar){
+	public void Salvar(UsuarioCadastrarViewModel usuarioCadastrar){
 		usuarioDAO.Cadastrar(usuarioCadastrar);
 	}
 	
@@ -61,7 +71,7 @@ public class UsuarioController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("{id}")
-	public void Atualizar(@PathParam("id") int id, Usuario usuarioAtualizar){
+	public void Atualizar(@PathParam("id") int id, UsuarioAtualizarViewModel usuarioAtualizar){
 		usuarioDAO.Atualizar(usuarioAtualizar);
 	}
 	

@@ -14,12 +14,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import dao.EmpresaDAO;
-import viewModel.empresaViewModel.EmpresaCadastrarViewModel;
-import viewModel.empresaViewModel.EmpresaEditarViewModel;
-import viewModel.empresaViewModel.EmpresaViewModel;
+import dao.*;
+import viewModel.*;
 
-@Path("api/empresa/")
+@Path("/authenticad/api/empresa/")
 @Produces({MediaType.APPLICATION_JSON,
 		  MediaType.APPLICATION_XML})
 @Consumes({MediaType.APPLICATION_JSON,
@@ -32,9 +30,9 @@ public class EmpresaController {
 	@GET
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
-	@Path("{usuarioID}")
-	public Response Buscar(@PathParam("usuarioID") int usuarioID) throws Exception{
-		List<EmpresaViewModel> models = empresaDAO.Buscar(usuarioID);
+	@Path("{email}")
+	public Response Buscar(@PathParam("email") String email) throws Exception{
+		List<EmpresaViewModel> models = empresaDAO.Buscar(email);
 		return Response.ok(models).build();
 	}	
 	

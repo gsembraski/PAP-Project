@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,16 +10,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.ws.rs.WebApplicationException;
 
-import entity.Empresa;
-import entity.Manual;
-import entity.Resposta;
-import entity.Usuario;
-import viewModel.manualViewModel.ManualAtualizarViewModel;
-import viewModel.manualViewModel.ManualCadastroViewModel;
-import viewModel.manualViewModel.ManualViewModel;
-import viewModel.respostaViewModel.RespostaAtualizarViewModel;
-import viewModel.respostaViewModel.RespostaCadastrarViewModel;
-import viewModel.respostaViewModel.RespostaViewModel;
+import entity.*;
+import negocio.*;
+import viewModel.*;
 
 @Stateless
 public class ManualDAO {
@@ -143,7 +137,22 @@ public class ManualDAO {
 			Manual item = em.find(Manual.class, id);
 			em.remove(item);
 		}catch (Exception e) {
-			// TODO: handle exception
+			throw new WebApplicationException(e.getMessage(), e);
+		}
+	}
+	
+	public File GerarManual(int id) {
+		try {
+			
+			Manual item = em.find(Manual.class, id);
+
+			DocumentoNegocio geradoc = new DocumentoNegocio();
+			File arquivo = geradoc.GerarDocumento(item, null);
+
+			return arquivo;
+			
+		} catch (Exception e) {
+			throw new WebApplicationException(e.getMessage(), e);
 		}
 	}
 }

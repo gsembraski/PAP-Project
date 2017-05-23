@@ -11,6 +11,7 @@
 		
 		vm.id = $state.params.id;
 		vm.item = {};
+		vm.operacao = 'Editar';
 		
 		vm.buscarItem = buscarItem;
 		vm.cancelar = cancelar;

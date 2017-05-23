@@ -14,8 +14,7 @@
 	            text: 'MANUAL', 'class': "['fa fa-fw fa-book']", state: 'app.manual.listar'
 	        },
            {
-               text: 'POPs', 'class': "['fa fa-fw fa-cubes']", itens: [
-               ]
+               text: 'POPs', 'class': "['fa fa-fw fa-cubes']", state: 'app.pop.listaTipo'
            },
            {
 	            text: 'EMPRESA', 'class': "['fa fa-fw fa-users']", state: 'app.empresa.listar'

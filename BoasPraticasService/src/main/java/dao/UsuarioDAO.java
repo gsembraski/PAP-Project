@@ -5,10 +5,11 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.servlet.ServletException;
 import javax.ws.rs.WebApplicationException;
 
-import entity.Usuario;
-import viewModel.usuarioViewModel.UsuarioViewModel;;
+import entity.*;
+import viewModel.*;;
 
 @Stateless
 public class UsuarioDAO {
@@ -20,7 +21,7 @@ public class UsuarioDAO {
 	 * @see dao.UsuarioDAOInterface#Logar(model.UsuarioModel.UsuarioLogarViewModel)
 	 */
 	@SuppressWarnings("unchecked")
-	public UsuarioViewModel Logar(Usuario usuarioLogar) {
+	public UsuarioViewModel Logar(UsuarioLogarViewModel usuarioLogar) throws Exception {
 		UsuarioViewModel model = null;
 		try{
 			List<Usuario> usuarios = em.createQuery("from Usuario where Email = :email")
@@ -30,30 +31,32 @@ public class UsuarioDAO {
 			if(usuarios.size() > 0){
 				Usuario usuario = usuarios.get(0);
 				
-				if(usuario.getSenha().equalsIgnoreCase(usuarioLogar.getSenha())){
-					model = toViewModel(usuario);
-					model.setMensagem("Usuario conectado com sucesso!");
-				}
+				if(!usuario.getSenha().equalsIgnoreCase(usuarioLogar.getSenha()))
+					throw new ServletException("Senha inválida.");
+				
+				
+				model = toViewModel(usuario);
+				return model;
 			}
-			return model;
+			else
+				throw new ServletException("Usuário não encontrado.");
+			
 		}catch (Exception e) {
-			throw new WebApplicationException(e);
+			throw new ServletException(e.getMessage());
 		}
 	}
 
-	public void Cadastrar(Usuario usuarioCadastrar) {		
+	public void Cadastrar(UsuarioCadastrarViewModel usuarioCadastrar) {		
 		try {
-			em.persist(usuarioCadastrar);
+			Usuario usuario = new Usuario(usuarioCadastrar.getNome(), usuarioCadastrar.getSobrenome(), usuarioCadastrar.getEmail(), usuarioCadastrar.getSenha());			
+			
+			em.persist(usuario);
 		} catch (Exception e) {
 			throw new WebApplicationException(e);
 		}
 	}
 
-
-	/* (non-Javadoc)
-	 * @see dao.UsuarioDAOInterface#Atualizar(model.UsuarioModel.UsuarioAtualizarViewModel)
-	 */
-	public void Atualizar(Usuario usuarioAtualizar) {
+	public void Atualizar(UsuarioAtualizarViewModel usuarioAtualizar) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -76,10 +79,6 @@ public class UsuarioDAO {
 		}
 	}
 
-
-	/* (non-Javadoc)
-	 * @see dao.UsuarioDAOInterface#Excluir(int)
-	 */
 	public void Excluir(int id) {
 		// TODO Auto-generated method stub
 		
@@ -87,11 +86,11 @@ public class UsuarioDAO {
 	
 	public static UsuarioViewModel toViewModel(Usuario qr){
 		UsuarioViewModel item = new UsuarioViewModel();
-		item.ID = qr.getId();
-		item.Nome = qr.getNome();
-		item.Sobrenome = qr.getSobrenome();
-		item.Email = qr.getEmail();
-		item.Guid = qr.getSenha();
+		item.setID(qr.getId());
+		item.setNome(qr.getNome());
+		item.setSobrenome(qr.getSobrenome());
+		item.setEmail(qr.getEmail());
+		item.setSenha(qr.getSenha());
 		
 		return item;
 	}

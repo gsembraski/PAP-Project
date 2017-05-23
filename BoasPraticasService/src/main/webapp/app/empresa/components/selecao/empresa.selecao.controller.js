@@ -26,7 +26,7 @@
         }
 
         function buscar() {
-        	empresaService.buscar(vm.usuario.id).then(function (response) {
+        	empresaService.buscar(vm.usuario.login).then(function (response) {
                 vm.listaItens = response.data;
             });
         }

@@ -8,7 +8,7 @@
     empresaService.$inject = ['$http', '$q'];
 	function empresaService($http, $q) {
 	
-		var api = 'http://localhost:8080/BoasPraticasService/rs/api/empresa/';
+		var api = 'rs/authenticad/api/empresa/';
 		
 		var service = {
 				cadastrar: cadastrar,
@@ -19,10 +19,10 @@
 		};
 		return service;
 		
-		function buscar(usuarioID){
+		function buscar(usuarioEmail){
             var req = {
                     method: 'GET',
-                    url: api + usuarioID
+                    url: api + usuarioEmail
                 };
                 
                 return $http(req);
@@ -31,7 +31,7 @@
 		function buscarItem(id){
             var req = {
                     method: 'GET',
-                    url: api + 'buscarItem/' +id
+                    url: api + 'buscarItem/' + id
                 };
                 
                 return $http(req);

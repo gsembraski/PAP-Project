@@ -6,7 +6,7 @@
         .factory('homeServices', homeServices)
 	function homeServices($http, $q) {
 	
-		var api = 'http://localhost:8080/BoasPraticasService/rs/api/usuario/';
+		var api = 'rs/api/usuario/';
 		
 		var service = {
 				logar: logar,
@@ -21,10 +21,6 @@
 		function logar(item){
 			var url = api + 'logar/';
 			
-			item.id = null;
-			
-
-
             return $http.put(url, angular.toJson(item));
 		}        
 		
@@ -39,9 +35,6 @@
 		
 		function cadastrar(item){
 			var url = api;
-            
-            item.id = null;
-            item.ultimoAcesso = null;
 
             return $http.post(url, angular.toJson(item));
 		}

@@ -9,7 +9,7 @@
 		<class>entity.Usuario</class>
 		<class>entity.Empresa</class>
 		<class>entity.Manual</class>
-		<class>entity.POP</class>
+		<class>entity.Pop</class>
 		<class>entity.Resposta</class>
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action" value="create"/>

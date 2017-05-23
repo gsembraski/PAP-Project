@@ -23,7 +23,6 @@
 	
 	function entrar(form){
 		if(form.$valid){
-			vm.item.ultimoAcesso = new Date();
 			homeServices.logar(vm.item).then(function(response){
 				if(response.data && response.data.id){   
 					upStorage(response.data);

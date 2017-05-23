@@ -29,14 +29,14 @@ public class Resposta implements Serializable {
 	private Manual Manual;
 	
 	@ManyToOne
-	private POP Pop;
+	private Pop Pop;
 	
 	private static final long serialVersionUID = 1L;
 
 	public Resposta(int numResp,
 					String texto,
 					Manual manual,
-					POP pop) {
+					Pop pop) {
 		NumeroResposta = numResp;
 		Texto = texto;
 		Manual = manual;
@@ -82,11 +82,11 @@ public class Resposta implements Serializable {
 		Manual = manual;
 	}
 
-	public POP getPop() {
+	public Pop getPop() {
 		return Pop;
 	}
 
-	public void setPop(POP pop) {
+	public void setPop(Pop pop) {
 		Pop = pop;
 	}
 }
