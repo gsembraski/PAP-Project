@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.WebApplicationException;
@@ -20,7 +23,9 @@ import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.apache.poi.xwpf.usermodel.XWPFTableCell;
 import org.apache.poi.xwpf.usermodel.XWPFTableRow;
 
-import entity.*;
+import entity.Manual;
+import entity.Pop;
+import entity.Resposta;
 
 
 public class DocumentoNegocio {
@@ -87,13 +92,24 @@ public class DocumentoNegocio {
 	}
 
 	private void replaceParagraph(XWPFParagraph paragraph, Manual mbp, Pop pop) {		
-		/*int i = 0;
-		List<AnexoModelo> anexos = mbp.getAnexo();*/
-
-		List<Resposta> respostas = mbp.getResposta();
-		//InputStream is = new ByteArrayInputStream(mbp.getEmpresa().getLogo());
-
-
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Date date = new Date();
+		List<Resposta> respostas = null;
+		
+		if(pop == null){
+			respostas = mbp.getResposta();
+		}else{
+			respostas = pop.getResposta();
+			for (XWPFRun r : paragraph.getRuns()) {
+				String text = r.getText(r.getTextPosition());
+				if (text != null && text.contains("{0poprs}")) {
+					text = text.replace("{0poprs}", pop.getEmpresa().getRazaoSocial());
+					r.setText(text, 0);
+				}
+			}
+		}
+		
+		//substitui as resposta 
 		for (Resposta respostaM : respostas) {
 			for (XWPFRun r : paragraph.getRuns()) {
 				String text = r.getText(r.getTextPosition());
@@ -101,6 +117,23 @@ public class DocumentoNegocio {
 					text = text.replace("{" + respostaM.getNumeroResposta() + "resposta}", respostaM.getTexto());
 					r.setText(text, 0);
 				}
+			}
+		}
+		
+		// substitui o número de revisão, data e código do documento
+		for (XWPFRun r : paragraph.getRuns()) {
+			String text = r.getText(r.getTextPosition());
+			if (text != null && text.contains("{0rev}")) {
+				text = text.replace("{0rev}", Integer.toString(mbp.getRevisao()));
+				r.setText(text, 0);
+			}	
+			if (text != null && text.contains("{0data}")) {
+				text = text.replace("{0data}", dateFormat.format(date));
+				r.setText(text, 0);
+			}
+			if (text != null && text.contains("{0cab}")) {
+				text = text.replace("{0cab}", "mbp-01");
+				r.setText(text, 0);
 			}
 		}
 
