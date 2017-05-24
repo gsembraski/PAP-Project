@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,18 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.ws.rs.WebApplicationException;
 
-import entity.*;
-import viewModel.*;
+import entity.Empresa;
+import entity.Manual;
+import entity.Pop;
+import entity.Resposta;
+import entity.Usuario;
+import negocio.DocumentoNegocio;
+import viewModel.PopAtualizarViewModel;
+import viewModel.PopCadastroViewModel;
+import viewModel.PopViewModel;
+import viewModel.RespostaAtualizarViewModel;
+import viewModel.RespostaCadastrarViewModel;
+import viewModel.RespostaViewModel;
 
 @Stateless
 public class PopDAO {
@@ -132,6 +143,21 @@ public class PopDAO {
 			
 		} catch (Exception e) {
 			throw new WebApplicationException(e);
+		}
+	}
+	
+	public File GerarPOP(int id) {
+		try {
+			
+			Pop item = em.find(Pop.class, id);
+
+			DocumentoNegocio geradoc = new DocumentoNegocio();
+			File arquivo = geradoc.GerarDocumento(null, item);
+
+			return arquivo;
+			
+		} catch (Exception e) {
+			throw new WebApplicationException(e.getMessage(), e);
 		}
 	}
 	

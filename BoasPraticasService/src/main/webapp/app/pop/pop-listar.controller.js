@@ -17,6 +17,7 @@
 
 		vm.buscar = buscar;
 		vm.cadastrar = cadastrar;
+		vm.download = download;
     	vm.editar = editar;
     	vm.excluir = excluir;
     	vm.selecaoPop = selecaoPop;
@@ -40,6 +41,10 @@
 		function cadastrar(){
 			$state.go('^.cadastrar', { popNum: vm.popNum })
 		}
+    	
+    	function download(id){
+    		popServices.download(id, vm.popNum);
+    	}
     	
     	function editar(id){
 			$state.go('^.editar', { id: id });

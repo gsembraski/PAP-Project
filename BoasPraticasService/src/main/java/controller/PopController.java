@@ -1,10 +1,14 @@
 package controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
+import javax.ws.rs.core.Response.ResponseBuilder;
 
 import dao.*;
 import viewModel.*;
@@ -37,6 +41,28 @@ public class PopController {
 	@Path("")
 	public void Salvar(PopCadastroViewModel item){
 		popDAO.Cadastrar(item);
+	}
+	
+	@GET
+	@Consumes({MediaType.APPLICATION_JSON,
+		   MediaType.TEXT_PLAIN})
+	@Path("gerarPop/{id}")
+	public Response GerarPop(@PathParam("id") int id) {
+		
+		
+		try {
+			File arquivo = popDAO.GerarPOP(id);
+			FileInputStream in = new FileInputStream(arquivo);
+			
+			ResponseBuilder response = Response.ok(in);
+		    response.header("Content-Disposition", "attachment; filename=\""+arquivo.getName() +"\"");
+		    return response.build();
+		    
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	@PUT

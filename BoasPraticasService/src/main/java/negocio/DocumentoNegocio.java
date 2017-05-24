@@ -40,7 +40,7 @@ public class DocumentoNegocio {
 				caminhoTemplate = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\templates\\manual1.docx";
 				caminhoFinal = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\formatado\\"+mbp.getEmpresa().getCNPJ() + ".docx";
 			}else{
-				caminhoTemplate = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\templates\\pop"+ pop.getNumPop() +".docx";
+				caminhoTemplate = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\templates\\POP"+ pop.getNumPop() +".docx";
 				caminhoFinal = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\formatado\\"+pop.getEmpresa().getCNPJ() + ".docx";
 			}
 			
@@ -120,13 +120,17 @@ public class DocumentoNegocio {
 			}
 		}
 		
-		// substitui o número de revisão, data e código do documento
+		// substitui o nï¿½mero de revisï¿½o, data e cï¿½digo do documento
 		for (XWPFRun r : paragraph.getRuns()) {
 			String text = r.getText(r.getTextPosition());
-			if (text != null && text.contains("{0rev}")) {
-				text = text.replace("{0rev}", Integer.toString(mbp.getRevisao()));
-				r.setText(text, 0);
-			}	
+			if (text != null && text.contains("{0rev}")) 
+				if(mbp != null){
+					text = text.replace("{0rev}", Integer.toString(mbp.getRevisao()));
+					r.setText(text, 0);
+				}else{
+					text = text.replace("{0rev}", Integer.toString(pop.getRevisao()));
+					r.setText(text, 0);
+				}				
 			if (text != null && text.contains("{0data}")) {
 				text = text.replace("{0data}", dateFormat.format(date));
 				r.setText(text, 0);

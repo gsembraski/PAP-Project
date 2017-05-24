@@ -5,8 +5,8 @@
         .module('app.pop')
         .factory('popServices', popServices);
 
-    popServices.$inject = ['$http', '$q'];
-	function popServices($http, $q) {
+    popServices.$inject = ['$http', '$q', '$filter'];
+	function popServices($http, $q, $filter) {
 	
 		var api = 'rs/authenticad/api/pop/';
 		
@@ -15,7 +15,8 @@
 				atualizar: atualizar,
 				deletar: deletar,
 				buscar: buscar,
-				buscarItem: buscarItem
+				buscarItem: buscarItem,
+				download: download
 		};
 		return service;
 		
@@ -55,6 +56,21 @@
                 };
                 
                 return $http(req);
+		}
+		
+		function download(id, popNum){
+            var req = {
+                    method: 'GET',
+                    url: api + 'gerarPop/' +id,
+                    responseType: 'blob'
+                };
+                
+                return $http(req).then(function (response) {
+                	var data = new $filter('date')(new Date(),'dd-MM-yyyy');
+
+                	var blob = new Blob([response.data], {type: "application/octet-stream"});
+                	saveAs(blob, "pop" + popNum + "-" + data +".docx");
+                });
 		}
 	}
 })();
