@@ -27,10 +27,19 @@ public class DocumentoNegocio {
 	
 
 	public File GerarDocumento(Manual mbp, Pop pop){
+		String caminhoTemplate = "";
+		String caminhoFinal = "";
+		
 		try{
-			String caminhoArquivo = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\templates\\manual1.docx";
-			String caminhoFinal = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\formatado\\"+mbp.getEmpresa().getCNPJ() + ".docx";
-			FileInputStream fisdoc = new FileInputStream(caminhoArquivo);
+			if(pop == null){
+				caminhoTemplate = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\templates\\manual1.docx";
+				caminhoFinal = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\formatado\\"+mbp.getEmpresa().getCNPJ() + ".docx";
+			}else{
+				caminhoTemplate = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\templates\\pop"+ pop.getNumPop() +".docx";
+				caminhoFinal = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\formatado\\"+pop.getEmpresa().getCNPJ() + ".docx";
+			}
+			
+			FileInputStream fisdoc = new FileInputStream(caminhoTemplate);
 			XWPFDocument doc = new XWPFDocument(OPCPackage.open(fisdoc));
 
 			// REPLACE ALL HEADERS
