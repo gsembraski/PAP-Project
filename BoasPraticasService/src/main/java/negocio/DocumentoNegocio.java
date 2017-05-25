@@ -123,21 +123,28 @@ public class DocumentoNegocio {
 		// substitui o n�mero de revis�o, data e c�digo do documento
 		for (XWPFRun r : paragraph.getRuns()) {
 			String text = r.getText(r.getTextPosition());
-			if (text != null && text.contains("{0rev}")) 
-				if(mbp != null){
+			if(mbp != null){
+				if (text != null && text.contains("{0rev}")) {
 					text = text.replace("{0rev}", Integer.toString(mbp.getRevisao()));
 					r.setText(text, 0);
-				}else{
+				}	
+				if (text != null && text.contains("{0cab}")) {
+					text = text.replace("{0cab}", "mbp-01");
+					r.setText(text, 0);
+				}
+				if (text != null && text.contains("{0data}")) {
+					text = text.replace("{0data}", dateFormat.format(date));
+					r.setText(text, 0);
+				}
+			}else{
+				if (text != null && text.contains("{0rev}")) {
 					text = text.replace("{0rev}", Integer.toString(pop.getRevisao()));
 					r.setText(text, 0);
-				}				
-			if (text != null && text.contains("{0data}")) {
-				text = text.replace("{0data}", dateFormat.format(date));
-				r.setText(text, 0);
-			}
-			if (text != null && text.contains("{0cab}")) {
-				text = text.replace("{0cab}", "mbp-01");
-				r.setText(text, 0);
+				}	
+				if (text != null && text.contains("{0cab}")) {
+					text = text.replace("{0cab}", "pop-0" + pop.getNumPop());
+					r.setText(text, 0);
+				}
 			}
 		}
 
