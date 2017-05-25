@@ -12,6 +12,7 @@
 		vm.id = $state.params.id;
 		vm.item = {};
 		vm.operacao = 'Editar';
+		vm.busy = false;
 		
 		vm.buscarItem = buscarItem;
 		vm.cancelar = cancelar;
@@ -35,11 +36,18 @@
     	}
 		
 		function salvar(form){
-			if(form.$valid && diretivasInformadas())
+			if(form.$valid && diretivasInformadas()){
+	            if (vm.busy)
+	                return;
+
+	            vm.busy = true;
 				empresaService.atualizar(vm.item).then(function(response){
 					$state.go('^.listar');
 					toastr.success('Empresa atualizada com sucesso!');
-				});
+				}).finally(function () {
+	                vm.busy = false;
+	            });
+			}
 		}
 		
 		function temAlteracao(){

@@ -15,6 +15,7 @@
 		vm.item.respostaList = [];
 		vm.listaEmpresas = [];
 		vm.operacao = 'Cadastrar';
+		vm.busy = false;
 		
 		//collapsed
 		vm.isCollapsed1 = true;
@@ -79,11 +80,18 @@
 		}
 		
 		function salvar(form){
-			if(form.$valid)				
+			if(form.$valid) {		
+	            if (vm.busy)
+	                return;
+
+	            vm.busy = true;
 				manualServices.cadastrar(vm.item).then(function(response){
 					toastr.success('Manual salvo com sucesso!');
 					$state.go('^.listar');						
-				});
+				}).finally(function () {
+	                vm.busy = false;
+	            });
+			}
 		}
 		
 		function setEmpresa(){

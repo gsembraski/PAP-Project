@@ -18,7 +18,7 @@
             <div class="pull-right navbar-nav">
                 <ul class="nav navbar-nav pull-right">
                     <li>
-                        <a ng-if="vm.autenticado()"><span><i class="fa fa-user" uib-tooltip="{{vm.usuario()}}" tooltip-placement="bottom"></i></span></a>
+                        <a ng-if="vm.autenticado()"><span>{{vm.usuario()}} <i class="fa fa-user"></i></span></a>
                     </li>
                     <li>
                         <a ng-click="vm.sair()" ng-show="vm.autenticado()" style="cursor: pointer"><span><i class="fa fa-sign-out"></i> Sair</span></a>

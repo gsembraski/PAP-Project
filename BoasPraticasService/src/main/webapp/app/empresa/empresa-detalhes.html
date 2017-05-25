@@ -16,7 +16,7 @@
             
                 <button type="submit"
                         class="btn btn-success"
-                        ng-disabled="form.$submitted && (form.$invalid || !vm.diretivasInformadas())">
+                        ng-disabled="form.$submitted && (form.$invalid || !vm.diretivasInformadas() || vm.busy)">
                     <i class="fa fa-check"></i>
                     Salvar
                 </button>

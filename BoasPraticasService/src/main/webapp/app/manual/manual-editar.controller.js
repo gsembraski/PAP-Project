@@ -12,6 +12,7 @@
 		vm.id = $state.params.id;
 		vm.item = {};
 		vm.operacao = 'Editar';
+		vm.busy = false;
 		
 		//collapsed
 		vm.isCollapsed1 = true;
@@ -70,11 +71,19 @@
 		}
 		
 		function salvar(form){
-			if(form.$valid)				
+			if(form.$valid)	{
+	            if (vm.busy)
+	                return;
+
+	            vm.busy = true;
+						
 				manualServices.atualizar(vm.item).then(function(response){
 					toastr.success('Manual salvo com sucesso!');
 					$state.go('^.listar');						
-				});
+				}).finally(function () {
+	                vm.busy = false;
+	            });
+			}
 		}
 		
 		function setTooltip(expande){

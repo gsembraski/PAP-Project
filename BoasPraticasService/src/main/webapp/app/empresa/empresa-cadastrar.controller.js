@@ -13,6 +13,7 @@
 		vm.item = {};
         vm.storage = $window.localStorage;
 		vm.operacao = 'Cadastrar';
+		vm.busy = false;
 		
 		vm.cancelar = cancelar;
 		vm.diretivasInformadas = diretivasInformadas;
@@ -32,11 +33,17 @@
 		
 		function salvar(form){
 			if(form.$valid && vm.usuario){
+	            if (vm.busy)
+	                return;
+
+	            vm.busy = true;
 				vm.item.usuarioEmail = vm.usuario.login;
 				empresaService.cadastrar(vm.item).then(function(response){
 					$state.go('^.listar');
 					toastr.success('Empresa cadastrada com sucesso!');
-				});
+				}).finally(function () {
+	                vm.busy = false;
+	            });
 			}
 		}
 		

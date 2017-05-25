@@ -13,6 +13,7 @@
 		vm.id = $state.params.id;
 		vm.item = {};
 		vm.operacao = 'Editar';
+		vm.busy = false;
 		
 		//collapsed
 		vm.isCollapsed1 = true;
@@ -45,11 +46,18 @@
 		}
 		
 		function salvar(form){
-			if(form.$valid)				
+			if(form.$valid){		
+	            if (vm.busy)
+	                return;
+
+	            vm.busy = true;			
 				popServices.atualizar(vm.item).then(function(response){
 					toastr.success('POP - ' + vm.popDescricao + ' salvo com sucesso!');
 					$state.go('^.listar', {popNum: vm.popNum});						
-				});
+				}).finally(function () {
+	                vm.busy = false;
+	            });
+			}
 		}
 		
 		function SetPopDescricao(){
