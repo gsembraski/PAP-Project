@@ -5,9 +5,9 @@
         .module('app.layout')
         .controller('PaginaInicialController', PaginaInicialController);
 
-    PaginaInicialController.$inject = ['$uibModal'];
+    PaginaInicialController.$inject = ['$uibModal', 'seguranca'];
 
-    function PaginaInicialController($uibModal) {
+    function PaginaInicialController($uibModal, seguranca) {
         /* jshint validthis:true */
         var vm = this;
         vm.autenticado = autenticado;
@@ -15,7 +15,7 @@
 		vm.abrirModalLogin = abrirModalLogin;
 
         function autenticado() {
-            return true;
+            return seguranca.authenticated;
         }
 		
 		function abrirModalCadastrar(operacao){
@@ -39,9 +39,6 @@
 			      controllerAs: 'vm',
 			      backdrop: 'static'
 			    });
-            modalInstance.result.then(function () {
-                vm.autenticado = true;
-            });
 		}
     }
 })();

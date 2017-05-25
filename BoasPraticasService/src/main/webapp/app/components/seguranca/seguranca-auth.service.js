@@ -15,11 +15,11 @@
         return service;
 
         function realizarLogin(username, password) {
-            var credenciais = $window.btoa(username + ':' + password);
+        	/*var credenciais = $window.btoa(username + ':' + password);
             var config = { headers: { Authorization: 'Basic ' + credenciais, 'X-Requested-With': 'XMLHttpRequest' } };
             var url = 'api/seguranca/autenticacao';
 
-            return $http.get(url, config);
+            return $http.get(url, config);*/
         }
     }
 })();

@@ -5,13 +5,14 @@
         .module('app.seguranca')
         .factory('seguranca', seguranca);
 
-    seguranca.$inject = ['$http', '$timeout', '$window', '$rootScope', 'storage', 'segurancaAuthService', 'AUTH_EVENTS'];
+    seguranca.$inject = ['$http', '$timeout', '$window', '$rootScope', 'segurancaAuthService', 'AUTH_EVENTS'];
     /* @ngInject */
-    function seguranca($http, $timeout, $window, $rootScope, storage, segurancaAuthService, AUTH_EVENTS) {
+    function seguranca($http, $timeout, $window, $rootScope, segurancaAuthService, AUTH_EVENTS) {
         var user = null;
+    	var storage = $window.localStorage;
         
         function getUser() {
-            if (user === null) {
+            /*if (user === null) {
                 var stored = storage.getItem('security');
                 if (angular.isObject(stored) && angular.isString(stored.name) && angular.isString(stored.token))
                     user = stored;
@@ -20,12 +21,13 @@
                 var permissionToken = decodeJWT(user.token);
                 if (permissionToken === null)
                     return null;
-            }
-            return user;
+            }*/
+        	//alterar
+            return user = angular.fromJson(storage.getItem('security'));
         }
         
         function setUser(value) {
-            storage.setItem('security', value);
+        	storage.setItem('security', value);
             user = value;
         }
         
@@ -76,9 +78,9 @@
             },
             logout: function (callback) {
                 setUser(null);
-                if (angular.isFunction(callback))
+                /*if (angular.isFunction(callback))
                     $timeout(function () { callback(true); });
-                $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
+                $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);*/
             }
         };
 

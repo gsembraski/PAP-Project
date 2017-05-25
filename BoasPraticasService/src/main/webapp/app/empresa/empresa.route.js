@@ -5,13 +5,13 @@
         .module('app.empresa')
         .run(appRun);
 
-    appRun.$inject = ['routerHelper'];
+    appRun.$inject = ['routerHelper', 'nivelAcesso', 'recursos'];
     /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
+    function appRun(routerHelper, nivelAcesso, recursos) {
+        routerHelper.configureStates(getStates(nivelAcesso, recursos));
     }
 
-    function getStates() {
+    function getStates(nivelAcesso, recursos) {
         return [
             {
                 state: 'app.empresa',
@@ -21,6 +21,12 @@
                     templateUrl: 'app/empresa/empresa.html',
                     ncyBreadcrumb: {
                         label: 'Empresa'
+                    },
+                    data: {
+                        permission: {
+                            resource: recursos.mbp,
+                            level: nivelAcesso.SELECIONAR
+                        }
                     }
                 }
             },

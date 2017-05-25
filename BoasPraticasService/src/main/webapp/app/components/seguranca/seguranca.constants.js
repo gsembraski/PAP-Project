@@ -5,7 +5,7 @@
         .module('app.seguranca')        .
         constant('nivelAcesso', { SELECIONAR: 1, INSERIR: 2, MODIFICAR: 4, EXCLUIR: 8 })
         .constant('recursos', {
-            agenda: 'boas-praticas'
+            mbp: 'mbp'
         })
         .constant('AUTH_EVENTS', {
             loginSuccess: 'auth-login-success',

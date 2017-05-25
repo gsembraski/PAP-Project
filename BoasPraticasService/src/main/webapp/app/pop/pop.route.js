@@ -5,13 +5,13 @@
         .module('app.pop')
         .run(appRun);
 
-    appRun.$inject = ['routerHelper'];
+    appRun.$inject = ['routerHelper', 'nivelAcesso', 'recursos'];
     /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
+    function appRun(routerHelper, nivelAcesso, recursos) {
+        routerHelper.configureStates(getStates(nivelAcesso, recursos));
     }
 
-    function getStates() {
+    function getStates(nivelAcesso, recursos) {
         return [
             {
                 state: 'app.pop',
@@ -21,6 +21,12 @@
                     templateUrl: 'app/pop/pop.html',
                     ncyBreadcrumb: {
                         label: 'POP'
+                    },
+                    data: {
+                        permission: {
+                            resource: recursos.mbp,
+                            level: nivelAcesso.SELECIONAR
+                        }
                     }
                 }
             },

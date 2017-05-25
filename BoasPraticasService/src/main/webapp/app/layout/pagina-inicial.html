@@ -1,55 +1,59 @@
 <div class="row">
 	
 	<div class="col-xs-9">
-			<h1 class="h1-custumer">Sobre</h1>
+		<h1 class="h1-custumer">Sobre</h1>
 			
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="form-group">						
-						<h4 class="h1-custumer">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">						
+					<h4 class="h1-custumer">
 							<p/>	Desenvolvido em 2016 pela equipe do Programa de Aplicação Profissional do Curso de tecnólogo em análise e desenvolvimento de Sistemas, este sistema permite a criação, guarda e exportação do Manual de Boas Práticas (MBP) e dos Procedimentos Operacionais Padronizados (POP), ambos documentos exigidos pela Resolução da Diretoria Colegiada n. 216 de 2004 pela Anvisa. 
 							<p/> 	MBP documento que descreve as operações realizadas pelo estabelecimento, incluindo, no mínimo, os requisitos higiênico-sanitários dos edifícios, a manutenção e higienização das instalações, dos equipamentos e dos utensílios, o controle da água de abastecimento, o controle integrado de vetores e pragas urbanas, a capacitação profissional, o controle da higiene
 							e saúde dos manipuladores, o manejo de resíduos e o controle e garantia de qualidade do alimento preparado.
 							<p/>O POP:  procedimento escrito de forma objetiva que estabelece instruções sequenciais para a realização de operações rotineiras e específicas na manipulação de alimentos.
-						</h4>
-					</div>
-				</div>
-			</div>
-    </div>
-    		<div class="col-xs-3">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="form-group">
-						<p class="h1-custumer">Para iniciarmos realize o cadastro</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-xs-12">
-						<button class="btn btn-custumer btn-lg btn-block"
-								ng-click="vm.abrirModalCadastrar('Cadastro')">
-							Cadastre-se <i class="fa fa-user-plus"></i>
-						</button>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-xs-12 text-center">
-					<h3 class="h1-custumer">ou</h3>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="form-group">
-						<button class="btn btn-default-custumer btn-lg btn-block"
-								ng-click="vm.abrirModalLogin()">
-							Fazer Login <i class="fa fa-arrow-right"></i>
-						</button>
-					</div>
+					</h4>
 				</div>
 			</div>
 		</div>
+    </div>
+    
+    <div class="col-xs-3" ng-if="vm.autenticado()">
+    
+    </div>
+    
+    <div class="col-xs-3" ng-if="!vm.autenticado()">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<p class="h1-custumer">Para iniciarmos realize o cadastro</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+					<button class="btn btn-custumer btn-lg btn-block"
+							ng-click="vm.abrirModalCadastrar('Cadastro')">
+							Cadastre-se <i class="fa fa-user-plus"></i>
+					</button>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<h3 class="h1-custumer">ou</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<button class="btn btn-default-custumer btn-lg btn-block"
+							ng-click="vm.abrirModalLogin()">
+						Fazer Login <i class="fa fa-arrow-right"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 

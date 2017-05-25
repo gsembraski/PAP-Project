@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -30,7 +31,7 @@ public class EmpresaDAO {
 			
 			em.persist(empresa);
 		} catch (Exception e) {
-			throw new Exception(e);
+			throw new ExecutionException(e.getCause());
 		}
 	}
 	
@@ -42,6 +43,18 @@ public class EmpresaDAO {
 			empresa.setCNPJ(item.getCNPJ());
 			empresa.setNomeFantasia(item.getNomeFantasia());
 			empresa.setRazaoSocial(item.getRazaoSocial());
+			List<Manual>manualList = empresa.getManualLista();
+			for (Manual manual : manualList) {
+				List<Resposta> respostas = manual.getResposta();
+				for (Resposta resposta : respostas)
+					if(resposta.getNumeroResposta() == 5)
+						resposta.setTexto(empresa.getRazaoSocial());
+					else if(resposta.getNumeroResposta() == 6)
+						resposta.setTexto(empresa.getNomeFantasia());
+					else if(resposta.getNumeroResposta() == 9)
+						resposta.setTexto(empresa.getCNPJ());
+			}
+			
 			em.merge(empresa);
 			
 		} catch (Exception e) {

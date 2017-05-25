@@ -90,4 +90,20 @@ public class Empresa implements Serializable {
 		Usuario = usuario;
 	}
 
+	public List<Manual> getManualLista() {
+		return ManualLista;
+	}
+
+	public void setManualLista(List<Manual> manualLista) {
+		ManualLista = manualLista;
+	}
+
+	public List<Pop> getPopLista() {
+		return PopLista;
+	}
+
+	public void setPopLista(List<Pop> popLista) {
+		PopLista = popLista;
+	}
+
 }

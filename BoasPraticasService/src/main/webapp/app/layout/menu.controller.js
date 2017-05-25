@@ -5,10 +5,11 @@
         .module('app.layout')
         .controller('MenuController', MenuController);
 
-    MenuController.$inject = ['$state', '$rootScope', 'routerHelper'];
+    MenuController.$inject = ['$state', '$rootScope', '$window', 'routerHelper', 'seguranca'];
     /* @ngInject */
-    function MenuController($state, $rootScope, routerHelper) {
+    function MenuController($state, $rootScope, $window, routerHelper, seguranca) {
         var vm = this;
+        
         vm.itens = [
 	        {
 	            text: 'MANUAL', 'class': "['fa fa-fw fa-book']", state: 'app.manual.listar'
@@ -22,13 +23,15 @@
 
         ];
 
+        vm.storage = $window.localStorage;
+
         vm.autenticado = autenticado;
         vm.entrar = entrar;
         vm.sair = sair;
         vm.usuario = usuario;
 
         function autenticado() {
-            return true;//seguranca.authenticated;
+            return seguranca.authenticated;
         }
 
         function entrar() {
@@ -36,12 +39,21 @@
         }
 
         function sair() {
-            //seguranca.logout();
-            $state.go('inicio');
+            seguranca.logout();
+            $state.go('home');
         }
 
         function usuario() {
-            return 'Geovana Sembraski Nocera';
+            var user = angular.fromJson(vm.storage.getItem('security'));
+            if(user)
+            	return user.login;
+            return '';
+        }
+        
+        activate();
+        
+        function activate(){
+        	
         }
     }
 })();
