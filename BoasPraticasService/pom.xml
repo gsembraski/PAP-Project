@@ -20,12 +20,14 @@
 	    <groupId>javax.ejb</groupId>
 	    <artifactId>ejb-api</artifactId>
 	    <version>3.0</version>
+	    <scope>provided</scope>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
 	<dependency>
-	    <groupId>org.hibernate.javax.persistence</groupId>
-	    <artifactId>hibernate-jpa-2.1-api</artifactId>
-	    <version>1.0.0.Final</version>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>5.0.10.Final</version>
+	    <scope>provided</scope>
 	</dependency>
     <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client -->
 	<dependency>
@@ -38,6 +40,7 @@
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-validator</artifactId>
 	    <version>5.4.1.Final</version>
+	    <scope>provided</scope>
 	</dependency>
     <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
 	<dependency>
@@ -50,6 +53,7 @@
 	    <groupId>javax.servlet</groupId>
 	    <artifactId>servlet-api</artifactId>
 	    <version>3.0-alpha-1</version>
+	    <scope>provided</scope>
 	</dependency>
     <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
 	<dependency>
