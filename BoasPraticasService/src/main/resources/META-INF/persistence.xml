@@ -12,7 +12,6 @@
 		<class>entity.Pop</class>
 		<class>entity.Resposta</class>
 		<properties>
-			<property name="javax.persistence.schema-generation.database.action" value="create"/>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 		</properties>
 	</persistence-unit>
