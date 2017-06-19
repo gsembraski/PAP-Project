@@ -5,37 +5,39 @@
 		<div class="alert alert-warning" role="alert" ng-if="!vm.temItemSelecionado()">Nenhum empresa selecionado</div>
 		<div ng-if="vm.temItemSelecionado()">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-2">
 					<div class="form-group">
-						<label class="control-label">Nome Fantasia</label>
-						<input type="text"
-							   class="form-control"
-							   ng-model="vm.item.nomeFantasia"
-							   disabled/>
+						<label class="control-label">Nome Fantasia: </label>
+					<div>
+				</div>
+				<div class="col-xs-10">
+					<div class="form-group">
+					 	<p>{{vm.item.nomeFantasia}}</p>
 					</div>
 				</div>
 			</div>
 							
 			<div class="row">
 			
-				<div class="col-xs-8">
+				<div class="col-xs-2">
 					<div class="form-group">
 						<label class="control-label">Razão Social</label>
-						<input type="text"
-							   class="form-control"
-							   ng-model="vm.item.razaoSocial"
-							   disabled/>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+					 	<p>{{vm.item.razaoSocial}}</p>
 					</div>
 				</div>
 			
-				<div class="col-xs-4">
+				<div class="col-xs-1">
 					<div class="form-group">
 						<label class="control-label">CNPJ</label>
-						<input type="text"
-							   class="form-control"
-							   ng-model="vm.item.cnpj"
-							   disabled
-					   		   ui-mask="99.999.999/9999-99"/>
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="form-group">
+					 	<p ui-mask="99.999.999/9999-99">{{vm.item.cnpj}}</p>
 					</div>
 				</div>
 			</div>
