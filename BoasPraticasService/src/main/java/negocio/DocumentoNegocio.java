@@ -29,6 +29,12 @@ import entity.Resposta;
 
 
 public class DocumentoNegocio {
+
+    private String templatesDir;
+
+    public DocumentoNegocio() {
+        templatesDir = System.getProperties().getProperty("boaspraticas.templatesDir");
+    }
 	
 
 	public File GerarDocumento(Manual mbp, Pop pop){
@@ -37,11 +43,11 @@ public class DocumentoNegocio {
 		
 		try{
 			if(pop == null){
-				caminhoTemplate = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\templates\\manual1.docx";
-				caminhoFinal = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\formatado\\"+mbp.getEmpresa().getCNPJ() + ".docx";
+				caminhoTemplate = templatesDir+"/templates/manual1.docx";
+				caminhoFinal = templatesDir+"/formatado/"+mbp.getEmpresa().getCNPJ() + ".docx";
 			}else{
-				caminhoTemplate = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\templates\\POP"+ pop.getNumPop() +".docx";
-				caminhoFinal = "C:\\Projeto\\PAP-Project\\BoasPraticasService\\formatado\\"+pop.getEmpresa().getCNPJ() + ".docx";
+				caminhoTemplate = templatesDir+"/templates/POP"+ pop.getNumPop() +".docx";
+				caminhoFinal = templatesDir+"/formatado/"+pop.getEmpresa().getCNPJ() + ".docx";
 			}
 			
 			FileInputStream fisdoc = new FileInputStream(caminhoTemplate);

@@ -32,14 +32,14 @@ public class UsuarioDAO {
 				Usuario usuario = usuarios.get(0);
 				
 				if(!usuario.getSenha().equalsIgnoreCase(usuarioLogar.getSenha()))
-					throw new ServletException("Senha inv·lida.");
+					throw new ServletException("Senha inv√°lida.");
 				
 				
 				model = toViewModel(usuario);
 				return model;
 			}
 			else
-				throw new ServletException("Usu·rio n„o encontrado.");
+				throw new ServletException("Usu√°rio n√£o encontrado.");
 			
 		}catch (Exception e) {
 			throw new ServletException(e.getMessage());
