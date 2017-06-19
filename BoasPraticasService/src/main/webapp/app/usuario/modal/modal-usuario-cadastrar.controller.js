@@ -2,21 +2,23 @@
     'use strict';
 
     angular
-        .module('app.home')
+        .module('app.usuario')
         .controller('UsuarioCadastrarController', UsuarioCadastrarController);
 
-    UsuarioCadastrarController.$inject = ['params', '$uibModalInstance', 'homeServices'];
+    UsuarioCadastrarController.$inject = ['$uibModalInstance', 'usuarioServices'];
     /* @ngInject */
-    function UsuarioCadastrarController(params, $uibModalInstance, homeServices) {
+    function UsuarioCadastrarController($uibModalInstance, usuarioServices) {
 		var vm = this;	
 		
 		vm.item = {};
 		vm.confirmacaoSenha = '';
-		vm.operacao = params.operacao;
 		vm.temEmailCadastrado = false;
+		vm.busy = false;
+		vm.ediao = false;
 		
 		vm.cancelar = cancelar;
 		vm.diretivasInformadas = diretivasInformadas;
+		vm.getOperacao = getOperacao;
 		vm.minSenha = minSenha;
 		vm.minConfirmaSenha = minConfirmaSenha;
 		vm.salvar = salvar;
@@ -29,11 +31,16 @@
 			$uibModalInstance.dismiss();
 		}
 		
+		function getOperacao(){
+			if(vm.ediao)
+				return "Editar";
+			return "Cadastrar";
+		}
+		
 		function salvar(form){
 			if(form.$valid && diretivasInformadas()){
-				homeServices.cadastrar(vm.item).then(function(response){
+				usuarioServices.cadastrar(vm.item).then(function(response){
 					if(response){
-						vm.mensagem = 'Login cadastrado com sucesso!';
 	                    toastr.success('Usuário cadastrado com sucesso!');
 						vm.success = true;
 						vm.hasError = false;
@@ -62,7 +69,7 @@
 		
 		function validarEmail(form){
 			if(form.inputEmail.$valid && vm.item.email)
-				homeServices.existeEmail(vm.item.email).then(function(response){
+				usuarioServices.existeEmail(vm.item.email).then(function(response){
 					vm.temEmailCadastrado = response.data;
 				});
 		}

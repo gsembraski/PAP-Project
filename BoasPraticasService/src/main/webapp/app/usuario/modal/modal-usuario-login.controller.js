@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('app.home')
+        .module('app.usuario')
         .controller('UsuarioLoginController', UsuarioLoginController);
 
-    UsuarioLoginController.$inject = ['$window', '$uibModalInstance', 'homeServices'];
+    UsuarioLoginController.$inject = ['$window', '$uibModalInstance', 'usuarioServices'];
     /* @ngInject */
-    function UsuarioLoginController($window, $uibModalInstance, homeServices) {
+    function UsuarioLoginController($window, $uibModalInstance, usuarioServices) {
         		
 	var vm = this;
 		
@@ -23,14 +23,15 @@
 	
 	function entrar(form){
 		if(form.$valid){
-			homeServices.logar(vm.item).then(function(response){
-				if(response.data && response.data.id){   
-					upStorage(response.data);
-					toastr.success('Login realizado com sucesso!');
-					$uibModalInstance.close();
+			usuarioServices.logar(vm.item).then(function(response){
+				if(response.data.statusCodeValue == 404 || response.data.statusCodeValue == 500){
+					toastr.error('Verifique se o usuário e senha foram digitados corretamente');
+					return;
 				}
-			}, function(response){
-				toastr.error('Verifique se o usuário e senha foram digitados corretamente');
+					
+				upStorage(response.data.body);
+				toastr.success('Login realizado com sucesso!');
+				$uibModalInstance.close();
 			});
 		}
 	}

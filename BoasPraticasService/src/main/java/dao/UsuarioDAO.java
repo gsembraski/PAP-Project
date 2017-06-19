@@ -56,9 +56,19 @@ public class UsuarioDAO {
 		}
 	}
 
-	public void Atualizar(UsuarioAtualizarViewModel usuarioAtualizar) {
-		// TODO Auto-generated method stub
-		
+	public void Atualizar(UsuarioAtualizarViewModel item) throws Exception {
+		try{			
+			Usuario usuario = em.find(Usuario.class, item.getID());		
+
+			usuario.setNome(item.getNome());
+			usuario.setSobrenome(item.getSobrenome());
+			usuario.setSenha(item.getSenha());
+			
+			em.merge(usuario);
+			
+		} catch (Exception e) {
+			throw new Exception(e);
+		}		
 	}
 	
 	public boolean ExisteEmail(String email){
@@ -79,9 +89,41 @@ public class UsuarioDAO {
 		}
 	}
 
-	public void Excluir(int id) {
-		// TODO Auto-generated method stub
-		
+	public boolean Excluir(String email) {
+		try{
+			@SuppressWarnings("unchecked")
+			List<Usuario> usuarios = (List<Usuario>) em.createQuery("from Usuario where Email = :email")
+					 .setParameter("email", email)
+					 .getResultList();
+			if(usuarios.size() > 0){
+				Usuario item = usuarios.get(0);
+				em.remove(item);
+				return true;
+			}
+			return false;
+		}catch (Exception e) {
+			throw new WebApplicationException(e);
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public UsuarioViewModel BuscarItem(String email) throws Exception {
+		try {
+			List<Usuario> usuarios = em.createQuery("from Usuario where Email = :email")
+					 .setParameter("email", email)
+					 .getResultList();
+				
+			if(usuarios.size() > 0){
+				Usuario usuario = usuarios.get(0);
+				UsuarioViewModel model = toViewModel(usuario);
+				return model;
+			}
+			else
+				throw new ServletException("Usuário não encontrado.");
+				
+		} catch (Exception e) {
+			throw new Exception(e);
+		}
 	}
 	
 	public static UsuarioViewModel toViewModel(Usuario qr){

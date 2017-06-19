@@ -75,6 +75,11 @@
 		}
 		
 		function salvar(form){
+			if(!vm.empresa){
+				toastr.warning('Para salvar o pop de ' + SetPopDescricao() + 'selecione uma empresa.');
+				return;
+			}
+			
 			if(form.$valid){				
 	            if (vm.busy)
 	                return;
@@ -95,7 +100,7 @@
 			else if(vm.popNum == 2)
 				vm.popDescricao = 'Controle Integrado de Vetores e Pragas Urbanas';
 			else if(vm.popNum == 3)
-				vm.popDescricao = 'Higienização do Reservatório de água';
+				vm.popDescricao = 'Higienização do Reservatório de Água';
 			else if(vm.popNum == 4)
 				vm.popDescricao = 'Higiene e à Saúde dos Manipuladores';
 		}

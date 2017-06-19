@@ -14,6 +14,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import dao.*;
 import viewModel.*;
 
@@ -38,7 +41,7 @@ public class EmpresaController {
 	
 	@GET
 	@Consumes({MediaType.APPLICATION_JSON,
-		   MediaType.TEXT_PLAIN})
+		       MediaType.TEXT_PLAIN})
 	@Path("buscarItem/{id}")
 	public Response TemEmail(@PathParam("id") int id) throws Exception{
 		EmpresaViewModel model = empresaDAO.BuscarItem(id);
@@ -49,16 +52,26 @@ public class EmpresaController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("")
-	public void Salvar(EmpresaCadastrarViewModel empresa) throws Exception{
-		empresaDAO.Cadastrar(empresa);
+	public ResponseEntity<String> Salvar(EmpresaCadastrarViewModel empresa) throws Exception{
+		try {
+			empresaDAO.Cadastrar(empresa);			
+			return new ResponseEntity<String>("Empresa cadastrada com sucesso!", HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<String>("CNPJ inválido.", HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("{id}")
-	public void Atualizar(@PathParam("id") int id, EmpresaEditarViewModel empresa) throws Exception{
-		empresaDAO.Atualizar(empresa);
+	public ResponseEntity<String> Atualizar(@PathParam("id") int id, EmpresaEditarViewModel empresa) throws Exception{
+		try {
+			empresaDAO.Atualizar(empresa);			
+			return new ResponseEntity<String>("Empresa atualizada com sucesso!", HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<String>("CNPJ inválido.", HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	@DELETE

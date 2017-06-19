@@ -1,7 +1,5 @@
 package controller;
 
-import java.security.Key;
-
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -14,13 +12,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import dao.*;
-import entity.*;
 import viewModel.*;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.impl.crypto.MacProvider;
 
 @Path("api/usuario/")
 @Produces({MediaType.APPLICATION_JSON,
@@ -45,7 +44,8 @@ public class UsuarioController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("logar/")
-	public Response Logar(UsuarioLogarViewModel usuarioLogar) throws Exception{		
+	public ResponseEntity<UsuarioViewModel> Logar(UsuarioLogarViewModel usuarioLogar) throws Exception{		
+		try{
 		UsuarioViewModel usuario = usuarioDAO.Logar(usuarioLogar);
 		
 		if(usuario != null){
@@ -53,10 +53,11 @@ public class UsuarioController {
 					.setSubject(usuario.getEmail())
 					.signWith(SignatureAlgorithm.HS512, "manual")
 					.compact();
-			System.out.println(compactJws);
-			return Response.ok(usuario).build();
 		}
-		return Response.serverError().build();
+			return new ResponseEntity<UsuarioViewModel>(usuario, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<UsuarioViewModel>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	@POST
@@ -71,15 +72,31 @@ public class UsuarioController {
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
 	@Path("{id}")
-	public void Atualizar(@PathParam("id") int id, UsuarioAtualizarViewModel usuarioAtualizar){
+	public void Atualizar(@PathParam("id") int id, UsuarioAtualizarViewModel usuarioAtualizar) throws Exception{
 		usuarioDAO.Atualizar(usuarioAtualizar);
 	}
 	
 	@DELETE
 	@Consumes({MediaType.APPLICATION_JSON,
 		   MediaType.TEXT_PLAIN})
-	@Path("{id}")
-	public void Excluir(@PathParam("id") int id) {
-		usuarioDAO.Excluir(id);
+	@Path("{email}")
+	public Response Excluir(@PathParam("email") String email) {
+		try {
+			boolean usuarioExcluido = usuarioDAO.Excluir(email);
+			if(usuarioExcluido)
+				return Response.ok().build();
+			return Response.status(404).build();
+		} catch (Exception e) {
+			return Response.serverError().build();
+		}
 	}
+	
+	@GET
+	@Consumes({MediaType.APPLICATION_JSON,
+		   MediaType.TEXT_PLAIN})
+	@Path("buscarItem/{email}")
+	public Response BuscarItem(@PathParam("email") String email) throws Exception{
+		UsuarioViewModel model = usuarioDAO.BuscarItem(email);
+		return Response.ok(model).build();
+	}	
 }

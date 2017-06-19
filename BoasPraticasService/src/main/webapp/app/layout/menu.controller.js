@@ -5,26 +5,29 @@
         .module('app.layout')
         .controller('MenuController', MenuController);
 
-    MenuController.$inject = ['$state', '$rootScope', '$window', 'routerHelper', 'seguranca'];
+    MenuController.$inject = ['$uibModal', '$state', '$rootScope', '$window', 'routerHelper', 'seguranca'];
     /* @ngInject */
-    function MenuController($state, $rootScope, $window, routerHelper, seguranca) {
+    function MenuController($uibModal, $state, $rootScope, $window, routerHelper, seguranca) {
         var vm = this;
         
         vm.itens = [
-	        {
+
+            {
+ 	            text: 'EMPRESA', 'class': "['fa fa-fw fa-users']", state: 'app.empresa.listar'
+ 	        },
+        	{
 	            text: 'MANUAL', 'class': "['fa fa-fw fa-book']", state: 'app.manual.listar'
 	        },
            {
                text: 'POPs', 'class': "['fa fa-fw fa-cubes']", state: 'app.pop.listaTipo'
-           },
-           {
-	            text: 'EMPRESA', 'class': "['fa fa-fw fa-users']", state: 'app.empresa.listar'
-	        }
+           }
 
         ];
 
         vm.storage = $window.localStorage;
+        vm.user = "";
 
+        vm.abrirModalEditar = abrirModalEditar;
         vm.autenticado = autenticado;
         vm.entrar = entrar;
         vm.sair = sair;
@@ -37,6 +40,19 @@
         function entrar() {
             $state.go('login');
         }
+		
+		function abrirModalEditar(){
+			$uibModal.open({
+			      templateUrl: 'app/usuario/modal/modal-usuario.html',
+			      size: 'md',
+			      controller: 'UsuarioEditarController',
+			      controllerAs: 'vm',
+			      backdrop: 'static',
+			      resolve: {
+			    	  params:{email: vm.user.login}
+			      }
+				});
+		}
 
         function sair() {
             seguranca.logout();
@@ -44,9 +60,9 @@
         }
 
         function usuario() {
-            var user = angular.fromJson(vm.storage.getItem('security'));
-            if(user)
-            	return user.login;
+        	vm.user = angular.fromJson(vm.storage.getItem('security'));
+            if(vm.user)
+            	return vm.user.login;
             return '';
         }
         

@@ -1,16 +1,16 @@
 <div class="row">
 	
 	<div class="col-xs-9">
-		<h1 class="h1-custumer">Sobre</h1>
-			
+		<h1 class="h1-custumer">Sobre</h1>			
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="form-group">						
 					<h4 class="h1-custumer">
-							<p class="recuo">	Desenvolvido em 2016 pela equipe do Programa de Aplicação Profissional do Curso de tecnólogo em análise e desenvolvimento de Sistemas, este sistema permite a criação, guarda e exportação do Manual de Boas Práticas (MBP) e dos Procedimentos Operacionais Padronizados (POP), ambos documentos exigidos pela Resolução da Diretoria Colegiada n. 216 de 2004 pela Anvisa.</p> 
-							<p class="recuo"> 	MBP documento que descreve as operações realizadas pelo estabelecimento, incluindo, no mínimo, os requisitos higiênico-sanitários dos edifícios, a manutenção e higienização das instalações, dos equipamentos e dos utensílios, o controle da água de abastecimento, o controle integrado de vetores e pragas urbanas, a capacitação profissional, o controle da higiene
-							e saúde dos manipuladores, o manejo de resíduos e o controle e garantia de qualidade do alimento preparado.</p>
-							<p class="recuo">O POP:  procedimento escrito de forma objetiva que estabelece instruções sequenciais para a realização de operações rotineiras e específicas na manipulação de alimentos.</p>
+						<p style="text-align: justify;">Desenvolvido em 2016 pela equipe do Programa de Aplicação Profissional do Curso de tecnólogo em análise desenvolvimento de Sistemas, este sistema permite a criação, atualização e download do Manual de Boas Práticas(MBP) e dos Procedimentos Operacionais Padronizados(POP), ambos documentos exigidos pela Resoluçãoda Diretoria Colegiada n. 216 de 2004 pela Anvisa.<p/>
+						<br/>
+						<p style="text-align: justify;">O Manual de Boas Práticas é um documento que descreve as operações realizadas pelo estabelecimento, incluindo, no mínimo, os requisitos higiênico-sanitários dos edifícios, a manutenção e higienização das instalações, dos equipamentos e dos utensílios o controle da água de abastecimento, o controle integrado de vetores e pragas urbanas, a capacitação profissional, o controle da higiene e saúde dos manipuladores, o manejo de resíduos e o controle e garantia de qualidade do alimento preparado.</p>
+						<br/>
+						<p style="text-align: justify;">O Procedimento Operacional Padronizado é um documento onde são escritos os procedimentos de forma objetiva, que estabelece instruções sequenciais para a realização de operações rotineiras e específicas na manipulação de alimentos.<p/>
 					</h4>
 				</div>
 			</div>
@@ -18,13 +18,69 @@
     </div>
     
     <div class="col-xs-3" ng-if="vm.autenticado()">
-    
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<div class="panel panel-default">
+						  <div class="panel-heading">
+						  	<h4 class="h1-custumer">Informações da conta do usuário</h4>
+						  </div>
+						  <div class="panel-body">
+							<div class="row">
+								<div class="col-xs-3">
+									<div class="form-group">
+										<label class="control-label">Usuário: </label>
+									</div>
+								</div>
+								<div class="col-xs-9">
+									<div class="form-group">{{vm.item.email}}</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-3">
+									<div class="form-group">
+										<label class="control-label">Nome: </label>
+									</div>
+								</div>
+								<div class="col-xs-9">
+									<div class="form-group">{{vm.item.nome}} {{vm.item.sobrenome}}
+									</div>
+								</div>
+							</div>
+						 </div>
+					</div>				
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<button class="btn btn-custumer btn-lg btn-block"
+							ng-click="vm.abrirModalEditar()">
+							Editar Usuário <i class="fa fa-pencil-square-o"></i>
+					</button>
+				</div>
+			</div>		
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<button class="btn btn-default-custumer btn-lg btn-block"
+							ng-click="vm.excluirConta()">
+						    Excluir Conta <i class="fa fa-trash-o"></i>
+					</button>
+				</div>
+			</div>
+		</div>    
     </div>
     
     <div class="col-xs-3" ng-if="!vm.autenticado()">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="form-group">
+					<br/>
 					<p class="h1-custumer">Para iniciarmos realize o cadastro</p>
 				</div>
 			</div>
@@ -33,7 +89,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 					<button class="btn btn-custumer btn-lg btn-block"
-							ng-click="vm.abrirModalCadastrar('Cadastro')">
+							ng-click="vm.abrirModalCadastrar()">
 							Cadastre-se <i class="fa fa-user-plus"></i>
 					</button>
 			</div>
@@ -44,6 +100,7 @@
 				<h3 class="h1-custumer">ou</h3>
 			</div>
 		</div>
+		
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="form-group">

@@ -3,6 +3,7 @@
 		<fieldset><legend><h4  style="line-height: 2.5" class="h1-custumer">Visualizar Manual</h4></legend></fieldset>
 		
 		<div class="alert alert-warning" role="alert" ng-if="!vm.temManualSelecionado()">Nenhum manual selecionado</div>
+		<div ng-include="'app/manual/templates/visualizar-manual.template.html'" ng-if="vm.temManualSelecionado()"></div>
 	</div>
 	
 	<div class="col-xs-4">
@@ -21,6 +22,7 @@
 								<tr>
 									<th class="sr-only">Selecionar</th>
 									<th class="sr-only">Empresa</th>
+									<th class="sr-only">Revisão</th>
 									<th class="sr-only">Ações</th>
 								</tr>
 							</thead>
@@ -28,10 +30,11 @@
 								<tr ng-repeat="item in vm.listaManual" class="table-hover">
 									<td><input type="radio" name="blankRadio" id="blankRadio1" ng-click="vm.SetManualVisualizar(item)" uib-tooltip="Selecione para vizualizar" tooltip-append-to-body="true" ></td>
 									<td>{{item.respostaList[4].texto}}</td>
+									<td>{{item.revisao}}</td>
 									<td class="text-nowrap min-width text-right">
 										<i class="fa fa-lg fa-download" uib-tooltip="Download" tooltip-append-to-body="true" role="button" ng-click="vm.download(item.id)"></i>
 										<i class="fa fa-lg fa-pencil-square-o" uib-tooltip="Editar" tooltip-append-to-body="true" role="button" ng-click="vm.editar(item.id)"></i>
-										<i class="fa fa-lg fa-trash-o" uib-tooltip="Excluir" tooltip-append-to-body="true" role="button" ng-click="vm.excluir(item.id)"></i>
+										<i class="fa fa-lg fa-trash-o" uib-tooltip="Excluir" tooltip-append-to-body="true" role="button" ng-click="vm.excluir(item.id)" mensagem-confirm></i>
 									</td>
 								</tr>
 							</tbody>

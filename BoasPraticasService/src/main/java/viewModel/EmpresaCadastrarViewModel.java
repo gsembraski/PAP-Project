@@ -1,10 +1,13 @@
 package viewModel;
 
+import java.awt.Image;
+
 public class EmpresaCadastrarViewModel {
 	private String UsuarioEmail;
 	private String RazaoSocial;
 	private String NomeFantasia;
 	private String CNPJ;
+	private Image Imagem;
 	
 	public String getUsuarioEmail() {
 		return UsuarioEmail;
@@ -29,6 +32,12 @@ public class EmpresaCadastrarViewModel {
 	}
 	public void setCNPJ(String cNPJ) {
 		CNPJ = cNPJ;
+	}
+	public Image getImagem() {
+		return Imagem;
+	}
+	public void setImagem(Image imagem) {
+		Imagem = imagem;
 	}
 	
 }

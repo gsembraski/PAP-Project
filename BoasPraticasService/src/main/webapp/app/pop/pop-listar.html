@@ -3,6 +3,10 @@
 		<fieldset><legend><h4  style="line-height: 2.5" class="h1-custumer">Visualizar - POP {{vm.popDescricao}}</h4></legend></fieldset>
 		
 		<div class="alert alert-warning" role="alert" ng-if="!vm.temPopSelecionado()">Nenhum pop selecionado</div>
+		<div ng-include="'app/pop/templates/visualizar-pop1.template.html'" ng-if="vm.temPopSelecionado() && vm.popNum == 1"></div>
+		<div ng-include="'app/pop/templates/visualizar-pop2.template.html'" ng-if="vm.temPopSelecionado() && vm.popNum == 2"></div>
+		<div ng-include="'app/pop/templates/visualizar-pop3.template.html'" ng-if="vm.temPopSelecionado() && vm.popNum == 3"></div>
+		<div ng-include="'app/pop/templates/visualizar-pop4.template.html'" ng-if="vm.temPopSelecionado() && vm.popNum == 4"></div>
 	</div>
 	
 	<div class="col-xs-4">
@@ -21,6 +25,7 @@
 								<tr>
 									<th class="sr-only">Selecionar</th>
 									<th class="sr-only">Empresa</th>
+									<th class="sr-only">Revisão</th>
 									<th class="sr-only">Ações</th>
 								</tr>
 							</thead>
@@ -28,10 +33,11 @@
 								<tr ng-repeat="item in vm.listaPop" class="table-hover">
 									<td><input type="radio" name="blankRadio" id="blankRadio1" ng-click="vm.SetPopVisualizar(item)" uib-tooltip="Visualizar" tooltip-append-to-body="true" ></td>
 									<td>{{item.empresaRazaoSociao}}</td>
+									<td>{{item.revisao}}</td>
 									<td class="text-nowrap min-width text-right">
 										<i class="fa fa-lg fa-download" uib-tooltip="Download" tooltip-append-to-body="true" role="button" ng-click="vm.download(item.id)"></i>
 										<i class="fa fa-lg fa-pencil-square-o" uib-tooltip="Editar" tooltip-append-to-body="true" role="button" ng-click="vm.editar(item.id)"></i>
-										<i class="fa fa-lg fa-trash-o" uib-tooltip="Excluir" tooltip-append-to-body="true" role="button" ng-click="vm.excluir(item.id)"></i>
+										<i class="fa fa-lg fa-trash-o" uib-tooltip="Excluir" tooltip-append-to-body="true" role="button" ng-click="vm.excluir(item.id)" mensagem-confirm></i>
 									</td>
 								</tr>
 							</tbody>
