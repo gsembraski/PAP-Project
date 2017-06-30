@@ -101,11 +101,27 @@ public class DocumentoNegocio {
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = new Date();
 		List<Resposta> respostas = null;
+		String revisao;
+		
 		
 		if(pop == null){
 			respostas = mbp.getResposta();
+
+			if(mbp.getRevisao() < 10){
+				revisao = "0"+ mbp.getRevisao();
+			}else{
+				revisao = Integer.toString(mbp.getRevisao());
+			}
+			
 		}else{
 			respostas = pop.getResposta();
+			
+			if(pop.getRevisao() < 10){
+				revisao = "0"+ pop.getRevisao();
+			}else{
+				revisao = Integer.toString(pop.getRevisao());
+			}
+			
 			for (XWPFRun r : paragraph.getRuns()) {
 				String text = r.getText(r.getTextPosition());
 				if (text != null && text.contains("{0poprs}")) {
@@ -131,7 +147,7 @@ public class DocumentoNegocio {
 			String text = r.getText(r.getTextPosition());
 			if(mbp != null){
 				if (text != null && text.contains("{0rev}")) {
-					text = text.replace("{0rev}", Integer.toString(mbp.getRevisao()));
+					text = text.replace("{0rev}", revisao);
 					r.setText(text, 0);
 				}	
 				if (text != null && text.contains("{0cab}")) {
@@ -144,7 +160,7 @@ public class DocumentoNegocio {
 				}
 			}else{
 				if (text != null && text.contains("{0rev}")) {
-					text = text.replace("{0rev}", Integer.toString(pop.getRevisao()));
+					text = text.replace("{0rev}", revisao);
 					r.setText(text, 0);
 				}	
 				if (text != null && text.contains("{0cab}")) {
