@@ -80,7 +80,12 @@
 		}
 		
 		function salvar(form){
-			if(form.$valid) {		
+			if(!vm.empresa){
+				toastr.warning('Para salvar o manual selecione uma empresa.');
+				return;
+			}
+				
+			if(form.$valid && vm.empresa ) {		
 	            if (vm.busy)
 	                return;
 

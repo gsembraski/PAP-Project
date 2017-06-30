@@ -5,8 +5,8 @@
         .module('app.pop')
         .controller('PopEditarController', PopEditarController);
 
-    PopEditarController.$inject = ['$state', 'popServices'];
-	function PopEditarController($state, popServices){
+    PopEditarController.$inject = ['$state', '$uibModal', 'popServices'];
+	function PopEditarController($state, $uibModal, popServices){
 		var vm = this;
 
 		vm.popDescricao = '';
@@ -41,32 +41,48 @@
 			});
 		}
 		
+		function editar(){
+			if (vm.busy)
+				return;
+
+			vm.busy = true;			
+			popServices.atualizar(vm.item).then(function(response){
+				toastr.success('POP - ' + vm.popDescricao + ' salvo com sucesso!');
+				$state.go('^.listar', {popNum: vm.popNum});						
+			}).finally(function () {
+				vm.busy = false;
+			});
+		}
+		
 		function podeVisualizar(){
 			return (vm.empresaId && vm.operacao === 'Cadastrar') || vm.operacao === 'Editar';
 		}
 		
 		function salvar(form){
 			if(form.$valid){		
-	            if (vm.busy)
-	                return;
+				var modalInstance = $uibModal.open({
+				      templateUrl: 'app/pop/modal/modal-atualiza-revisao.html',
+				      controller: 'PopAtualizaRevisaoController',
+				      controllerAs: 'vm',
+				      backdrop: 'static'
+				    });
 
-	            vm.busy = true;			
-				popServices.atualizar(vm.item).then(function(response){
-					toastr.success('POP - ' + vm.popDescricao + ' salvo com sucesso!');
-					$state.go('^.listar', {popNum: vm.popNum});						
-				}).finally(function () {
-	                vm.busy = false;
-	            });
+			    modalInstance.result.then(function (selectedItem) {
+			    	vm.item.revisao++;
+			    	editar();
+			    }, function () {
+			    	editar();
+			    });
 			}
 		}
-		
+				
 		function SetPopDescricao(){
 			if(vm.popNum == 1)
 				vm.popDescricao = 'Higienização de Instalações, Equipamentos e Móveis';
 			else if(vm.popNum == 2)
 				vm.popDescricao = 'Controle Integrado de Vetores e Pragas Urbanas';
 			else if(vm.popNum == 3)
-				vm.popDescricao = 'Higienização do Reservatório de água';
+				vm.popDescricao = 'Higienização do Reservatório de Água';
 			else if(vm.popNum == 4)
 				vm.popDescricao = 'Higiene e à Saúde dos Manipuladores';
 		}

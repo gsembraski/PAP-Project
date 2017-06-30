@@ -70,7 +70,8 @@
 							   name="inputPergunta1"
 							   type="text"
 							   class="form-control"
-							   ng-model="vm.item.respostaList[0].texto"/>
+							   ng-model="vm.item.respostaList[0].texto"
+							   auto-focus/>
 					</div>
 				</div>
 			</div>
@@ -196,6 +197,25 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed41">	
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC41 = !mostraRDC41"></i>
+					</div>
+				</div>
+			
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC41">
+					Requisitos da RDC nº 216/2004: 
+					<br/>O responsável pelas atividades de manipulação dos alimentos deve ser o proprietário ou funcionário designado, devidamente capacitado, sem prejuízo dos casos em que há previsão legal para responsabilidade técnica (referente ao item 4.12.1).
+						 O responsável pelas atividades de manipulação dos alimentos deve ser comprovadamente submetido a curso de capacitação, abordando, no mínimo, os seguintes temas: Contaminantes alimentares; Doenças transmitidas por alimentos; Manipulação higiênica dos alimentos e Boas Práticas (referente ao item 4.12.2).
+		
+				</div>
+		
 				<div ng-include="'app/manual/templates/perguntas4.1.template.html'"></div>
 			</div>
 			
@@ -215,7 +235,7 @@
 				</div>
 			</div>
 			
-			<div uib-collapse="vm.isCollapsed42" class="margin-left">
+			<div uib-collapse="vm.isCollapsed42" class="margin-left">				
 				<div ng-include="'app/manual/templates/perguntas4.2.template.html'"></div>	
 			</div>
 			
@@ -258,7 +278,27 @@
 				</div>
 			</div>
 			
+			<div class="alert alert-success" role="alert">É recomendado que os requisitos de abastecimento de água seja descrito no Processo Operacional Padronizado (POP) Higienização do Reservatório de Água.</div>
+			
 			<div class="well" uib-collapse="vm.isCollapsed45">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC45 = !mostraRDC45"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC45">
+					Requisitos da RDC nº 216/2004: 
+					<br/>Deve ser utilizada somente água potável para manipulação de alimentos. Quando utilizada solução alternativa de abastecimento de água, a potabilidade deve ser atestada semestralmente mediante laudos laboratoriais, sem prejuízo de outras exigências revistas em legislação específica (referente ao item 4.4.1).
+					<br/>O gelo para utilização em alimentos deve ser fabricado a partir de água potável, mantido em condição higiênico-sanitária que evite sua contaminação (referente ao item 4.4.2).
+					<br/>O vapor, quando utilizado em contato direto com alimentos ou com superfícies que entrem em contato com alimentos, deve ser produzido a partir de água potável e não pode representar fonte de contaminação (referente ao item 4.4.3).
+				</div>
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="form-group">
@@ -308,6 +348,24 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed46">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC46 = !mostraRDC46"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC46">
+					Requisitos da RDC nº 216/2004: 
+					<br/>O estabelecimento deve dispor de recipientes identificados e íntegros, de fácil higienização e transporte, em número e capacidade suficientes para conter os resíduos (referente ao item 4.5.1).
+					<br/>Os coletores utilizados para deposição dos resíduos das áreas de preparação e armazenamento de alimentos devem ser dotados de tampas acionadas sem contato manual (referente ao item 4.5.2).
+					<br/>Os resíduos devem ser frequentemente coletados e estocados em local fechado e isolado da área de preparação e armazenamento dos alimentos, de forma a evitar focos de contaminação e atração de vetores e pragas urbanas (referente ao item 4.5.3).
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.6.template.html'"></div>
 			</div>
 				
@@ -371,6 +429,24 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed49">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC49 = !mostraRDC49"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC49">
+					Requisitos da RDC nº 216/2004: 
+					<br/>As matérias-primas, os ingredientes e as embalagens devem ser armazenados em local limpo e organizado, de forma a garantir proteção contra contaminantes. Devem estar adequadamente acondicionados e identificados, sendo que sua utilização da obrigatoriedade da indicação do prazo de validade. Para os alimentos dispensados da obrigatoriedade da indicação do prazo de validade, deve ser observada a ordem de entrada dos mesmos (referente ao item 4.7.5).
+					<br/>As matérias-primas, os ingredientes e as embalagens devem ser armazenados sobre paletes, estrados e/ou prateleiras, respeitando-se o espaçamento mínimo necessário para garantir adequada ventilação, limpeza e, quando for o caso, desinfecção do local. Os paletes, estrados e/ou prateleiras devem ser de material liso, resistente, impermeável e lavável (referente ao item 4.7.6).
+					<br/>A temperatura das matérias-primas e dos ingredientes que necessitem de condições especiais de conservação deve ser verificada nas etapas de recepção e de armazenamento (referente ao item 4.7.3).
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.9.template.html'"></div>
 			</div>
 			
@@ -392,6 +468,28 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed410">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC410 = !mostraRDC410"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC410">
+					Requisitos da RDC nº 216/2004: 
+					<br/>As matérias-primas, os ingredientes e as embalagens utilizados para preparação do alimento devem estar em condições higiênico-sanitárias adequadas e em conformidade com a legislação específica (referente ao item 4.8.1).
+					<br/>O quantitativo de funcionários, equipamentos, móveis e/ou utensílios disponíveis deve ser compatível com volume, diversidade e complexidade das preparações alimentícias (referente ao item 4.8.2).
+					<br/>Durante a preparação dos alimentos, devem ser adotadas medidas a fim de minimizar o risco de contaminação cruzada. Deve-se evitar o contato direto ou indireto entre alimentos crus, semipreparados e prontos para o consumo (referente ao item 4.8.3).
+					<br/>Os funcionários que manipulam alimentos crus devem realizar a lavagem e a antissepsia das mãos antes de manusear alimentos preparados (referente ao item 4.8.4).
+					<br/>As matérias-primas e os ingredientes caracterizados como produtos perecíveis devem ser expostos à temperatura ambiente somente pelo tempo mínimo necessário para a preparação do alimento, a fim de não comprometer a qualidade higiênico-sanitária do alimento preparado (referente ao item 4.8.5).
+					<br/>Quando as matérias-primas e os ingredientes não forem utilizados em sua totalidade, devem ser adequadamente acondicionados e identificados com, no mínimo, as seguintes informações: designação do produto, data de fracionamento e prazo de validade após a abertura ou retirada da embalagem original (referente ao item 4.8.6).
+					<br/>Quando aplicável, antes de iniciar a preparação dos alimentos, deve-se proceder à adequada limpeza das embalagens primárias das matérias-primas e dos ingredientes, minimizando o risco de contaminação (referente ao item 4.8.7).
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.10.template.html'"></div>
 			</div>
 			
@@ -413,6 +511,24 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed411">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC411 = !mostraRDC411"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC411">
+					Requisitos da RDC nº 216/2004: 
+					<br/>Para os alimentos congelados, antes do tratamento térmico, deve-se proceder ao descongelamento, a fim de garantir adequada penetração do calor no centro geométrico. Excetuam-se os casos em que o fabricante do alimento recomenda que o mesmo seja submetido ao tratamento térmico ainda congelado, devendo ser seguidas ao orientações constantes da rotulagem (referente ao item 4.8.12).
+					<br/>O descongelamento deve ser conduzido de forma a evitar que as áreas superficiais dos alimentos se mantenham em condições favoráveis à multiplicação microbiana. O descongelamento deve ser efetuado em condições de refrigeração à temperatura inferior a 5ºC ou em forno de micro-ondas quando o alimento for submetido imediatamente à cocção (referente ao item 4.8.13).
+					<br/>Os alimentos submetidos ao descongelamento devem ser mantidos sob refrigeração se não forem imediatamente utilizados, não devendo ser recongelados (referente ao item 4.8.14).
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.11.template.html'"></div>
 			</div>
 			
@@ -434,6 +550,22 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed412">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC412 = !mostraRDC412"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC412">
+					Requisitos da RDC nº 216/2004: 
+					<br/>Quando aplicável, os alimentos a serem consumidos crus devem ser submetidos a processo de higienização a gim de reduzir a contaminação superficial. Os produtos utilizados na higienização dos alimentos devem estar regularizados no órgão competente do Ministério da Saúde e ser aplicados de forma a evitar a presença de resíduos no alimento preparado (referente ao item 4.8.19).
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.12.template.html'"></div>
 			</div>
 			
@@ -455,6 +587,25 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed413">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC413 = !mostraRDC413"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC413">
+					Requisitos da RDC nº 216/2004: 
+					<br/>O tratamento térmico deve garantir que todas as partes do alimento atinjam a temperatura de, no mínimo, 70ºC no centro geométrico. Temperaturas inferiores podem ser utilizadas no tratamento térmico desde que as combinações de tempo e temperatura sejam suficientes para assegurar a qualidade higiênico-sanitária dos alimentos (referente ao item 4.8.8).
+					<br/>A eficácia do tratamento térmico deve ser avaliada pela verificação da temperatura (referente ao item 4.8.9).
+					<br/>Para os alimentos que forem submetidos à fritura, além dos controles estabelecidos para um tratamento térmico, devem-se instituir medidas que garantam que o óleo e a gordura utilizados não constituam uma fonte de contaminação química do alimento preparado (referente ao item 4.8.10).
+					<br/>Os óleos e gorduras utilizados devem ser aquecidos a temperaturas não superiores a 180ºC, sendo substituídos imediatamente sempre que houver alteração evidente das características físico-químicas ou sensoriais, tais como aroma e sabor, e formação intensa de espuma e fumaça (referente ao item 4.8.11).
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.13.template.html'"></div>
 			</div>
 			
@@ -476,6 +627,22 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed414">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC414 = !mostraRDC414"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC414">
+					Requisitos da RDC nº 216/2004: 
+					<br/>O processo de resfriamento de um alimento preparado deve ser realizado de forma a minimizar o risco de contaminação cruzada e a permanência do mesmo em temperaturas que favoreçam a multiplicação microbiana. A temperatura do alimento preparado deve ser reduzida de 60ºC (sessenta graus Celsius) a 10ºC (dez graus Celsius) em até duas horas. Em seguida, o mesmo deve ser conservado sob refrigeração a temperaturas inferiores a 5ºC (cinco graus Celsius), ou congelado à temperatura igual ou inferior a -18ºC (dezoito graus Celsius negativos) (referente ao item 4.8.16).
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.14.template.html'"></div>
 			</div>
 			
@@ -497,6 +664,24 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed415">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC415 = !mostraRDC415"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC415">
+					Requisitos da RDC nº 216/2004: 
+					<br/>Após serem submetidos à cocção, os alimentos preparados devem ser mantidos em condições de tempo e de temperatura que não favoreçam a multiplicação microbiana. Para conservação a quente, os alimentos devem ser submetidos à temperatura superior a 60ºC (sessenta graus Celsius) por, no máximo, 6 (seis) horas. Para conservação sob refrigeração ou congelamento, os alimentos devem ser previamente submetidos ao processo de resfriamento (referente ao item 4.8.15).
+					<br/>O prazo máximo de consumo do alimento preparado e conservado sob refrigeração à temperatura de 4ºC (quatro graus Celsius), ou inferior, deve ser de 5 (cinco) dias. Quando forem utilizadas temperaturas superiores a 4ºC (quatro graus Celsius) e inferiores a 5ºC (cinco graus Celsius), o prazo máximo de consumo deve ser reduzido, de forma a garantir as condições higiênico-sanitárias do alimento preparado (referente ao item 4.8.17).
+					<br/>Caso o alimento preparado seja armazenado sob refrigeração ou congelamento, devem-se pôr no invólucro do mesmo, no mínimo, as seguintes informações: designação, data de preparo e prazo de validade. A temperatura de armazenamento deve ser regularmente monitorada e registrada (referente ao item 4.8.18).
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.15.template.html'"></div>
 			</div>
 			
@@ -518,6 +703,24 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed416">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC416 = !mostraRDC416"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC416">
+					Requisitos da RDC nº 216/2004: 
+					<br/>Os alimentos preparados mantidos na área de armazenamento ou aguardando o transporte devem estar identificados e protegidos contra contaminantes. Na identificação deve constar, no mínimo, a designação do produto, a data de preparo e o prazo de validade (referente ao item 4.9.1).
+					<br/>O armazenamento e o transporte do alimento preparado, da distribuição até a entrega ao consumo, devem ocorrer em condições de tempo e temperatura que não comprometam sua qualidade higiênico-sanitária. A temperatura do alimento preparado deve ser monitorada durante essas etapas (referente ao item 4.9.2).
+					<br/>Os meios de transporte do alimento preparado devem ser higienizados, sendo adotados medidas a fim de garantir a ausência de vetores e pragas urbanas. Os veículos devem ser dotados de cobertura para proteção da carga, não devendo transportar outras cargas que comprometam a qualidade higiênico-sanitária do alimento preparado (referente ao item 4.9.3).
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.16.template.html'"></div>
 			</div>
 			
@@ -539,6 +742,28 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed417">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC417 = !mostraRDC417"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC417">
+					Requisitos da RDC nº 216/2004: 
+					<br/>As áreas de exposição do alimento preparado e de consumação ou refeitório devem ser mantidas organizadas e em adequadas condições higiênico-sanitárias. Os equipamentos, móveis e utensílios disponíveis nessas áreas devem ser compatíveis com as atividades, em número suficiente e em adequado estado de conservação (referente ao item 4.10.1).
+					<br/>Os manipuladores devem adotar procedimentos que minimizem o risco de contaminação dos alimentos preparados por meio da antissepsia das mãos e pelo uso de utensílios ou luvas descartáveis (referente ao item 4.10.2).
+					<br/>Os equipamentos necessárias à exposição ou distribuição de alimentos preparados sob temperaturas controladas devem ser devidamente dimensionados, e estar em adequado estado de higiene, conservação e funcionamento. A temperatura desses equipamentos deve ser regularmente monitorada (referente ao item 4.10.3).
+					<br/>O equipamento de exposição do alimento preparado na área de consumação deve dispor de barreiras de proteção que previnam a contaminação do mesmo em decorrência da proximidade ou da ação do consumidor e de outras fontes (referente ao item 4.10.4).
+					<br/>Os utensílios utilizados na consumação do alimento, tais como pratos, copos, talheres, devem ser descartáveis ou, quando feitos de material não descartável, devidamente higienizados, sendo armazenados em local protegido (referente ao item 4.10.5).
+					<br/>Os ornamentos e plantas localizados na área de consumação ou refeitório não devem constituir fonte de contaminação para os alimentos preparados (referente ao item 4.10.6).
+					<br/>A área do serviço de alimentação onde se realiza a atividade de recebimento de dinheiro, cartões e outros meios utilizados para o pagamento de despesas deve ser reservada. Os funcionários responsáveis por essa atividade não devem manipular alimentos preparados, embalados ou não (referente ao item 4.10.7).
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.17.template.html'"></div>
 			</div>
 			
@@ -560,6 +785,25 @@
 			</div>
 			
 			<div class="well" uib-collapse="vm.isCollapsed418">
+				<div class="row">
+					<div class="col-xs-12">
+						<i class="fa fa-lg fa-info-circle pull-right" 
+							aria-hidden="true"
+							uib-tooltip="Ver RDC" 
+							tooltip-append-to-body="true" 
+							tooltip-placement="auto"
+							role="button"
+							ng-click="mostraRDC418 = !mostraRDC418"></i>
+					</div>
+				</div>
+					
+				<div class="alert alert-info" role="alert" ng-show="mostraRDC418">
+					Requisitos da RDC nº 216/2004: 
+					<br/>O estabelecimento deve implementar e manter documentado o controle e a garantia da qualidade da qualidade dos alimentos preparados (referente ao item 4.8.20).
+					<br/>Os serviços de alimentação devem dispor de Manual de Boas Práticas e de Procedimento Operacionais Padronizados. Esses documentos devem estar acessíveis aos funcionários envolvidos e disponíveis à autoridade sanitária, quando requerido (referente ao item 4.11.1).
+					<br/>Os registros devem ser mantidos por período mínimo de 30 (trinta) dias, contados a partir da data de preparação dos alimentos (referente ao item 4.11.3).
+					
+				</div>
 				<div ng-include="'app/manual/templates/perguntas4.18.template.html'"></div>
 			</div>
 		</div>

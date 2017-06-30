@@ -39,8 +39,13 @@
 	            vm.busy = true;
 				vm.item.usuarioEmail = vm.usuario.login;
 				empresaService.cadastrar(vm.item).then(function(response){
+					if(response.data.statusCodeValue == 404 || response.data.statusCodeValue == 500){
+						toastr.error("CNPJ inválido!");
+						return;
+					}
+					
 					$state.go('^.listar');
-					toastr.success('Empresa cadastrada com sucesso!');
+					toastr.success(response.data.body);
 				}).finally(function () {
 	                vm.busy = false;
 	            });

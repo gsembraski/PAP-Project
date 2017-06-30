@@ -1,5 +1,5 @@
 var app = angular.module('app', ['app.components',
-								 'app.home',
+								 'app.usuario',
                                  'app.manual',
                                  'app.pop',
                                  'app.layout',

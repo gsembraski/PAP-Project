@@ -22,7 +22,7 @@ public class Empresa implements Serializable {
 	@GeneratedValue
 	private Integer ID;
 	@NotNull
-	@org.hibernate.validator.constraints.br.CNPJ
+	@org.hibernate.validator.constraints.br.CNPJ(message="CNPJ inválido, verifique CNPJ digitado.")
 	private String CNPJ;
 	@NotNull
 	private String RazaoSocial;
@@ -63,7 +63,7 @@ public class Empresa implements Serializable {
 	}
 
 	public void setRazaoSocial(String razaoSocial) {
-		RazaoSocial = razaoSocial;
+		RazaoSocial = Character.toUpperCase(razaoSocial.charAt(0)) + razaoSocial.substring(1);
 	}
 
 	public String getNomeFantasia() {
@@ -71,7 +71,7 @@ public class Empresa implements Serializable {
 	}
 
 	public void setNomeFantasia(String nomeFantasia) {
-		NomeFantasia = nomeFantasia;
+		NomeFantasia = Character.toUpperCase(nomeFantasia.charAt(0)) + nomeFantasia.substring(1);
 	}
 
 	public byte[] getLogo() {

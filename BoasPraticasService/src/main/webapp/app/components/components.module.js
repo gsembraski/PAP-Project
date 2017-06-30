@@ -6,5 +6,7 @@
         'blocks.router',
         'blocks.storage',
         'blocks.logger',
-        'blocks.toastInterceptor']);
+        'blocks.toastInterceptor',
+        'app.mensagem-confirm',
+        'app.autoFocus']);
 })();

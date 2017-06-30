@@ -10,6 +10,7 @@
     function EmpresaListarController($state, $window, empresaService) {
     	var vm = this;
     	
+    	vm.cnpj = '';
     	vm.item = {};
     	vm.listaEmpresas = [];
         vm.storage = $window.localStorage;
@@ -56,6 +57,7 @@
     	}
 		
 		function visualizar(item){
+			vm.cnpj = item.cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/g,"\$1.\$2.\$3\/\$4\-\$5");
 			vm.item = item;
 		}
 		

@@ -5,8 +5,8 @@
         .module('app.manual')
         .controller('ManualEditarController', ManualEditarController);
 
-    ManualEditarController.$inject = ['$state', 'manualServices'];
-	function ManualEditarController($state, manualServices){
+    ManualEditarController.$inject = ['$state', '$uibModal', 'manualServices'];
+	function ManualEditarController($state, $uibModal, manualServices){
 		var vm = this;
 
 		vm.id = $state.params.id;
@@ -66,23 +66,39 @@
 			});
 		}
 		
+		function editar(){
+			if (vm.busy)
+                return;
+
+            vm.busy = true;
+					
+			manualServices.atualizar(vm.item).then(function(response){
+				toastr.success('Manual salvo com sucesso!');
+				$state.go('^.listar');						
+			}).finally(function () {
+                vm.busy = false;
+            });
+		}
+		
 		function podeVisualizar(){
 			return (vm.empresaId && vm.operacao === 'Cadastrar') || vm.operacao === 'Editar';
 		}
 		
 		function salvar(form){
 			if(form.$valid)	{
-	            if (vm.busy)
-	                return;
+				var modalInstance = $uibModal.open({
+				      templateUrl: 'app/manual/modal/modal-atualiza-revisao.html',
+				      controller: 'ManualAtualizaRevisaoController',
+				      controllerAs: 'vm',
+				      backdrop: 'static'
+				    });
 
-	            vm.busy = true;
-						
-				manualServices.atualizar(vm.item).then(function(response){
-					toastr.success('Manual salvo com sucesso!');
-					$state.go('^.listar');						
-				}).finally(function () {
-	                vm.busy = false;
-	            });
+			    modalInstance.result.then(function (selectedItem) {
+			    	vm.item.revisao++;
+			    	editar();
+			    }, function () {
+			    	editar();
+			    });
 			}
 		}
 		
