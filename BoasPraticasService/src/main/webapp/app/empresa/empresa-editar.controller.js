@@ -43,7 +43,7 @@
 	            vm.busy = true;
 				empresaService.atualizar(vm.item).then(function(response){
 					if(response.data.statusCodeValue == 404 || response.data.statusCodeValue == 500){
-						toastr.error(response.data.body);
+						toastr.error("CNPJ inválido!");
 						return;
 					}
 					

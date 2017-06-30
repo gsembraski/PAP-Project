@@ -76,7 +76,8 @@
 		
 		function salvar(form){
 			if(!vm.empresa){
-				toastr.warning('Para salvar o pop de ' + SetPopDescricao() + 'selecione uma empresa.');
+				SetPopDescricao();
+				toastr.warning('Para salvar o pop de ' + vm.popDescricao + 'selecione uma empresa.');
 				return;
 			}
 			
